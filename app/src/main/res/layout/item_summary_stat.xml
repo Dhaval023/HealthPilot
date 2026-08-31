@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@android:color/transparent"
+    app:cardElevation="0dp"
+    app:strokeWidth="0dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_stat_card_gradient"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <FrameLayout
+            android:layout_width="48dp"
+            android:layout_height="48dp">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_icon_holder" />
+
+            <ImageView
+                android:id="@+id/ivStatIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                tools:src="@drawable/distance"
+                app:tint="@color/accent_purple" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tvStatValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/text_white"
+            android:textSize="22sp"
+            android:fontFamily="sans-serif-black"
+            tools:text="0.85 km" />
+
+        <TextView
+            android:id="@+id/tvStatLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textColor="@color/text_gray"
+            android:textSize="13sp"
+            tools:text="Distance" />
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

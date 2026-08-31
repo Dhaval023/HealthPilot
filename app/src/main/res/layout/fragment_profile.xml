@@ -1,0 +1,890 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark">
+
+    <include
+        layout="@layout/layout_profile_skeleton"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Stylish Header Background -->
+            <ImageView
+                android:id="@+id/view_header_bg"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/profile_bacground"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:background="#80000000"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Top Actions -->
+            <ImageView
+                android:id="@+id/btn_menu"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:src="@android:drawable/ic_menu_sort_by_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profile"
+                android:textColor="@color/text_white"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/btn_menu"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/btn_menu" />
+
+            <ImageButton
+                android:id="@+id/btn_logout"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="20dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="8dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_logout"
+                app:layout_constraintBottom_toBottomOf="@id/btn_menu"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/btn_menu"
+                app:tint="@color/accent_pink" />
+
+            <!-- Profile Image Section -->
+            <FrameLayout
+                android:id="@+id/fl_profile_image"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginTop="100dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/iv_profile_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="4dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/profile"
+                    app:shapeAppearanceOverlay="@style/CircleImageView"
+                    app:strokeColor="@color/accent_blue"
+                    app:strokeWidth="3dp" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/btn_edit_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end"
+                    android:layout_margin="4dp"
+                    app:backgroundTint="@color/accent_blue"
+                    app:fabSize="mini"
+                    app:srcCompat="@drawable/ic_edit"
+                    app:tint="@color/white"
+                    android:contentDescription="Edit Profile" />
+            </FrameLayout>
+
+            <!-- Mode Switcher -->
+            <ViewSwitcher
+                android:id="@+id/view_switcher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@id/fl_profile_image">
+
+                <!-- View Mode Container -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_display_mode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tv_user_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="User Name"
+                        android:textColor="@color/text_white"
+                        android:textSize="26sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_user_email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="user@example.com"
+                        android:textColor="@color/text_gray"
+                        android:textSize="14sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_user_name" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cl_stats"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:paddingHorizontal="12dp"
+                        app:layout_constraintTop_toBottomOf="@id/tv_user_email">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/cv_age"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            app:cardBackgroundColor="@color/card_dark"
+                            app:cardCornerRadius="20dp"
+                            app:layout_constraintEnd_toStartOf="@id/cv_gender"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:strokeColor="@color/card_dark_highlight"
+                            app:strokeWidth="1dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="16dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Age"
+                                    android:textColor="@color/text_gray"
+                                    android:textSize="13sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_profile_age"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="4dp"
+                                    android:text="--"
+                                    android:textColor="@color/accent_orange"
+                                    android:textSize="22sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/cv_gender"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            app:cardBackgroundColor="@color/card_dark"
+                            app:cardCornerRadius="20dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/cv_age"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:strokeColor="@color/card_dark_highlight"
+                            app:strokeWidth="1dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="16dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Gender"
+                                    android:textColor="@color/text_gray"
+                                    android:textSize="13sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_profile_gender"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="4dp"
+                                    android:text="--"
+                                    android:textColor="@color/accent_teal"
+                                    android:textSize="22sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/cv_height"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            app:cardBackgroundColor="@color/card_dark"
+                            app:cardCornerRadius="20dp"
+                            app:layout_constraintEnd_toStartOf="@id/cv_weight"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/cv_age"
+                            app:strokeColor="@color/card_dark_highlight"
+                            app:strokeWidth="1dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="16dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Height"
+                                    android:textColor="@color/text_gray"
+                                    android:textSize="13sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_profile_height"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="4dp"
+                                    android:text="-- cm"
+                                    android:textColor="@color/accent_blue"
+                                    android:textSize="22sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/cv_weight"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            app:cardBackgroundColor="@color/card_dark"
+                            app:cardCornerRadius="20dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/cv_height"
+                            app:layout_constraintTop_toBottomOf="@id/cv_gender"
+                            app:strokeColor="@color/card_dark_highlight"
+                            app:strokeWidth="1dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="16dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Weight"
+                                    android:textColor="@color/text_gray"
+                                    android:textSize="13sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_profile_weight"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="4dp"
+                                    android:text="-- kg"
+                                    android:textColor="@color/accent_green"
+                                    android:textSize="22sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cv_info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="12dp"
+                        app:cardBackgroundColor="@color/card_dark"
+                        app:cardCornerRadius="20dp"
+                        app:layout_constraintTop_toBottomOf="@id/cl_stats"
+                        app:strokeColor="@color/card_dark_highlight"
+                        app:strokeWidth="1dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="20dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="16dp"
+                                android:text="Information"
+                                android:textColor="@color/text_white"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="22dp"
+                                    android:layout_height="22dp"
+                                    android:src="@android:drawable/ic_menu_call"
+                                    app:tint="@color/accent_blue" />
+
+                                <TextView
+                                    android:id="@+id/tv_profile_phone"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="16dp"
+                                    android:text="--"
+                                    android:textColor="@color/text_white"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginVertical="16dp"
+                                android:background="#1AFFFFFF" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="22dp"
+                                    android:layout_height="22dp"
+                                    android:src="@android:drawable/ic_menu_my_calendar"
+                                    app:tint="@color/accent_blue" />
+
+                                <TextView
+                                    android:id="@+id/tv_profile_dob"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="16dp"
+                                    android:text="--"
+                                    android:textColor="@color/text_white"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:id="@+id/btn_change_password"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:padding="8dp"
+                        android:text="Change Password"
+                        android:textColor="@color/accent_blue"
+                        android:textSize="14sp"
+                        app:layout_constraintTop_toBottomOf="@id/cv_info"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <!-- Daily Wellness Settings (View Mode) -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cv_wellness"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="24dp"
+                        app:cardBackgroundColor="@color/card_dark"
+                        app:cardCornerRadius="20dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cv_info"
+                        app:strokeColor="@color/card_dark_highlight"
+                        app:strokeWidth="1dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="20dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="16dp"
+                                android:text="Daily Wellness"
+                                android:textColor="@color/text_white"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="22dp"
+                                    android:layout_height="22dp"
+                                    android:src="@drawable/shedule"
+                                    app:tint="@color/accent_orange" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="16dp"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Schedule"
+                                        android:textColor="@color/text_gray"
+                                        android:textSize="12sp" />
+                                    <TextView
+                                        android:id="@+id/tv_profile_schedule_range"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="07:00 AM - 10:00 PM"
+                                        android:textColor="@color/text_white"
+                                        android:textSize="15sp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginVertical="12dp"
+                                android:background="#1AFFFFFF" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="22dp"
+                                    android:layout_height="22dp"
+                                    android:src="@drawable/seat"
+                                    app:tint="@color/accent_teal" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="16dp"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Work Style"
+                                        android:textColor="@color/text_gray"
+                                        android:textSize="12sp" />
+                                    <TextView
+                                        android:id="@+id/tv_profile_work_style"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Mostly Sitting"
+                                        android:textColor="@color/accent_teal"
+                                        android:textSize="15sp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginVertical="12dp"
+                                android:background="#1AFFFFFF" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="22dp"
+                                    android:layout_height="22dp"
+                                    android:src="@drawable/ic_watch"
+                                    app:tint="@color/accent_blue" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="16dp"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Work Hours &amp; Screen"
+                                        android:textColor="@color/text_gray"
+                                        android:textSize="12sp" />
+                                    <TextView
+                                        android:id="@+id/tv_profile_work_meta"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="09:00 - 17:00 | 0 hrs screen"
+                                        android:textColor="@color/text_white"
+                                        android:textSize="15sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- Edit Mode Container -->
+                <LinearLayout
+                    android:id="@+id/layout_edit_mode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Full Name"
+                        android:textColorHint="@color/text_gray"
+                        app:boxStrokeColor="@color/accent_blue"
+                        app:hintTextColor="@color/accent_blue">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPersonName"
+                            android:textColor="@color/text_white" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:hint="Email Address"
+                        android:textColorHint="@color/text_gray"
+                        app:boxStrokeColor="@color/accent_blue"
+                        app:hintTextColor="@color/accent_blue">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textEmailAddress"
+                            android:textColor="@color/text_white"
+                            android:enabled="false" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:hint="Phone Number"
+                        android:textColorHint="@color/text_gray"
+                        app:boxStrokeColor="@color/accent_blue"
+                        app:hintTextColor="@color/accent_blue">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_phone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="phone"
+                            android:textColor="@color/text_white" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="6dp"
+                            android:hint="Age"
+                            android:textColorHint="@color/text_gray"
+                            app:boxStrokeColor="@color/accent_blue"
+                            app:hintTextColor="@color/accent_blue">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_age"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:textColor="@color/text_white" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="6dp"
+                            android:hint="Gender"
+                            android:textColorHint="@color/text_gray"
+                            app:boxStrokeColor="@color/accent_blue"
+                            app:hintTextColor="@color/accent_blue">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_gender"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="text"
+                                android:textColor="@color/text_white" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="6dp"
+                            android:hint="Height (cm)"
+                            android:textColorHint="@color/text_gray"
+                            app:boxStrokeColor="@color/accent_blue"
+                            app:hintTextColor="@color/accent_blue">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_height"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:textColor="@color/text_white" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="6dp"
+                            android:hint="Weight (kg)"
+                            android:textColorHint="@color/text_gray"
+                            app:boxStrokeColor="@color/accent_blue"
+                            app:hintTextColor="@color/accent_blue">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_weight"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:textColor="@color/text_white" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:hint="Date of Birth"
+                        android:textColorHint="@color/text_gray"
+                        app:boxStrokeColor="@color/accent_blue"
+                        app:hintTextColor="@color/accent_blue">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_dob"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="date"
+                            android:textColor="@color/text_white" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Daily Wellness Edit Section -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="Daily Wellness Settings"
+                        android:textColor="@color/accent_blue"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="6dp"
+                            android:hint="Wake-up Time"
+                            android:textColorHint="@color/text_gray"
+                            app:boxStrokeColor="@color/accent_blue"
+                            app:hintTextColor="@color/accent_blue">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_wake_up"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="time"
+                                android:textColor="@color/text_white" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="6dp"
+                            android:hint="Sleep Time"
+                            android:textColorHint="@color/text_gray"
+                            app:boxStrokeColor="@color/accent_blue"
+                            app:hintTextColor="@color/accent_blue">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_sleep"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="time"
+                                android:textColor="@color/text_white" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:hint="Work Style"
+                        android:textColorHint="@color/text_gray"
+                        app:boxStrokeColor="@color/accent_blue"
+                        app:hintTextColor="@color/accent_blue">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_work_style"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:textColor="@color/text_white" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="6dp"
+                            android:hint="Work Start"
+                            android:textColorHint="@color/text_gray"
+                            app:boxStrokeColor="@color/accent_blue"
+                            app:hintTextColor="@color/accent_blue">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_work_start"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="time"
+                                android:textColor="@color/text_white" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="6dp"
+                            android:hint="Work End"
+                            android:textColorHint="@color/text_gray"
+                            app:boxStrokeColor="@color/accent_blue"
+                            app:hintTextColor="@color/accent_blue">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_work_end"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="time"
+                                android:textColor="@color/text_white" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:hint="Daily Screen Time (hrs)"
+                        android:textColorHint="@color/text_gray"
+                        app:boxStrokeColor="@color/accent_blue"
+                        app:hintTextColor="@color/accent_blue">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_screen_time"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:textColor="@color/text_white" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_save_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginBottom="32dp"
+                        android:text="Save Profile"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        app:backgroundTint="@color/accent_blue"
+                        app:cornerRadius="12dp" />
+                </LinearLayout>
+
+            </ViewSwitcher>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+</FrameLayout>

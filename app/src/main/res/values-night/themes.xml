@@ -1,0 +1,30 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.HealthPilot" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <item name="android:windowBackground">@color/bg_dark</item>
+        <item name="android:navigationBarColor">@color/bg_dark</item>
+        <item name="android:statusBarColor">@color/bg_dark</item>
+        <item name="colorPrimary">@color/accent_blue</item>
+        <item name="colorOnPrimary">@color/text_white</item>
+        <item name="colorPrimaryContainer">@color/card_dark</item>
+        <item name="colorOnPrimaryContainer">@color/text_white</item>
+        <item name="colorSurface">@color/bg_dark</item>
+        <item name="colorOnSurface">@color/text_white</item>
+        <item name="colorSurfaceVariant">@color/card_dark</item>
+        <item name="colorOnSurfaceVariant">@color/text_white</item>
+    </style>
+
+    <style name="MaterialCalendarTheme" parent="ThemeOverlay.Material3.MaterialCalendar">
+        <item name="colorPrimary">@color/accent_blue</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSurface">@color/card_dark</item>
+        <item name="colorOnSurface">@color/white</item>
+        <item name="colorOnSurfaceVariant">@color/text_gray</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/text_gray</item>
+        <item name="android:windowBackground">@color/card_dark</item>
+        <item name="android:colorBackground">@color/card_dark</item>
+        <item name="colorSurfaceContainer">@color/card_dark</item>
+    </style>
+</resources>

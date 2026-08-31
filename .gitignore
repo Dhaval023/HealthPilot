@@ -1,0 +1,25 @@
+# Gradle files
+.gradle/
+build/
+
+# IntelliJ IDEA files
+.idea/
+*.iml
+*.iws
+
+# Android Studio files
+captures/
+.externalNativeBuild/
+.cxx/
+local.properties
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Secrets
+keystore.properties
+*.jks
+google-services.json
+google-services.json
+app/google-services.json

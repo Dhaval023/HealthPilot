@@ -1,0 +1,108 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.HealthPilot" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@color/bg_dark</item>
+        <item name="android:navigationBarColor">@color/bg_dark</item>
+        <item name="android:statusBarColor">@color/bg_dark</item>
+        <item name="colorPrimary">@color/accent_blue</item>
+        <item name="colorOnPrimary">@color/text_white</item>
+        <item name="colorPrimaryContainer">@color/card_dark</item>
+        <item name="colorOnPrimaryContainer">@color/text_white</item>
+        <item name="colorSurface">@color/bg_dark</item>
+        <item name="colorOnSurface">@color/text_white</item>
+        <item name="colorSurfaceVariant">@color/card_dark</item>
+        <item name="colorOnSurfaceVariant">@color/text_white</item>
+        <item name="materialAlertDialogTheme">@style/CustomDialogTheme</item>
+    </style>
+
+    <style name="CircleImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="CustomDialogTheme" parent="Theme.Material3.Dark.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="colorSurface">#1C1E23</item>
+        <item name="android:colorBackground">#1C1E23</item>
+        <item name="colorOnSurface">@color/white</item>
+        <item name="colorOnSurfaceVariant">@color/text_gray</item>
+        <item name="colorPrimary">@color/accent_blue</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/text_gray</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:editTextColor">@color/white</item>
+    </style>
+
+    <style name="CustomPickerTheme" parent="Theme.Material3.Dark.Dialog">
+        <item name="colorPrimary">@color/accent_blue</item>
+        <item name="colorAccent">@color/accent_blue</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSurface">@color/card_dark</item>
+        <item name="colorOnSurface">@color/white</item>
+        <item name="colorOnSurfaceVariant">@color/text_gray</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/text_gray</item>
+        <item name="android:windowBackground">@color/card_dark</item>
+        <item name="android:colorBackground">@color/card_dark</item>
+    </style>
+
+    <style name="MaterialCalendarTheme" parent="ThemeOverlay.Material3.MaterialCalendar">
+        <item name="colorPrimary">@color/accent_blue</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSurface">@color/card_dark</item>
+        <item name="colorOnSurface">@color/white</item>
+        <item name="colorOnSurfaceVariant">@color/text_gray</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/text_gray</item>
+        <item name="android:windowBackground">@color/card_dark</item>
+        <item name="android:colorBackground">@color/card_dark</item>
+        <item name="colorSurfaceContainer">@color/card_dark</item>
+        <item name="colorSurfaceContainerHigh">@color/card_dark</item>
+    </style>
+
+    <style name="ShapeAppearance.UserMessage" parent="ShapeAppearance.Material3.MediumComponent">
+        <item name="cornerSizeTopLeft">16dp</item>
+        <item name="cornerSizeTopRight">16dp</item>
+        <item name="cornerSizeBottomLeft">16dp</item>
+        <item name="cornerSizeBottomRight">4dp</item>
+    </style>
+
+    <style name="ShapeAppearance.AiMessage" parent="ShapeAppearance.Material3.MediumComponent">
+        <item name="cornerSizeTopLeft">16dp</item>
+        <item name="cornerSizeTopRight">16dp</item>
+        <item name="cornerSizeBottomLeft">4dp</item>
+        <item name="cornerSizeBottomRight">16dp</item>
+    </style>
+
+    <style name="CustomCalendarTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/text_gray</item>
+        <item name="android:colorControlActivated">@color/accent_blue</item>
+    </style>
+
+    <style name="CalendarWeekDayStyle">
+        <item name="android:textColor">@color/accent_blue</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="CalendarDateStyle">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="DrawerItemBackground" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20dp</item>
+    </style>
+
+    <style name="DrawerItemTextAppearance" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:letterSpacing">0.05</item>
+    </style>
+</resources>

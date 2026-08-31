@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_dark_gradient">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@drawable/ic_back"
+            app:navigationIconTint="@color/text_white"
+            app:title="Workout History"
+            app:titleTextColor="@color/text_white" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/calendarCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardBackgroundColor="@color/card_dark"
+        app:cardCornerRadius="20dp"
+        app:strokeWidth="1dp"
+        app:strokeColor="@color/card_border"
+        app:layout_constraintTop_toBottomOf="@id/appBarLayout">
+
+        <CalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/CustomCalendarTheme"
+            android:dateTextAppearance="@style/CalendarDateStyle"
+            android:weekDayTextAppearance="@style/CalendarWeekDayStyle" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvHistory"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="8dp"
+        android:clipToPadding="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/calendarCard"
+        tools:listitem="@layout/item_workout_history" />
+
+    <TextView
+        android:id="@+id/tvNoWorkouts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No workouts recorded on this day"
+        android:textColor="@color/text_gray"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/calendarCard" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

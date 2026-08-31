@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <bitmap
+            android:src="@drawable/profile_bacground"
+            android:gravity="fill" />
+    </item>
+    <!-- Dark overlay to improve text visibility -->
+    <item>
+        <shape>
+            <solid android:color="#99000000" /> <!-- 60% black overlay -->
+        </shape>
+    </item>
+</layer-list>
