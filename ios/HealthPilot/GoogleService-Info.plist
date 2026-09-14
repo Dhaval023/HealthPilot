@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1087503043897-t39uqp8supcb7jo2rl1lfv9lr33qj3of.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1087503043897-t39uqp8supcb7jo2rl1lfv9lr33qj3of</string>
+	<key>CFBundleIdentifier</key>
+	<string>https://github.com/google/GoogleSignIn-iOS</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>1087503043897-4h0fq5lskbqh3b1hm9fgjisp6nbiqpi5.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAhebpjRbm00Q7hx0xU3QBvG3Yz9fKePyY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1087503043897</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>devloper.HealthPilot</string>
+	<key>PROJECT_ID</key>
+	<string>myfitnessapp-1f1df</string>
+	<key>STORAGE_BUCKET</key>
+	<string>myfitnessapp-1f1df.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1087503043897:ios:5e5d818593efb01e876ce8</string>
+</dict>
+</plist>
