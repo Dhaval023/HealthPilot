@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">HealthPilot</string>
+    <string name="chat_assistant">Ved (AI Assistant)</string>
+    <string name="type_a_message">Type a message...</string>
+    <string name="send_message">Send message</string>
+    <string name="default_web_client_id">1087503043897-4qg59po3c710dkiuq2jc5lm5sj2v0hg4.apps.googleusercontent.com</string>
+    <string name="facebook_app_id">908927028922877</string>
+    <string name="fb_login_protocol_scheme">fb908927028922877</string>
+    <string name="facebook_client_token">242e9ce59a6a61822316a444dd12acd5</string>
+    <string name="start_workout">START WORKOUT</string>
+    <string name="select_work_style">Select Work Style</string>
+    <string name="select_workout">Select Workout</string>
+    <string name="walking">Walking</string>
+    <!-- 80f557f184121e91e4895ade6a030412 -->
+</resources>

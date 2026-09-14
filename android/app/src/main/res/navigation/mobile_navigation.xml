@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/dashboardFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.myfitnessapp.auth.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_signupStep1Fragment"
+            app:destination="@id/signupStep1Fragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@anim/nav_default_exit_anim" />
+        <action
+            android:id="@+id/action_loginFragment_to_forgotPasswordFragment"
+            app:destination="@id/forgotPasswordFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_signupStep2Fragment"
+            app:destination="@id/signupStep2Fragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@anim/nav_default_exit_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/forgotPasswordFragment"
+        android:name="com.example.myfitnessapp.auth.ForgotPasswordFragment"
+        android:label="Forgot Password"
+        tools:layout="@layout/fragment_forgot_password" />
+
+    <fragment
+        android:id="@+id/signupStep1Fragment"
+        android:name="com.example.myfitnessapp.auth.SignupStep1Fragment"
+        android:label="Sign Up - Step 1"
+        tools:layout="@layout/fragment_signup_step1">
+        <action
+            android:id="@+id/action_signupStep1Fragment_to_signupStep2Fragment"
+            app:destination="@id/signupStep2Fragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@anim/nav_default_exit_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/signupStep2Fragment"
+        android:name="com.example.myfitnessapp.auth.SignupStep2Fragment"
+        android:label="Sign Up - Step 2"
+        tools:layout="@layout/fragment_signup_step2">
+        <action
+            android:id="@+id/action_signupStep2Fragment_to_signupStep3Fragment"
+            app:destination="@id/signupStep3Fragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@anim/nav_default_exit_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/signupStep3Fragment"
+        android:name="com.example.myfitnessapp.auth.SignupStep3Fragment"
+        android:label="Sign Up - Step 3"
+        tools:layout="@layout/fragment_signup_step3" />
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.example.myfitnessapp.dashboard.DashboardFragment"
+        android:label="Dashboard"
+        tools:layout="@layout/fragment_dashboard">
+        <action
+            android:id="@+id/action_dashboardFragment_to_workoutIntroFragment"
+            app:destination="@id/workoutIntroFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/workoutIntroFragment"
+        android:name="com.example.myfitnessapp.workout.WorkoutIntroFragment"
+        android:label="Workout Intro"
+        tools:layout="@layout/fragment_workout_intro">
+        <argument
+            android:name="workoutName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_workoutIntroFragment_to_workoutPlanFragment"
+            app:destination="@id/workoutPlanFragment" />
+        <action
+            android:id="@+id/action_workoutIntroFragment_to_workoutTrackingFragment"
+            app:destination="@id/workoutTrackingFragment"
+            app:popUpTo="@id/dashboardFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/workoutPlanFragment"
+        android:name="com.example.myfitnessapp.workout.WorkoutPlanFragment"
+        android:label="Workout Plan"
+        tools:layout="@layout/fragment_workout_plan">
+        <argument
+            android:name="workoutName"
+            app:argType="string" />
+        <argument
+            android:name="totalDuration"
+            android:defaultValue="20"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_workoutPlanFragment_to_workoutTrackingFragment"
+            app:destination="@id/workoutTrackingFragment"
+            app:popUpTo="@id/dashboardFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/workoutTrackingFragment"
+        android:name="com.example.myfitnessapp.workout.WorkoutTrackingFragment"
+        android:label="Workout Tracking"
+        tools:layout="@layout/fragment_workout_tracking">
+        <argument
+            android:name="workoutName"
+            app:argType="string" />
+        <argument
+            android:name="durationMinutes"
+            android:defaultValue="0"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_workoutTrackingFragment_to_workoutHistoryFragment"
+            app:destination="@id/workoutHistoryFragment" />
+        <action
+            android:id="@+id/action_workoutTrackingFragment_to_workoutDetailFragment"
+            app:destination="@id/workoutDetailFragment"
+            app:popUpTo="@id/dashboardFragment" />
+        <action
+            android:id="@+id/action_workoutTrackingFragment_to_workoutShareFragment"
+            app:destination="@id/workoutShareFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/workoutHistoryFragment"
+        android:name="com.example.myfitnessapp.workout.WorkoutHistoryFragment"
+        android:label="Workout History"
+        tools:layout="@layout/fragment_workout_history">
+        <action
+            android:id="@+id/action_workoutHistoryFragment_to_workoutDetailFragment"
+            app:destination="@id/workoutDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/workoutDetailFragment"
+        android:name="com.example.myfitnessapp.workout.WorkoutDetailFragment"
+        android:label="Workout Summary"
+        tools:layout="@layout/fragment_workout_detail">
+        <argument
+            android:name="workoutId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_workoutDetailFragment_to_workoutShareFragment"
+            app:destination="@id/workoutShareFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/workoutShareFragment"
+        android:name="com.example.myfitnessapp.workout.WorkoutShareFragment"
+        android:label="Share Studio"
+        tools:layout="@layout/fragment_workout_share">
+        <argument
+            android:name="workoutId"
+            app:argType="string" />
+        <argument
+            android:name="workoutType"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/scheduleFragment"
+        android:name="com.example.myfitnessapp.dashboard.DashboardFragment"
+        android:label="Schedule" />
+
+    <fragment
+        android:id="@+id/reportFragment"
+        android:name="com.example.myfitnessapp.report.ReportFragment"
+        android:label="Report"
+        tools:layout="@layout/fragment_report">
+        <argument
+            android:name="metric"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/goalFragment"
+        android:name="com.example.myfitnessapp.goal.GoalFragment"
+        android:label="Goal"
+        tools:layout="@layout/fragment_goal" />
+
+    <fragment
+        android:id="@+id/healthGoalFragment"
+        android:name="com.example.myfitnessapp.healthgoal.HealthGoalFragment"
+        android:label="Health Goal"
+        tools:layout="@layout/fragment_health_goal">
+        <action
+            android:id="@+id/action_healthGoalFragment_to_addFoodFragment"
+            app:destination="@id/addFoodFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addFoodFragment"
+        android:name="com.example.myfitnessapp.healthgoal.AddFoodFragment"
+        android:label="Add Food"
+        tools:layout="@layout/fragment_add_food">
+        <action
+            android:id="@+id/action_addFoodFragment_to_manualFoodFragment"
+            app:destination="@id/manualFoodFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/manualFoodFragment"
+        android:name="com.example.myfitnessapp.healthgoal.ManualFoodFragment"
+        android:label="Custom Food Entry"
+        tools:layout="@layout/fragment_manual_food" />
+
+    <fragment
+        android:id="@+id/remindersFragment"
+        android:name="com.example.myfitnessapp.reminders.RemindersFragment"
+        android:label="Schedule Reminders"
+        tools:layout="@layout/fragment_reminders" />
+
+    <fragment
+        android:id="@+id/dailyWellnessFragment"
+        android:name="com.example.myfitnessapp.reminders.DailyWellnessFragment"
+        android:label="Daily Wellness"
+        tools:layout="@layout/fragment_daily_wellness" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.myfitnessapp.profile.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_profileFragment_to_changePasswordFragment"
+            app:destination="@id/changePasswordFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.example.myfitnessapp.auth.ChangePasswordFragment"
+        android:label="Reset Password"
+        tools:layout="@layout/fragment_change_password" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.myfitnessapp.settings.SettingsFragment"
+        android:label="Settings"
+        tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.example.myfitnessapp.chat.ChatFragment"
+        android:label="Ved (AI)"
+        tools:layout="@layout/fragment_chat" />
+</navigation>

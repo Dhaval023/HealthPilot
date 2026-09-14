@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/card_dark"
+    app:cardCornerRadius="24dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Log Water Intake"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:columnCount="2"
+            android:rowCount="2">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_250ml"
+                style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:text="250 ml"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:icon="@drawable/ic_water"
+                app:iconGravity="top"
+                app:iconPadding="12dp"
+                app:iconSize="32dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_500ml"
+                style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:text="500 ml"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:icon="@drawable/ic_water"
+                app:iconGravity="top"
+                app:iconPadding="12dp"
+                app:iconSize="32dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_750ml"
+                style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:text="750 ml"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:icon="@drawable/ic_water"
+                app:iconGravity="top"
+                app:iconPadding="12dp"
+                app:iconSize="32dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_1l"
+                style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:text="1.0 L"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:icon="@drawable/ic_water"
+                app:iconGravity="top"
+                app:iconPadding="12dp"
+                app:iconSize="32dp" />
+        </GridLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_close"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Close"
+            android:textColor="@color/text_gray" />
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

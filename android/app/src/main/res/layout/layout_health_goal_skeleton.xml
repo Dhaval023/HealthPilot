@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.facebook.shimmer.ShimmerFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/shimmer_view_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:shimmer_auto_start="true"
+    app:shimmer_base_alpha="0.8"
+    app:shimmer_highlight_alpha="0.5"
+    app:shimmer_base_color="@color/skeleton_bg"
+    app:shimmer_highlight_color="@color/shimmer_color">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Header -->
+        <View android:layout_width="150dp" android:layout_height="32dp" android:background="@drawable/skeleton_placeholder" android:layout_marginBottom="16dp" />
+
+        <!-- Tabs -->
+        <View android:layout_width="200dp" android:layout_height="48dp" android:background="@drawable/skeleton_placeholder" android:layout_marginBottom="16dp" />
+
+        <!-- Main Card -->
+        <View android:layout_width="match_parent" android:layout_height="250dp" android:background="@drawable/skeleton_placeholder" android:layout_marginBottom="24dp" />
+
+        <!-- Daily Targets Title -->
+        <View android:layout_width="120dp" android:layout_height="24dp" android:background="@drawable/skeleton_placeholder" android:layout_marginBottom="12dp" />
+
+        <!-- Daily Targets Scroll -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="24dp">
+            <View android:layout_width="80dp" android:layout_height="100dp" android:layout_marginEnd="12dp" android:background="@drawable/skeleton_placeholder" />
+            <View android:layout_width="80dp" android:layout_height="100dp" android:layout_marginEnd="12dp" android:background="@drawable/skeleton_placeholder" />
+            <View android:layout_width="80dp" android:layout_height="100dp" android:layout_marginEnd="12dp" android:background="@drawable/skeleton_placeholder" />
+            <View android:layout_width="80dp" android:layout_height="100dp" android:background="@drawable/skeleton_placeholder" />
+        </LinearLayout>
+
+        <!-- Progress List Card -->
+        <View android:layout_width="match_parent" android:layout_height="300dp" android:background="@drawable/skeleton_placeholder" android:layout_marginBottom="24dp" />
+
+    </LinearLayout>
+</com.facebook.shimmer.ShimmerFrameLayout>

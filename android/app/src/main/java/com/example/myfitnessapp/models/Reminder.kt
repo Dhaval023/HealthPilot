@@ -1,0 +1,11 @@
+package com.example.myfitnessapp.models
+
+data class Reminder(
+    val id: String = "",
+    val type: String = "", // e.g., "Breakfast", "Lunch", "Water"
+    val message: String = "",
+    val time: String = "08:00", // 24h format HH:mm
+    @get:com.google.firebase.firestore.PropertyName("isEnabled")
+    @set:com.google.firebase.firestore.PropertyName("isEnabled")
+    var isEnabled: Boolean = true
+)

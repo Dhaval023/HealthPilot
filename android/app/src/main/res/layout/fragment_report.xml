@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_dark">
+
+        <include
+            android:id="@+id/layout_skeleton"
+            layout="@layout/layout_report_skeleton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/main_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <!-- Sticky Header Area (Non-scrollable) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/tv_report_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Health Reports"
+                android:textColor="@color/text_white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="24dp">
+
+                <TextView
+                    android:id="@+id/tv_date_range"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="This Week"
+                    android:textColor="@color/text_gray"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+
+                <ImageView
+                    android:id="@+id/btn_calendar"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:padding="8dp"
+                    android:src="@drawable/shedule"
+                    app:tint="@color/accent_blue"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:contentDescription="Select Date"
+                    android:background="@drawable/bg_circle_dark"/>
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/toggle_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:checkedButton="@+id/btn_weekly"
+                app:singleSelection="true">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_day"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="D"
+                    android:textColor="@color/white"
+                    app:strokeColor="@color/accent_blue"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_weekly"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="W"
+                    android:textColor="@color/white"
+                    app:strokeColor="@color/accent_blue"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_monthly"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="M"
+                    android:textColor="@color/white"
+                    app:strokeColor="@color/accent_blue"/>
+
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+        </LinearLayout>
+
+        <!-- Scrollable Graph Area -->
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp"
+                android:paddingBottom="20dp">
+
+                <include android:id="@+id/section_steps" layout="@layout/item_report_graph_section" />
+
+                <View android:layout_width="match_parent" android:layout_height="24dp" />
+                <include android:id="@+id/section_distance" layout="@layout/item_report_graph_section" />
+
+                <View android:layout_width="match_parent" android:layout_height="24dp" />
+                <include android:id="@+id/section_heart" layout="@layout/item_report_graph_section" />
+
+                <View android:layout_width="match_parent" android:layout_height="24dp" />
+                <include android:id="@+id/section_calories" layout="@layout/item_report_graph_section" />
+
+                <View android:layout_width="match_parent" android:layout_height="24dp" />
+                <include android:id="@+id/section_sleep" layout="@layout/item_report_graph_section" />
+
+                <View android:layout_width="match_parent" android:layout_height="24dp" />
+                <include android:id="@+id/section_weight" layout="@layout/item_report_graph_section" />
+
+                <View android:layout_width="match_parent" android:layout_height="24dp" />
+                <include android:id="@+id/section_goals" layout="@layout/item_report_graph_section" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+    </FrameLayout>
+</layout>

@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scroll_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/bg_dark">
+
+    <ViewFlipper
+        android:id="@+id/view_flipper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Scanning State -->
+        <LinearLayout
+            android:id="@+id/layout_scan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.1"
+                android:text="CONNECT DEVICE"
+                android:textColor="@color/text_white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:lineSpacingExtra="4dp"
+                android:text="Sync your performance hardware to\ntrack real-time biometrics and\nintensity."
+                android:textColor="@color/text_gray"
+                android:textSize="12sp" />
+
+            <FrameLayout
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="24dp">
+
+                <View
+                    android:id="@+id/radar_circle_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:alpha="0.3"
+                    android:background="@drawable/radar_circle" />
+
+                <View
+                    android:id="@+id/radar_circle_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="20dp"
+                    android:alpha="0.5"
+                    android:background="@drawable/radar_circle" />
+
+                <View
+                    android:id="@+id/radar_circle_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="40dp"
+                    android:alpha="0.8"
+                    android:background="@drawable/radar_circle" />
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_sparkle"
+                    app:tint="@color/accent_lime" />
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/scan_status_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.1"
+                android:text="SEARCHING FOR DEVICES..."
+                android:textColor="@color/accent_lime"
+                android:textSize="12sp" />
+
+            <ProgressBar
+                android:id="@+id/scan_progress"
+                style="?android:attr/progressBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:indeterminateTint="@color/accent_lime"
+                android:visibility="gone" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                app:cardBackgroundColor="@color/instruction_card_bg"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/instruction_accent"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="4dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/instruction_accent" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:src="@drawable/ic_info"
+                                app:tint="@color/instruction_accent" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:fontFamily="sans-serif-medium"
+                                android:text="PAIRING INSTRUCTIONS"
+                                android:textColor="@color/instruction_accent"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:lineSpacingExtra="2dp"
+                            android:text="Make sure your device is powered on and in pairing mode. Keep it within 1 meter of your phone."
+                            android:textColor="@color/text_white"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.05"
+                android:text="DISCOVERED"
+                android:textColor="@color/text_white"
+                android:textSize="12sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_devices"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="2"
+                tools:listitem="@layout/item_device" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_refresh_scan"
+                style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="SCAN AGAIN"
+                android:textColor="@color/accent_lime"
+                app:cornerRadius="20dp"
+                app:icon="@drawable/ic_refresh"
+                app:iconTint="@color/accent_lime" />
+
+            <LinearLayout
+                android:id="@+id/btn_help"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground">
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:src="@drawable/ic_help"
+                    app:tint="@color/text_gray" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="NEED HELP CONNECTING?"
+                    android:textColor="@color/text_gray"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Connected Success State -->
+        <LinearLayout
+            android:id="@+id/layout_success"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingTop="48dp"
+            android:paddingBottom="24dp">
+
+            <FrameLayout
+                android:layout_width="220dp"
+                android:layout_height="220dp">
+
+                <View
+                    android:id="@+id/success_circle_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/radar_circle_gray" />
+
+                <View
+                    android:id="@+id/success_circle_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/radar_circle_gray" />
+
+                <View
+                    android:id="@+id/success_circle_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="16dp"
+                    android:background="@drawable/radar_circle_gray" />
+
+                <ImageView
+                    android:id="@+id/iv_success_check"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_check_success" />
+
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="sans-serif-medium"
+                android:fontStyle="italic"
+                android:letterSpacing="0.1"
+                android:text="WATCH CONNECTED"
+                android:textColor="@color/text_white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="48dp"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:lineSpacingExtra="4dp"
+                android:text="Watch is connected. Check your Heart Rate, SpO₂, and Steps for accurate tracking of your peak performance."
+                android:textColor="@color/text_gray"
+                android:textSize="13sp" />
+
+            <!-- Connection Details -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:paddingHorizontal="24dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.05"
+                    android:text="ACTIVE CONNECTION"
+                    android:textColor="@color/text_white"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:id="@+id/tv_success_device_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.05"
+                    android:text="FORGE PULSE V.42"
+                    android:textColor="@color/text_white"
+                    android:textSize="13sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="#1AFFFFFF" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.05"
+                            android:text="BATTERY SIGNAL"
+                            android:textColor="@color/text_white"
+                            android:textSize="11sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tv_success_battery"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-medium"
+                                android:text="98%"
+                                android:textColor="@color/text_white"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                android:id="@+id/tv_battery_status"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:fontFamily="sans-serif-medium"
+                                android:text="EXC"
+                                android:textColor="@color/accent_lime"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.05"
+                            android:text="SIGNAL STRENGTH"
+                            android:textColor="@color/text_white"
+                            android:textSize="11sp" />
+
+                        <LinearLayout
+                            android:id="@+id/signal_bars_container"
+                            android:layout_width="match_parent"
+                            android:layout_height="18dp"
+                            android:layout_marginTop="4dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <View
+                                android:id="@+id/signal_bar_1"
+                                android:layout_width="12dp"
+                                android:layout_height="6dp"
+                                android:background="@color/accent_lime" />
+
+                            <View
+                                android:id="@+id/signal_bar_2"
+                                android:layout_width="12dp"
+                                android:layout_height="9dp"
+                                android:layout_marginStart="3dp"
+                                android:background="@color/accent_lime" />
+
+                            <View
+                                android:id="@+id/signal_bar_3"
+                                android:layout_width="12dp"
+                                android:layout_height="12dp"
+                                android:layout_marginStart="3dp"
+                                android:background="@color/accent_lime" />
+
+                            <View
+                                android:id="@+id/signal_bar_4"
+                                android:layout_width="12dp"
+                                android:layout_height="15dp"
+                                android:layout_marginStart="3dp"
+                                android:background="@color/accent_lime" />
+
+                            <TextView
+                                android:id="@+id/tv_signal_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:fontFamily="sans-serif-medium"
+                                android:text="HIGH"
+                                android:textColor="@color/accent_lime"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_start_workout"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="40dp"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.05"
+                android:text="START YOUR WELLNESS JOURNEY"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                app:backgroundTint="@color/white"
+                app:cornerRadius="8dp"
+                app:icon="@drawable/ic_lightning"
+                app:iconGravity="textEnd"
+                app:iconSize="16dp"
+                app:iconTint="@color/black" />
+
+<!--            <com.google.android.material.button.MaterialButton-->
+<!--                android:id="@+id/btn_customize_vitals"-->
+<!--                style="@style/Widget.Material3.Button.OutlinedButton"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="56dp"-->
+<!--                android:layout_marginHorizontal="24dp"-->
+<!--                android:layout_marginTop="12dp"-->
+<!--                android:fontFamily="sans-serif-black"-->
+<!--                android:letterSpacing="0.05"-->
+<!--                android:text="CUSTOMIZE VITALS"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="13sp"-->
+<!--                app:cornerRadius="8dp"-->
+<!--                app:icon="@android:drawable/ic_menu_sort_by_size"-->
+<!--                app:iconGravity="textEnd"-->
+<!--                app:iconSize="16dp"-->
+<!--                app:iconTint="@color/white"-->
+<!--                app:strokeColor="@color/white"-->
+<!--                app:strokeWidth="1dp" />-->
+
+            <TextView
+                android:id="@+id/tv_marquee_footer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:ellipsize="marquee"
+                android:fontFamily="sans-serif-black"
+                android:fadingEdge="horizontal"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:scrollHorizontally="true"
+                android:singleLine="true"
+                android:text="BREAK YOUR LIMITS • NO EXCUSES • NEVER GIVE UP • PUSH HARDER • BREAK YOUR LIMITS • NO EXCUSES • NEVER GIVE UP • PUSH HARDER •"                android:textColor="#33FFFFFF"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+    </ViewFlipper>
+</androidx.core.widget.NestedScrollView>
