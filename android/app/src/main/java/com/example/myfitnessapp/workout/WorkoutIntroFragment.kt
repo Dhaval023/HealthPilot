@@ -67,15 +67,25 @@ class WorkoutIntroFragment : Fragment() {
     }
 
     private fun setupUI(workoutName: String) {
-        binding.tvWorkoutName.text = workoutName.uppercase()
+        val context = requireContext()
+        val nameResId = context.resources.getIdentifier(workoutName.lowercase().replace(" ", "_").replace("-", "_"), "string", context.packageName)
+        val localizedName = if (nameResId != 0) getString(nameResId) else workoutName
+        binding.tvWorkoutName.text = localizedName.uppercase()
         
         val theme = getWorkoutTheme(workoutName)
         workoutTimeMinutes = theme.defaultTime
-        binding.tvTotalTime.text = "${theme.defaultTime} Min"
-        binding.tvSubtitle.text = theme.subtitle
-        binding.tvSessionTitle.text = theme.sessionTitle
-        binding.tvSessionDesc.text = theme.sessionDesc
-        binding.btnStartWorkout.text = "Start $workoutName"
+        binding.tvTotalTime.text = getString(R.string.min_unit, theme.defaultTime)
+        
+        val subResId = resources.getIdentifier("sub_${workoutName.lowercase().replace(" ", "_")}", "string", requireContext().packageName)
+        binding.tvSubtitle.text = if (subResId != 0) getString(subResId) else theme.subtitle
+        
+        val sessionTitleResId = resources.getIdentifier("session_${theme.sessionTitle.lowercase().replace(" ", "_")}", "string", requireContext().packageName)
+        binding.tvSessionTitle.text = if (sessionTitleResId != 0) getString(sessionTitleResId) else theme.sessionTitle
+        
+        val sessionDescResId = resources.getIdentifier("desc_${theme.sessionTitle.lowercase().replace(" ", "_")}", "string", requireContext().packageName)
+        binding.tvSessionDesc.text = if (sessionDescResId != 0) getString(sessionDescResId) else theme.sessionDesc
+        
+        binding.btnStartWorkout.text = getString(R.string.start_workout_btn, localizedName)
         
         // Lottie
         binding.lottieAnimation.setAnimation(theme.lottieRes)
@@ -110,11 +120,17 @@ class WorkoutIntroFragment : Fragment() {
     }
 
     private fun setupBenefit(itemBinding: ItemYogaBenefitBinding, benefit: Benefit, themeColorRes: Int) {
+        val context = requireContext()
         val colorRes = benefit.benefitColorRes ?: themeColorRes
-        val color = ContextCompat.getColor(requireContext(), colorRes)
+        val color = ContextCompat.getColor(context, colorRes)
         itemBinding.ivBenefitIcon.setImageResource(benefit.iconRes)
-        itemBinding.tvBenefitTitle.text = benefit.title
-        itemBinding.tvBenefitSub.text = benefit.subtitle
+        
+        val titleResId = resources.getIdentifier("benefit_${benefit.title.lowercase().replace(" ", "_")}", "string", context.packageName)
+        itemBinding.tvBenefitTitle.text = if (titleResId != 0) getString(titleResId) else benefit.title
+        
+        val subResId = resources.getIdentifier("benefit_${benefit.subtitle.lowercase().replace(" ", "_")}", "string", context.packageName)
+        itemBinding.tvBenefitSub.text = if (subResId != 0) getString(subResId) else benefit.subtitle
+        
         itemBinding.ivBenefitIcon.imageTintList = android.content.res.ColorStateList.valueOf(color)
         itemBinding.flIconContainer.backgroundTintList = android.content.res.ColorStateList.valueOf(ColorUtils.setAlphaComponent(color, 25))
     }
@@ -134,10 +150,10 @@ class WorkoutIntroFragment : Fragment() {
         container.addView(input)
 
         MaterialAlertDialogBuilder(requireContext(), R.style.CustomDialogTheme)
-            .setTitle("Set Duration")
-            .setMessage("Enter session time in minutes:")
+            .setTitle(getString(R.string.duration))
+            .setMessage(getString(R.string.duration)) // Placeholder
             .setView(container)
-            .setPositiveButton("Set") { _, _ ->
+            .setPositiveButton(getString(R.string.save_goals)) { _, _ -> // Placeholder
                 val newTime = input.text.toString()
                 if (newTime.isNotEmpty()) {
                     workoutTimeMinutes = newTime.toInt()

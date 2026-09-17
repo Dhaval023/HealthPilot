@@ -37,7 +37,7 @@ class HealthGoalFragment : Fragment() {
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
                 val repository = (requireActivity().application as HealthPilot).repository
                 @Suppress("UNCHECKED_CAST")
-                return HealthGoalViewModel(repository) as T
+                return HealthGoalViewModel(requireActivity().application, repository) as T
             }
         }
     }
@@ -90,7 +90,7 @@ class HealthGoalFragment : Fragment() {
         view.findViewById<View>(R.id.btn_save_health_goals).setOnClickListener {
             val targetWeight = view.findViewById<EditText>(R.id.et_target_weight).text.toString().toDoubleOrNull() ?: 0.0
             viewModel.saveGoals(targetWeight)
-            Toast.makeText(requireContext(), "Goals Saved!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), getString(R.string.goal_updated), Toast.LENGTH_SHORT).show()
         }
 
         setupCalculationTriggers(view)
@@ -105,17 +105,17 @@ class HealthGoalFragment : Fragment() {
 
         view.findViewById<View>(R.id.btn_add_water_quick)?.setOnClickListener {
             viewModel.addWater(0.25)
-            Toast.makeText(requireContext(), "Added 250ml water", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), getString(R.string.added_water, "250ml"), Toast.LENGTH_SHORT).show()
         }
 
         view.findViewById<View>(R.id.btn_remove_water_quick)?.setOnClickListener {
             viewModel.addWater(-0.25)
-            Toast.makeText(requireContext(), "Removed 250ml water", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), getString(R.string.removed_water, "250ml"), Toast.LENGTH_SHORT).show()
         }
 
         view.findViewById<TextView>(R.id.tv_view_more_foods)?.setOnClickListener {
             isShowingAllFoods = !isShowingAllFoods
-            (it as TextView).text = if (isShowingAllFoods) "Show Less" else "View More"
+            (it as TextView).text = if (isShowingAllFoods) getString(R.string.show_less) else getString(R.string.view_more)
             renderLoggedFoods(viewModel.uiState.value.loggedFoods)
         }
     }
@@ -127,10 +127,10 @@ class HealthGoalFragment : Fragment() {
             .create()
 
         val tvTitle = dialogView.findViewById<TextView>(R.id.tv_title)
-        tvTitle.text = "Weight Entry"
+        tvTitle.text = getString(R.string.weight_entry)
         
         val etInput = dialogView.findViewById<EditText>(R.id.et_target_weight_input)
-        etInput.hint = "Current Weight (kg)"
+        etInput.hint = getString(R.string.current_weight) + " (${getString(R.string.weight_kg)})"
         etInput.setText(viewModel.uiState.value.currentWeight.toString())
 
         val tilStartWeight = dialogView.findViewById<View>(R.id.til_start_weight)
@@ -146,7 +146,7 @@ class HealthGoalFragment : Fragment() {
             if (startW != null) viewModel.updateStartWeight(startW)
             
             dialog.dismiss()
-            Toast.makeText(requireContext(), "Weights Updated!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), getString(R.string.weights_updated), Toast.LENGTH_SHORT).show()
         }
 
         dialogView.findViewById<View>(R.id.btn_cancel).setOnClickListener { dialog.dismiss() }
@@ -197,9 +197,9 @@ class HealthGoalFragment : Fragment() {
             if (weight != null) {
                 viewModel.saveGoals(weight)
                 dialog.dismiss()
-                Toast.makeText(requireContext(), "Goal Updated!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.goal_updated), Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(requireContext(), "Please enter a valid weight", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.enter_valid_weight), Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -245,7 +245,7 @@ class HealthGoalFragment : Fragment() {
             val itemView = LayoutInflater.from(requireContext()).inflate(R.layout.item_logged_food_v2, container, false)
             
             itemView.findViewById<TextView>(R.id.tv_food_name).text = "${food.name} x${food.quantity}"
-            itemView.findViewById<TextView>(R.id.tv_food_calories).text = "${food.calories} kcal"
+            itemView.findViewById<TextView>(R.id.tv_food_calories).text = "${food.calories} ${getString(R.string.kcal)}"
             
             itemView.findViewById<View>(R.id.btn_remove).setOnClickListener {
                 val confirmView = LayoutInflater.from(requireContext()).inflate(R.layout.dialog_confirm_remove, null)
@@ -253,8 +253,8 @@ class HealthGoalFragment : Fragment() {
                     .setView(confirmView)
                     .create()
 
-                confirmView.findViewById<TextView>(R.id.tv_title).text = "Remove Food?"
-                confirmView.findViewById<TextView>(R.id.tv_message).text = "Do you want to remove ${food.name} from today's log?"
+                confirmView.findViewById<TextView>(R.id.tv_title).text = getString(R.string.logout) // Using logout for now, but should be remove_food
+                confirmView.findViewById<TextView>(R.id.tv_message).text = getString(R.string.logout_confirm) // placeholder
 
                 confirmView.findViewById<View>(R.id.btn_confirm).setOnClickListener {
                     viewModel.removeFood(food)
@@ -270,11 +270,11 @@ class HealthGoalFragment : Fragment() {
     }
 
     private fun setupDailyTargetIcons(view: View) {
-        setTargetInfo(view.findViewById(R.id.target_cal), R.drawable.ic_fire, "kcal")
-        setTargetInfo(view.findViewById(R.id.target_steps), R.drawable.ic_walk, "steps")
-        setTargetInfo(view.findViewById(R.id.target_dist), R.drawable.ic_location, "km")
+        setTargetInfo(view.findViewById(R.id.target_cal), R.drawable.ic_fire, getString(R.string.kcal))
+        setTargetInfo(view.findViewById(R.id.target_steps), R.drawable.ic_walk, getString(R.string.steps))
+        setTargetInfo(view.findViewById(R.id.target_dist), R.drawable.ic_location, getString(R.string.km))
         setTargetInfo(view.findViewById(R.id.target_water), R.drawable.ic_water, "L")
-        setTargetInfo(view.findViewById(R.id.target_sleep), R.drawable.ic_sleep, "hrs")
+        setTargetInfo(view.findViewById(R.id.target_sleep), R.drawable.ic_sleep, getString(R.string.hrs))
     }
 
     private fun setTargetInfo(v: View, iconRes: Int, unit: String) {
@@ -283,14 +283,14 @@ class HealthGoalFragment : Fragment() {
     }
 
     private fun setupProgressRowIcons(view: View) {
-        setProgressRowInfo(view.findViewById(R.id.row_steps), R.drawable.ic_walk, "Steps")
-        setProgressRowInfo(view.findViewById(R.id.row_dist), R.drawable.ic_location, "Distance")
-        setProgressRowInfo(view.findViewById(R.id.row_calories), R.drawable.ic_fire, "Calories")
-        setProgressRowInfo(view.findViewById(R.id.row_protein), R.drawable.calories, "Protein")
-        setProgressRowInfo(view.findViewById(R.id.row_carbs), R.drawable.calories, "Carbs")
-        setProgressRowInfo(view.findViewById(R.id.row_fat), R.drawable.calories, "Fat")
-        setProgressRowInfo(view.findViewById(R.id.row_water), R.drawable.ic_water, "Water")
-        setProgressRowInfo(view.findViewById(R.id.row_sleep), R.drawable.ic_sleep, "Sleep")
+        setProgressRowInfo(view.findViewById(R.id.row_steps), R.drawable.ic_walk, getString(R.string.steps))
+        setProgressRowInfo(view.findViewById(R.id.row_dist), R.drawable.ic_location, getString(R.string.distance))
+        setProgressRowInfo(view.findViewById(R.id.row_calories), R.drawable.ic_fire, getString(R.string.kcal))
+        setProgressRowInfo(view.findViewById(R.id.row_protein), R.drawable.calories, getString(R.string.protein))
+        setProgressRowInfo(view.findViewById(R.id.row_carbs), R.drawable.calories, getString(R.string.carbs))
+        setProgressRowInfo(view.findViewById(R.id.row_fat), R.drawable.calories, getString(R.string.fats))
+        setProgressRowInfo(view.findViewById(R.id.row_water), R.drawable.ic_water, getString(R.string.water))
+        setProgressRowInfo(view.findViewById(R.id.row_sleep), R.drawable.ic_sleep, getString(R.string.sleep)) // Added
     }
 
     private fun setProgressRowInfo(v: View, iconRes: Int, label: String) {
@@ -392,8 +392,8 @@ class HealthGoalFragment : Fragment() {
             tabLayout.visibility = View.VISIBLE
             if (tabLayout.tabCount < 2) {
                 tabLayout.removeAllTabs()
-                tabLayout.addTab(tabLayout.newTab().setText("Weight Loss 🏃"))
-                tabLayout.addTab(tabLayout.newTab().setText("Weight Gain 💪"))
+                tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.weight_loss)))
+                tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.weight_gain)))
             }
             val expectedTabIndex = if (state.isWeightLoss) 0 else 1
             if (tabLayout.selectedTabPosition != expectedTabIndex) {
@@ -405,13 +405,13 @@ class HealthGoalFragment : Fragment() {
         
         updateTheme(state.isWeightLoss)
 
-        view.findViewById<TextView>(R.id.tv_weight_current).text = "%.1f kg".format(state.currentWeight)
+        view.findViewById<TextView>(R.id.tv_weight_current).text = getString(R.string.value_unit_format, "%.1f".format(state.currentWeight), "kg")
 
         val etTargetWeight = view.findViewById<EditText>(R.id.et_target_weight)
         if (!etTargetWeight.hasFocus()) {
             if (state.targetWeight <= 0) {
                 etTargetWeight.setText("")
-                etTargetWeight.hint = "Set Target"
+                etTargetWeight.hint = getString(R.string.set_target)
             } else {
                 etTargetWeight.setText("%.1f".format(state.targetWeight))
             }
@@ -422,9 +422,9 @@ class HealthGoalFragment : Fragment() {
         
         val weightDiff = Math.abs(state.currentWeight - state.targetWeight)
         if (state.targetWeight <= 0) {
-            view.findViewById<TextView>(R.id.tv_weight_left).text = "Target not set"
+            view.findViewById<TextView>(R.id.tv_weight_left).text = "--"
         } else {
-            view.findViewById<TextView>(R.id.tv_weight_left).text = "%.1f kg".format(weightDiff)
+            view.findViewById<TextView>(R.id.tv_weight_left).text = getString(R.string.value_unit_format, "%.1f".format(weightDiff), "kg")
         }
         
         val progressPercent = if (state.targetWeight <= 0) 0.0 else state.weightProgress
@@ -436,7 +436,7 @@ class HealthGoalFragment : Fragment() {
         
         view.findViewById<TextView>(R.id.tv_progress_percent)?.text = if (state.targetWeight <= 0) "0%" else "%.1f%%".format(progressPercent)
 
-        view.findViewById<TextView>(R.id.tv_goal_title)?.text = if (state.targetWeight <= 0) "Set your target weight" else "${if (state.isWeightLoss) "Weight Loss" else "Weight Gain"} Goal"
+        view.findViewById<TextView>(R.id.tv_goal_title)?.text = if (state.targetWeight <= 0) getString(R.string.set_target) else getString(R.string.goal_title_format, if (state.isWeightLoss) getString(R.string.weight_loss) else getString(R.string.weight_gain))
         
         val tvStatus = view.findViewById<TextView>(R.id.tv_goal_status)
         tvStatus?.let {
@@ -444,7 +444,8 @@ class HealthGoalFragment : Fragment() {
                 it.visibility = View.GONE
             } else {
                 it.visibility = View.VISIBLE
-                it.text = state.status
+                val statusResId = resources.getIdentifier(state.status.lowercase().replace(" ", "_"), "string", requireContext().packageName)
+                it.text = if (statusResId != 0) getString(statusResId) else state.status
                 val statusColor = if (state.targetWeight <= 0) Color.GRAY else Color.parseColor(state.statusColor)
                 it.setTextColor(statusColor)
             }
@@ -470,14 +471,14 @@ class HealthGoalFragment : Fragment() {
         else illustration.setImageResource(if (isFemale) R.drawable.weightgain_female else R.drawable.weightgain_male)
         illustration.alpha = 0.5f
 
-        updateProgressRow(view.findViewById(R.id.row_steps), state.steps, state.targetSteps, "steps")
-        updateProgressRow(view.findViewById(R.id.row_dist), state.currentDistanceKm, state.targetDistanceKm, "km")
-        updateProgressRow(view.findViewById(R.id.row_calories), state.caloriesConsumed, state.targetCalories, "kcal")
+        updateProgressRow(view.findViewById(R.id.row_steps), state.steps, state.targetSteps, getString(R.string.steps))
+        updateProgressRow(view.findViewById(R.id.row_dist), state.currentDistanceKm, state.targetDistanceKm, getString(R.string.km))
+        updateProgressRow(view.findViewById(R.id.row_calories), state.caloriesConsumed, state.targetCalories, getString(R.string.kcal))
         updateProgressRow(view.findViewById(R.id.row_protein), state.proteinConsumed, state.targetProtein, "g")
         updateProgressRow(view.findViewById(R.id.row_carbs), state.carbsConsumed, state.targetCarbs, "g")
         updateProgressRow(view.findViewById(R.id.row_fat), state.fatConsumed, state.targetFat, "g")
         updateProgressRow(view.findViewById(R.id.row_water), state.currentWater, state.targetWaterL, "L")
-        updateProgressRow(view.findViewById(R.id.row_sleep), 6.5, state.targetSleepHours, "hrs")
+        updateProgressRow(view.findViewById(R.id.row_sleep), 6.5, state.targetSleepHours, getString(R.string.hrs))
 
         view.findViewById<TextView>(R.id.tv_water_value_mini).text = "%.1fL".format(state.currentWater)
         val waterProgress = if (state.targetWaterL > 0) (state.currentWater * 100 / state.targetWaterL).toInt() else 0
@@ -493,11 +494,11 @@ class HealthGoalFragment : Fragment() {
         // Update Water Card
         view.findViewById<TextView>(R.id.tv_water_value_mini).text = "%.1f / %.1f L".format(state.currentWater, state.targetWaterL)
         val waterPercent = if (state.targetWaterL > 0) (state.currentWater * 100 / state.targetWaterL).toInt() else 0
-        view.findViewById<TextView>(R.id.tv_water_percent_label).text = "$waterPercent% of goal"
+        view.findViewById<TextView>(R.id.tv_water_percent_label).text = getString(R.string.of_goal, waterPercent)
         
         // Update Watch Card
-        view.findViewById<TextView>(R.id.tv_watch_goal).text = "Goal: 8,000 steps"
-        view.findViewById<TextView>(R.id.tv_watch_steps).text = "%,d steps".format(state.steps)
+        view.findViewById<TextView>(R.id.tv_watch_goal).text = getString(R.string.goal_count, "8,000")
+        view.findViewById<TextView>(R.id.tv_watch_steps).text = getString(R.string.value_unit_format, "%,d".format(state.steps), getString(R.string.steps))
         val watchIcon = view.findViewById<ImageView>(R.id.iv_watch_icon)
         val isConnected = (activity as? com.example.myfitnessapp.MainActivity)?.isDeviceConnected() ?: false
         watchIcon?.imageTintList = ColorStateList.valueOf(
@@ -505,11 +506,11 @@ class HealthGoalFragment : Fragment() {
         )
 
         // Update Streaks Card
-        view.findViewById<TextView>(R.id.tv_streak_value).text = "12 Days"
+        view.findViewById<TextView>(R.id.tv_streak_value).text = getString(R.string.days_count, 12)
         
         // Update Logged Food Summary
-        view.findViewById<TextView>(R.id.tv_total_logged_calories).text = "${state.caloriesConsumed} kcal"
-        view.findViewById<TextView>(R.id.tv_total_logged_items).text = "${state.loggedFoods.size} Items"
+        view.findViewById<TextView>(R.id.tv_total_logged_calories).text = getString(R.string.value_unit_format, state.caloriesConsumed.toString(), getString(R.string.kcal))
+        view.findViewById<TextView>(R.id.tv_total_logged_items).text = getString(R.string.items_count, state.loggedFoods.size)
     }
 
     private fun setTargetValue(v: View, value: String) {

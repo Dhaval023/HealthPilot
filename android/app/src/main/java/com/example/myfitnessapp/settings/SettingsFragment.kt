@@ -23,6 +23,8 @@ import com.example.myfitnessapp.healthgoal.HealthGoalViewModel
 import com.google.android.material.card.MaterialCardView
 import kotlinx.coroutines.launch
 import java.util.Locale
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.os.LocaleListCompat
 
 class SettingsFragment : Fragment() {
 
@@ -33,7 +35,7 @@ class SettingsFragment : Fragment() {
         object : ViewModelProvider.Factory {
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
                 val repository = (requireActivity().application as HealthPilot).repository
-                return HealthGoalViewModel(repository) as T
+                return HealthGoalViewModel(requireActivity().application, repository) as T
             }
         }
     }
@@ -67,6 +69,11 @@ class SettingsFragment : Fragment() {
         binding.cardWeightGain.setOnClickListener { viewModel.setGoalType(false) }
         binding.cardWeightLoss.setOnClickListener { viewModel.setGoalType(true) }
         binding.btnBack.setOnClickListener { findNavController().navigateUp() }
+
+        binding.cardVoiceArya.setOnClickListener { viewModel.updateAssistantVoice("Arya") }
+        binding.cardVoiceVed.setOnClickListener { viewModel.updateAssistantVoice("Ved") }
+
+        setupLanguageSelector()
     }
 
     private fun observeViewModel() {
@@ -76,8 +83,39 @@ class SettingsFragment : Fragment() {
                     binding.rbWeightGain.isChecked = !state.isWeightLoss
                     binding.rbWeightLoss.isChecked = state.isWeightLoss
                     setupTuneSelector(state.alarmTune)
+                    setupVoiceSelector(state.assistantVoice)
                 }
             }
+        }
+    }
+
+    private fun setupVoiceSelector(currentVoice: String) {
+        val context = requireContext()
+        val isArya = currentVoice.equals("Arya", ignoreCase = true)
+        val isVed = currentVoice.equals("Ved", ignoreCase = true)
+
+        if (isArya) {
+            binding.cardVoiceArya.setStrokeColor(ContextCompat.getColor(context, R.color.accent_blue))
+            binding.cardVoiceArya.setCardBackgroundColor(ContextCompat.getColor(context, R.color.accent_blue_transparent))
+            binding.ivCheckArya.visibility = View.VISIBLE
+            binding.tvVoiceAryaTitle.setTextColor(ContextCompat.getColor(context, R.color.accent_blue))
+        } else {
+            binding.cardVoiceArya.setStrokeColor(ContextCompat.getColor(context, R.color.card_border))
+            binding.cardVoiceArya.setCardBackgroundColor(ContextCompat.getColor(context, R.color.card_dark))
+            binding.ivCheckArya.visibility = View.GONE
+            binding.tvVoiceAryaTitle.setTextColor(ContextCompat.getColor(context, R.color.white))
+        }
+
+        if (isVed) {
+            binding.cardVoiceVed.setStrokeColor(ContextCompat.getColor(context, R.color.accent_blue))
+            binding.cardVoiceVed.setCardBackgroundColor(ContextCompat.getColor(context, R.color.accent_blue_transparent))
+            binding.ivCheckVed.visibility = View.VISIBLE
+            binding.tvVoiceVedTitle.setTextColor(ContextCompat.getColor(context, R.color.accent_blue))
+        } else {
+            binding.cardVoiceVed.setStrokeColor(ContextCompat.getColor(context, R.color.card_border))
+            binding.cardVoiceVed.setCardBackgroundColor(ContextCompat.getColor(context, R.color.card_dark))
+            binding.ivCheckVed.visibility = View.GONE
+            binding.tvVoiceVedTitle.setTextColor(ContextCompat.getColor(context, R.color.white))
         }
     }
 
@@ -151,6 +189,65 @@ class SettingsFragment : Fragment() {
             // Stop after 5 seconds
             view?.postDelayed(stopPreviewRunnable, 5000)
         }
+    }
+
+    private fun setupLanguageSelector() {
+        val currentLang = AppCompatDelegate.getApplicationLocales().get(0)?.language ?: Locale.getDefault().language
+        val context = requireContext()
+
+        // English Card styling
+        if (currentLang == "en") {
+            binding.cardLangEn.setStrokeColor(ContextCompat.getColor(context, R.color.accent_blue))
+            binding.cardLangEn.setCardBackgroundColor(ContextCompat.getColor(context, R.color.accent_blue_transparent))
+            binding.ivCheckLangEn.visibility = View.VISIBLE
+            binding.tvLangEnTitle.setTextColor(ContextCompat.getColor(context, R.color.accent_blue))
+        } else {
+            binding.cardLangEn.setStrokeColor(ContextCompat.getColor(context, R.color.card_border))
+            binding.cardLangEn.setCardBackgroundColor(ContextCompat.getColor(context, R.color.card_dark))
+            binding.ivCheckLangEn.visibility = View.GONE
+            binding.tvLangEnTitle.setTextColor(ContextCompat.getColor(context, R.color.white))
+        }
+
+        // Hindi Card styling
+        if (currentLang == "hi") {
+            binding.cardLangHi.setStrokeColor(ContextCompat.getColor(context, R.color.accent_blue))
+            binding.cardLangHi.setCardBackgroundColor(ContextCompat.getColor(context, R.color.accent_blue_transparent))
+            binding.ivCheckLangHi.visibility = View.VISIBLE
+            binding.tvLangHiTitle.setTextColor(ContextCompat.getColor(context, R.color.accent_blue))
+        } else {
+            binding.cardLangHi.setStrokeColor(ContextCompat.getColor(context, R.color.card_border))
+            binding.cardLangHi.setCardBackgroundColor(ContextCompat.getColor(context, R.color.card_dark))
+            binding.ivCheckLangHi.visibility = View.GONE
+            binding.tvLangHiTitle.setTextColor(ContextCompat.getColor(context, R.color.white))
+        }
+
+        // Gujarati Card styling
+        if (currentLang == "gu") {
+            binding.cardLangGu.setStrokeColor(ContextCompat.getColor(context, R.color.accent_blue))
+            binding.cardLangGu.setCardBackgroundColor(ContextCompat.getColor(context, R.color.accent_blue_transparent))
+            binding.ivCheckLangGu.visibility = View.VISIBLE
+            binding.tvLangGuTitle.setTextColor(ContextCompat.getColor(context, R.color.accent_blue))
+        } else {
+            binding.cardLangGu.setStrokeColor(ContextCompat.getColor(context, R.color.card_border))
+            binding.cardLangGu.setCardBackgroundColor(ContextCompat.getColor(context, R.color.card_dark))
+            binding.ivCheckLangGu.visibility = View.GONE
+            binding.tvLangGuTitle.setTextColor(ContextCompat.getColor(context, R.color.white))
+        }
+
+        binding.cardLangEn.setOnClickListener {
+            changeLanguage("en")
+        }
+        binding.cardLangHi.setOnClickListener {
+            changeLanguage("hi")
+        }
+        binding.cardLangGu.setOnClickListener {
+            changeLanguage("gu")
+        }
+    }
+
+    private fun changeLanguage(langCode: String) {
+        val appLocale = LocaleListCompat.forLanguageTags(langCode)
+        AppCompatDelegate.setApplicationLocales(appLocale)
     }
 
     override fun onDestroyView() {

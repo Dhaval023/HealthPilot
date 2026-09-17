@@ -52,7 +52,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Profile"
+                android:text="@string/profile_header"
                 android:textColor="@color/text_white"
                 android:textSize="22sp"
                 android:textStyle="bold"
@@ -178,7 +178,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Age"
+                                    android:text="@string/age"
                                     android:textColor="@color/text_gray"
                                     android:textSize="13sp" />
 
@@ -217,7 +217,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Gender"
+                                    android:text="@string/gender"
                                     android:textColor="@color/text_gray"
                                     android:textSize="13sp" />
 
@@ -256,7 +256,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Height"
+                                    android:text="@string/height"
                                     android:textColor="@color/text_gray"
                                     android:textSize="13sp" />
 
@@ -295,7 +295,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Weight"
+                                    android:text="@string/weight"
                                     android:textColor="@color/text_gray"
                                     android:textSize="13sp" />
 
@@ -335,7 +335,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="16dp"
-                                android:text="Information"
+                                android:text="@string/information"
                                 android:textColor="@color/text_white"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
@@ -399,7 +399,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:padding="8dp"
-                        android:text="Change Password"
+                        android:text="@string/change_password"
                         android:textColor="@color/accent_blue"
                         android:textSize="14sp"
                         app:layout_constraintTop_toBottomOf="@id/cv_info"
@@ -431,7 +431,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="16dp"
-                                android:text="Daily Wellness"
+                                android:text="@string/daily_wellness"
                                 android:textColor="@color/text_white"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
@@ -457,7 +457,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Schedule"
+                                        android:text="@string/schedule"
                                         android:textColor="@color/text_gray"
                                         android:textSize="12sp" />
                                     <TextView
@@ -498,14 +498,14 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Work Style"
+                                        android:text="@string/work_style"
                                         android:textColor="@color/text_gray"
                                         android:textSize="12sp" />
                                     <TextView
                                         android:id="@+id/tv_profile_work_style"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Mostly Sitting"
+                                        android:text="@string/mostly_sitting"
                                         android:textColor="@color/accent_teal"
                                         android:textSize="15sp"
                                         android:textStyle="bold" />
@@ -539,7 +539,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Work Hours &amp; Screen"
+                                        android:text="@string/work_hours_screen"
                                         android:textColor="@color/text_gray"
                                         android:textSize="12sp" />
                                     <TextView
@@ -568,7 +568,7 @@
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Full Name"
+                        android:hint="@string/full_name"
                         android:textColorHint="@color/text_gray"
                         app:boxStrokeColor="@color/accent_blue"
                         app:hintTextColor="@color/accent_blue">
@@ -586,7 +586,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:hint="Email Address"
+                        android:hint="@string/email_address"
                         android:textColorHint="@color/text_gray"
                         app:boxStrokeColor="@color/accent_blue"
                         app:hintTextColor="@color/accent_blue">
@@ -605,7 +605,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:hint="Phone Number"
+                        android:hint="@string/phone_number"
                         android:textColorHint="@color/text_gray"
                         app:boxStrokeColor="@color/accent_blue"
                         app:hintTextColor="@color/accent_blue">
@@ -630,7 +630,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginEnd="6dp"
-                            android:hint="Age"
+                        android:hint="@string/age"
                             android:textColorHint="@color/text_gray"
                             app:boxStrokeColor="@color/accent_blue"
                             app:hintTextColor="@color/accent_blue">
@@ -649,7 +649,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginStart="6dp"
-                            android:hint="Gender"
+                        android:hint="@string/gender"
                             android:textColorHint="@color/text_gray"
                             app:boxStrokeColor="@color/accent_blue"
                             app:hintTextColor="@color/accent_blue">
@@ -675,7 +675,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginEnd="6dp"
-                            android:hint="Height (cm)"
+                        android:hint="@string/height_cm"
                             android:textColorHint="@color/text_gray"
                             app:boxStrokeColor="@color/accent_blue"
                             app:hintTextColor="@color/accent_blue">
@@ -694,7 +694,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginStart="6dp"
-                            android:hint="Weight (kg)"
+                        android:hint="@string/weight_kg"
                             android:textColorHint="@color/text_gray"
                             app:boxStrokeColor="@color/accent_blue"
                             app:hintTextColor="@color/accent_blue">
@@ -713,7 +713,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:hint="Date of Birth"
+                        android:hint="@string/date_of_birth"
                         android:textColorHint="@color/text_gray"
                         app:boxStrokeColor="@color/accent_blue"
                         app:hintTextColor="@color/accent_blue">
@@ -732,7 +732,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="24dp"
                         android:layout_marginBottom="8dp"
-                        android:text="Daily Wellness Settings"
+                        android:text="@string/daily_wellness_settings"
                         android:textColor="@color/accent_blue"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -748,7 +748,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginEnd="6dp"
-                            android:hint="Wake-up Time"
+                            android:hint="@string/wake_up_time"
                             android:textColorHint="@color/text_gray"
                             app:boxStrokeColor="@color/accent_blue"
                             app:hintTextColor="@color/accent_blue">
@@ -767,7 +767,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginStart="6dp"
-                            android:hint="Sleep Time"
+                            android:hint="@string/sleep_time"
                             android:textColorHint="@color/text_gray"
                             app:boxStrokeColor="@color/accent_blue"
                             app:hintTextColor="@color/accent_blue">
@@ -786,7 +786,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:hint="Work Style"
+                        android:hint="@string/work_style"
                         android:textColorHint="@color/text_gray"
                         app:boxStrokeColor="@color/accent_blue"
                         app:hintTextColor="@color/accent_blue">
@@ -811,7 +811,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginEnd="6dp"
-                            android:hint="Work Start"
+                            android:hint="@string/work_start"
                             android:textColorHint="@color/text_gray"
                             app:boxStrokeColor="@color/accent_blue"
                             app:hintTextColor="@color/accent_blue">
@@ -830,7 +830,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginStart="6dp"
-                            android:hint="Work End"
+                            android:hint="@string/work_end"
                             android:textColorHint="@color/text_gray"
                             app:boxStrokeColor="@color/accent_blue"
                             app:hintTextColor="@color/accent_blue">
@@ -849,7 +849,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:hint="Daily Screen Time (hrs)"
+                        android:hint="@string/daily_screen_time"
                         android:textColorHint="@color/text_gray"
                         app:boxStrokeColor="@color/accent_blue"
                         app:hintTextColor="@color/accent_blue">
@@ -868,7 +868,7 @@
                         android:layout_height="56dp"
                         android:layout_marginTop="24dp"
                         android:layout_marginBottom="32dp"
-                        android:text="Save Profile"
+                        android:text="@string/save_profile"
                         android:textColor="@color/white"
                         android:textStyle="bold"
                         app:backgroundTint="@color/accent_blue"

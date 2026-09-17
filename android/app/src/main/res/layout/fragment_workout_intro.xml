@@ -53,7 +53,7 @@
                 android:id="@+id/tvSubtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Get Ready..."
+                android:text="@string/get_ready"
                 android:textColor="@color/text_gray"
                 android:textSize="18sp" />
 
@@ -121,7 +121,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:text="TODAY'S SESSION"
+                        android:text="@string/today_session"
                         android:textColor="@color/accent_purple"
                         android:textSize="12sp"
                         android:textStyle="bold"
@@ -220,7 +220,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="0 / 7 Days Completed"
+                                android:text="@string/days_completed_placeholder"
                                 android:textColor="@color/text_gray"
                                 android:textSize="12sp" />
 
@@ -242,7 +242,7 @@
                             android:clickable="true"
                             android:focusable="true"
                             android:gravity="center_vertical"
-                            android:text="View Plan ›"
+                            android:text="@string/view_plan_btn"
                             android:textColor="@color/white"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -262,7 +262,7 @@
         android:layout_height="64dp"
         android:layout_margin="16dp"
         android:background="@drawable/bg_yoga_button"
-        android:text="Start Workout"
+        android:text="@string/start_workout"
         android:textAllCaps="false"
         android:textSize="20sp"
         android:textStyle="bold"

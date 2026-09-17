@@ -47,7 +47,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_toEndOf="@id/btn_back"
-                    android:text="Meal Reminders"
+                    android:text="@string/meal_schedule"
                     android:textColor="@color/white"
                     android:textSize="28sp"
                     android:textStyle="bold" />
@@ -87,7 +87,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:layout_marginTop="24dp"
-                android:text="+ Add New Reminder"
+                android:text="@string/add_new_meal"
                 android:textAllCaps="false"
                 android:textSize="16sp"
                 android:textStyle="bold"

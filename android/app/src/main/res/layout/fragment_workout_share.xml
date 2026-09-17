@@ -20,7 +20,7 @@
             android:layout_height="?attr/actionBarSize"
             app:navigationIcon="@drawable/ic_back"
             app:navigationIconTint="@color/text_white"
-            app:title="Share Studio"
+            app:title="@string/share_studio"
             app:titleTextColor="@color/text_white" />
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -41,7 +41,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Live Preview"
+                android:text="@string/live_preview"
                 android:textColor="@color/text_white"
                 android:textSize="14sp"
                 android:textStyle="bold"
@@ -66,7 +66,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Select Background"
+                android:text="@string/select_background"
                 android:textColor="@color/text_white"
                 android:textSize="14sp"
                 android:textStyle="bold"
@@ -85,7 +85,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Custom Styling"
+                android:text="@string/custom_styling"
                 android:textColor="@color/text_white"
                 android:textSize="14sp"
                 android:textStyle="bold"
@@ -108,44 +108,44 @@
                         style="@style/Widget.Material3.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Bg Start"
+                        android:text="@string/bg_start"
                         android:checked="true"/>
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chipTargetBgEnd"
                         style="@style/Widget.Material3.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Bg End" />
+                        android:text="@string/bg_end" />
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chipTargetTitle"
                         style="@style/Widget.Material3.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Title Color" />
+                        android:text="@string/title_color" />
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chipTargetQuote"
                         style="@style/Widget.Material3.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Quote Color" />
+                        android:text="@string/quote_color" />
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chipTargetBrand"
                         style="@style/Widget.Material3.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Brand Color" />
+                        android:text="@string/brand_color" />
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chipTargetUserName"
                         style="@style/Widget.Material3.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="User Name Color" />
+                        android:text="@string/user_name_color" />
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chipTargetStats"
                         style="@style/Widget.Material3.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Stats Color" />
+                        android:text="@string/stats_color" />
                 </com.google.android.material.chip.ChipGroup>
             </HorizontalScrollView>
 
@@ -162,7 +162,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Select Theme"
+                android:text="@string/select_theme"
                 android:textColor="@color/text_white"
                 android:textSize="14sp"
                 android:textStyle="bold"
@@ -181,7 +181,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Show/Hide Details"
+                android:text="@string/show_hide_details"
                 android:textColor="@color/text_white"
                 android:textSize="14sp"
                 android:textStyle="bold"
@@ -200,7 +200,7 @@
                     style="@style/Widget.Material3.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Steps"
+                    android:text="@string/steps"
                     android:checked="true" />
 
                 <com.google.android.material.chip.Chip
@@ -208,7 +208,7 @@
                     style="@style/Widget.Material3.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Distance"
+                    android:text="@string/distance"
                     android:checked="true" />
 
                 <com.google.android.material.chip.Chip
@@ -216,7 +216,7 @@
                     style="@style/Widget.Material3.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Calories"
+                    android:text="@string/burned"
                     android:checked="true" />
 
                 <com.google.android.material.chip.Chip
@@ -224,7 +224,7 @@
                     style="@style/Widget.Material3.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Heart Rate"
+                    android:text="@string/heart_rate"
                     android:checked="true" />
 
                 <com.google.android.material.chip.Chip
@@ -232,7 +232,7 @@
                     style="@style/Widget.Material3.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Quote"
+                    android:text="@string/quote"
                     android:checked="true" />
 
                 <com.google.android.material.chip.Chip
@@ -240,7 +240,7 @@
                     style="@style/Widget.Material3.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Profile"
+                    android:text="@string/nav_profile"
                     android:checked="true" />
             </com.google.android.material.chip.ChipGroup>
 
@@ -249,7 +249,7 @@
                 style="@style/Widget.Material3.Button.TextButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Refresh Quote"
+                android:text="@string/refresh_quote"
                 android:textColor="@color/accent_purple"
                 android:layout_marginTop="8dp"/>
 
@@ -269,7 +269,7 @@
             android:id="@+id/btnExportShare"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:text="Export &amp; Share"
+            android:text="@string/export_share"
             android:textSize="16sp"
             android:textStyle="bold"
             app:cornerRadius="12dp"

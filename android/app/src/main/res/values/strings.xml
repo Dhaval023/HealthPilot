@@ -11,5 +11,713 @@
     <string name="select_work_style">Select Work Style</string>
     <string name="select_workout">Select Workout</string>
     <string name="walking">Walking</string>
-    <!-- 80f557f184121e91e4895ade6a030412 -->
+    <string name="running">Running</string>
+    <string name="cycling">Cycling</string>
+    <string name="yoga">Yoga</string>
+
+    <!-- UI Components -->
+    <string name="nav_home">Home</string>
+    <string name="nav_health">Health</string>
+    <string name="nav_report">Report</string>
+    <string name="nav_goal">Goal</string>
+    <string name="nav_profile">Profile</string>
+    <string name="hello_user">Hello User !</string>
+    <string name="hello_name">Hello %1$s !</string>
+    <string name="disconnected">Disconnected</string>
+    <string name="connect">Connect</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="today">Today</string>
+    <string name="remaining_cal">Remaining Cal</string>
+    <string name="total_gain">Total Gain</string>
+    <string name="total_burn">Total Burn</string>
+    <string name="heart_rate">HEART RATE</string>
+    <string name="bpm">BPM</string>
+    <string name="steps">STEPS</string>
+    <string name="burned">BURNED</string>
+    <string name="kcal">KCAL</string>
+    <string name="distance">DISTANCE</string>
+    <string name="km">KM</string>
+    <string name="spo2">SPO2</string>
+    <string name="intake">INTAKE</string>
+    <string name="water">WATER</string>
+    <string name="protein">Protein</string>
+    <string name="carbs">Carbs</string>
+    <string name="fats">Fats</string>
+    <string name="searching_devices">SEARCHING FOR DEVICES...</string>
+    <string name="got_it">GOT IT</string>
+
+    <!-- Health Goals -->
+    <string name="daily_goals">Daily Goals</string>
+    <string name="weekly_goals">Weekly Goals</string>
+    <string name="save_goals">Save Goals</string>
+    <string name="weight_loss_goal">Weight Loss Goal</string>
+    <string name="current_weight">Current Weight</string>
+    <string name="target_weight">Target Weight (kg)</string>
+    <string name="remaining">Remaining</string>
+    <string name="progress">Progress</string>
+    <string name="add_food">Add Food</string>
+    <string name="water_intake">Water Intake</string>
+
+    <!-- Workout Tracking -->
+    <string name="duration">Duration</string>
+    <string name="workout_history">Workout History</string>
+    <string name="workout_plan">Workout Plan</string>
+    <string name="start_workout_btn">Start %1$s</string>
+
+    <!-- AI Chat -->
+    <string name="ved_welcome">Hello! I\'m Ved, your AI health assistant. How can I help you today?</string>
+    <string name="listening">Listening...</string>
+    <string name="speaking">Speaking...</string>
+    <string name="ready_to_chat">Ready to chat..</string>
+
+    <!-- Profile & Auth -->
+    <string name="welcome_back">Welcome Back</string>
+    <string name="change_profile_pic">Change Profile Picture</string>
+    <string name="logout">Logout</string>
+    <string name="logout_confirm">Are you sure you want to logout?</string>
+    <string name="cancel">Cancel</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="login_subtitle">Sign in to continue your fitness journey</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="btn_login">Login</string>
+    <string name="forgot_password_title">Forgot Password?</string>
+    <string name="text_or">OR</string>
+    <string name="dont_have_account">Don\'t have an account? Sign Up</string>
+    <string name="reset_password_title">Reset Password</string>
+    <string name="reset_password_subtitle">Enter your email address to receive a password reset link</string>
+    <string name="btn_send_reset_link">Send Reset Link</string>
+    <string name="create_account_title">Create Account</string>
+    <string name="signup_step1_subtitle">Step 1: Basic Information</string>
+    <string name="hint_full_name">Full Name</string>
+    <string name="hint_email_address">Email Address</string>
+    <string name="hint_phone_number">Phone Number</string>
+    <string name="btn_verify_email">Verify Email</string>
+    <string name="btn_next_step">Next Step</string>
+    <string name="already_have_account">Already have an account? Sign In</string>
+    <string name="login_error_title">Login Error</string>
+    <string name="please_fill_fields">Please fill all fields</string>
+    <string name="reminder_added">Reminder Added!</string>
+
+    <!-- Reminders -->
+    <string name="daily_wellness">Daily Wellness</string>
+    <string name="meal_schedule">Meal Schedule</string>
+    <string name="add_new_meal">Add New Meal</string>
+    <string name="turn_off_reminder">Turn Off Reminder</string>
+    <string name="turn_on_reminder">Turn On Reminder</string>
+
+    <!-- Settings and Localization Strings -->
+    <string name="settings">Settings</string>
+    <string name="goal_type">GOAL TYPE</string>
+    <string name="weight_gain">Weight Gain 💪</string>
+    <string name="weight_loss">Weight Loss 🔥</string>
+    <string name="notifications">NOTIFICATIONS</string>
+    <string name="alarm_sound">Alarm Sound</string>
+    <string name="ai_assistant">AI ASSISTANT</string>
+    <string name="female_voice">Female Voice</string>
+    <string name="male_voice">Male Voice</string>
+    <string name="language">LANGUAGE</string>
+    <string name="select_language">Select Language</string>
+
+    <!-- Onboarding Buttons -->
+    <string name="btn_skip">Skip</string>
+    <string name="btn_back">Back</string>
+    <string name="btn_next">Next</string>
+    <string name="btn_finish">Start Exploring</string>
+
+    <!-- SignUp Step 2 and 3 -->
+    <string name="finish_signup">Finish Signup</string>
+    <string name="step2_title">Step 2: Physical Metrics</string>
+    <string name="select_gender">Select Gender</string>
+    <string name="gender_male">Male</string>
+    <string name="gender_female">Female</string>
+    <string name="gender_other">Other</string>
+    <string name="hint_dob">Date of Birth</string>
+    <string name="hint_height">Height (cm)</string>
+    <string name="hint_weight">Weight (kg)</string>
+    <string name="hint_age">Calculated Age</string>
+    <string name="step3_title">Step 3: Lifestyle &amp; Routine</string>
+    <string name="hint_wake_time">Wake-up Time</string>
+    <string name="hint_sleep_time">Sleep Time</string>
+    <string name="hint_work_style">Work Style</string>
+    <string name="hint_work_start">Work Start</string>
+    <string name="hint_work_end">Work End</string>
+    <string name="hint_screen_time">Daily Screen Time (hours)</string>
+
+    <!-- Verification and Dialogs -->
+    <string name="email_sent_msg">Email Sent! Check Inbox/Spam</string>
+    <string name="logout_title">Logout</string>
+
+    <!-- Onboarding Steps -->
+    <string name="onboarding_title_1">Welcome to HealthPilot</string>
+    <string name="onboarding_desc_1">Your comprehensive fitness journey starts here. Track your daily summary and goals at a glance.</string>
+    <string name="onboarding_title_2">Connect Smart Watch</string>
+    <string name="onboarding_desc_2">Sync your steps, heart rate, SpO2, and more automatically by connecting your watch and after connect try to move for accurate data.</string>
+    <string name="onboarding_title_3">Workouts</string>
+    <string name="onboarding_desc_3">Choose from various workouts and track your real-time statistics with your watch or phone pedometer.</string>
+    <string name="onboarding_title_4">Health &amp; Nutrition</string>
+    <string name="onboarding_desc_4">Set your weight goals (gain/loss), log your meals, and track macros like Protein, Carbs, and Fats to reach your target.</string>
+    <string name="onboarding_title_5">Meal Reminder</string>
+    <string name="onboarding_desc_5">Stay on track by scheduling meal reminders and viewing your daily wellness goals.</string>
+    <string name="onboarding_title_6">Daily Wellness</string>
+    <string name="onboarding_desc_6">Monitor your mood, water intake, and daily habits to maintain a healthy lifestyle.</string>
+    <string name="onboarding_title_7">Progress &amp; Reports</string>
+    <string name="onboarding_desc_7">View detailed reports of your activity, workout history, and health achievements over time.</string>
+    <string name="onboarding_title_8">Target &amp; BMI</string>
+    <string name="onboarding_desc_8">Monitor your BMI, set your targeted daily steps and calories, and track your weekly fitness achievements.</string>
+    <string name="onboarding_title_9">Meet Ved - Your AI Assistant</string>
+    <string name="onboarding_desc_9">Hi! I\'m Ved, your personal AI fitness companion. Ask me anything about workouts, nutrition, or health tips anytime!</string>
+    <string name="onboarding_title_10">Personal Profile</string>
+    <string name="onboarding_desc_10">Customize your profile, adjust settings, and manage your connected devices.</string>
+    <string name="onboarding_title_11">All Set!</string>
+    <string name="onboarding_desc_11">🎉 You\'re all set! Start your fitness journey and achieve your goals with HealthPilot.</string>
+    <string name="english">English</string>
+    <string name="hindi">Hindi (हिंदी)</string>
+    <string name="gujarati">Gujarati (ગુજરાતી)</string>
+    <string name="sleep">Sleep</string>
+    <string name="hrs">hrs</string>
+    <string name="sleep_history">Sleep History</string>
+    <string name="sleep_time">Sleep Time</string>
+    <string name="health_reports">Health Reports</string>
+    <string name="this_week">This Week</string>
+    <string name="body_mass_index">Body Mass Index (BMI)</string>
+    <string name="calculate">Calculate</string>
+    <string name="normal">Normal</string>
+    <string name="healthy_weight_range">Healthy weight range</string>
+    <string name="underweight">Underweight</string>
+    <string name="overweight">Overweight</string>
+    <string name="obese">Obese</string>
+    <string name="eat_goal">Eat Goal</string>
+    <string name="burn_goal">Burn Goal</string>
+    <string name="target_calories">Target Calories</string>
+    <string name="distance_km">Distance (km)</string>
+    <string name="todays_progress">Today\'s Progress</string>
+    <string name="get_ready">Get Ready...</string>
+    <string name="profile_header">Profile</string>
+    <string name="based_on_profile">Based on your profile and activity level</string>
+
+    <!-- Side Menu / Navigation Drawer Strings -->
+    <string name="drawer_home">HOME</string>
+    <string name="drawer_medical_help">MEDICAL HELP</string>
+    <string name="drawer_start_workout">START WORKOUT</string>
+    <string name="drawer_report">REPORT</string>
+    <string name="drawer_daily_goals">DAILY GOALS</string>
+    <string name="drawer_health_goal">HEALTH GOAL</string>
+    <string name="drawer_meal_reminder">MEAL REMINDER AND SCHEDULE</string>
+    <string name="drawer_daily_wellness">DAILY WELLNESS</string>
+    <string name="drawer_profile">PROFILE</string>
+    <string name="drawer_settings">SETTINGS</string>
+    <string name="drawer_logout">LOGOUT</string>
+
+    <!-- Workouts List Strings -->
+    <string name="badminton">Badminton</string>
+    <string name="swimming">Swimming</string>
+    <string name="dancing">Dancing</string>
+    <string name="aerobics">Aerobics</string>
+    <string name="football">Football</string>
+    <string name="hockey">Hockey</string>
+    <string name="cricket">Cricket</string>
+    <string name="kabaddi">Kabaddi</string>
+    <string name="indoor_running">Indoor Running</string>
+    <string name="zumba">Zumba</string>
+    <string name="sit_ups">Sit-Ups</string>
+    <string name="weightlifting">Weightlifting</string>
+    <string name="boxing">Boxing</string>
+    <string name="wrestling">Wrestling</string>
+    <string name="basketball">Basketball</string>
+    <string name="tennis">Tennis</string>
+    <string name="volleyball">Volleyball</string>
+
+    <!-- Workout History & Share Strings -->
+    <string name="share_studio">Share Studio</string>
+    <string name="live_preview">Live Preview</string>
+    <string name="select_background">Select Background</string>
+    <string name="custom_styling">Custom Styling</string>
+    <string name="select_theme">Select Theme</string>
+    <string name="show_hide_details">Show/Hide Details</string>
+    <string name="export_share">Export &amp; Share</string>
+    <string name="duration_min">DURATION (MIN)</string>
+    <string name="steps_caps">STEPS</string>
+    <string name="calories_caps">CALORIES</string>
+    <string name="avg_hr_bpm">AVG HR (BPM)</string>
+    <string name="goal_completed">GOAL COMPLETED</string>
+    <string name="no_workouts">No workouts recorded on this day</string>
+
+    <!-- Profile & Detail Strings -->
+    <string name="age">Age</string>
+    <string name="gender">Gender</string>
+    <string name="height">Height</string>
+    <string name="weight">Weight</string>
+    <string name="information">Information</string>
+    <string name="schedule">Schedule</string>
+    <string name="work_style">Work Style</string>
+    <string name="mostly_sitting">Mostly Sitting</string>
+    <string name="mostly_standing">Mostly Standing</string>
+    <string name="active">Active</string>
+    <string name="very_active">Very Active</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="work_hours_screen">Work Hours &amp; Screen</string>
+    <string name="hrs_screen">%1$d hrs screen</string>
+    <string name="no_watch_connected">No Watch Connected</string>
+    <string name="current_session">Current Session</string>
+    <string name="live">LIVE</string>
+    <string name="unit_km">%1$.2f km</string>
+    <string name="unit_kcal">%1$.0f kcal</string>
+    <string name="unit_min">%1$d min</string>
+    <string name="unit_sec">%1$d sec</string>
+    <string name="bg_start">Bg Start</string>
+    <string name="bg_end">Bg End</string>
+    <string name="title_color">Title Color</string>
+    <string name="quote_color">Quote Color</string>
+    <string name="brand_color">Brand Color</string>
+    <string name="user_name_color">User Name Color</string>
+    <string name="stats_color">Stats Color</string>
+    <string name="refresh_quote">Refresh Quote</string>
+    <string name="quote">Quote</string>
+    <string name="quote_1">Discipline beats motivation.</string>
+    <string name="quote_2">Every step counts.</string>
+    <string name="quote_3">Consistency creates champions.</string>
+    <string name="quote_4">The body achieves what the mind believes.</string>
+    <string name="quote_5">Push yourself because no one else will.</string>
+    <string name="quote_6">Progress is progress.</string>
+    <string name="quote_7">Sweat is just fat crying.</string>
+    <string name="quote_8">Don\'t stop when you\'re tired. Stop when you\'re done.</string>
+
+    <!-- Additional Missing Strings -->
+    <string name="full_name">Full Name</string>
+    <string name="email_address">Email Address</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="height_cm">Height (cm)</string>
+    <string name="weight_kg">Weight (kg)</string>
+    <string name="date_of_birth">Date of Birth</string>
+    <string name="daily_wellness_settings">Daily Wellness Settings</string>
+    <string name="wake_up_time">Wake-up Time</string>
+    <string name="work_start">Work Start</string>
+    <string name="work_end">Work End</string>
+    <string name="daily_screen_time">Daily Screen Time (hrs)</string>
+    <string name="steps_history">Steps History</string>
+    <string name="distance_history">Distance History</string>
+    <string name="heart_rate_history">Heart Rate History</string>
+    <string name="calories_history">Calories History</string>
+    <string name="weight_progress">Weight Progress</string>
+    <string name="health_goal_progress">Health Goal Progress</string>
+    <string name="seven_day_overview">7-Day overview</string>
+    <string name="total">Total</string>
+    <string name="most_active">Most active</string>
+    <string name="least_active">Least active</string>
+    <string name="set_target">Set Target</string>
+    <string name="weight_gain_goal">Weight Gain Goal</string>
+    <string name="on_track">On Track</string>
+    <string name="behind_schedule">Behind Schedule</string>
+    <string name="ahead_of_schedule">Ahead of Schedule</string>
+    <string name="target_duration">Target Duration</string>
+    <string name="view_more">View More</string>
+    <string name="search_food_hint">Search food to add...</string>
+    <string name="custom">Custom</string>
+    <string name="meal">Meal</string>
+    <string name="recent_food">Recent Food</string>
+    <string name="p_label">P</string>
+    <string name="c_label">C</string>
+    <string name="f_label">F</string>
+    <string name="change_password">Change Password</string>
+    <string name="save_profile">Save Profile</string>
+    <string name="health_goals">Health Goals</string>
+    <string name="recalculating">Recalculating...</string>
+    <string name="weeks">Weeks</string>
+    <string name="add_meal_or_food">Add Meal or Food</string>
+    <string name="todays_logged_food">Today\'s Logged Food</string>
+    <string name="total_calories">Total Calories</string>
+    <string name="total_items">Total Items</string>
+    <string name="items_count">%1$d Items</string>
+    <string name="watch">Watch</string>
+    <string name="goal_count">Goal: %1$s</string>
+    <string name="streaks">Streaks</string>
+    <string name="days_count">%1$d Days</string>
+    <string name="keep_it_up">Keep it up!</string>
+    <string name="of_goal">%1$d%% of goal</string>
+    <string name="show_less">Show Less</string>
+    <string name="food_macros_format">%1$d %2$s | %3$s: %4$.1fg | %5$s: %6$.1fg | %7$s: %8$.1fg</string>
+    <string name="weight_entry">Weight Entry</string>
+    <string name="goal_updated">Goal Updated!</string>
+    <string name="weights_updated">Weights Updated!</string>
+    <string name="enter_valid_weight">Please enter a valid weight</string>
+    <string name="added_water">Added %1$s water</string>
+    <string name="removed_water">Removed %1$s water</string>
+    <string name="total_label">Total</string>
+    <string name="value_unit_format">%1$s %2$s</string>
+    <string name="todays_overview">Today\'s overview</string>
+    <string name="thirty_day_overview">30-Day overview</string>
+    <string name="overview">Overview</string>
+    <string name="k_steps_format">%1$.1fK %2$s</string>
+    <string name="wellness_subtitle">Your personalized health timeline</string>
+    <string name="refresh">Refresh</string>
+    <string name="wellness_profile">Wellness Profile</string>
+    <string name="active_range">Active Range</string>
+    <string name="work_meta">Work Meta</string>
+    <string name="edit_wellness_settings">Edit Wellness Settings</string>
+    <string name="wake_up">Wake-up</string>
+    <string name="screen_time_hrs">Screen Time (hrs)</string>
+    <string name="save_and_refresh">Save &amp; Refresh</string>
+    <string name="wellness_timeline">Daily Wellness Timeline</string>
+    <string name="schedule_refreshed">Schedule Refreshed</string>
+    <string name="settings_updated_refreshed">Settings Updated &amp; Schedule Refreshed</string>
+    <string name="select_work_style_dialog">Select Work Style</string>
+    <string name="turn_off">Turn Off</string>
+    <string name="turn_on">Turn On</string>
+    <string name="change_time">Change Time</string>
+    <string name="remove">Remove</string>
+    <string name="history_details_format">%1$d %2$s • %3$.2f %4$s</string>
+    <string name="mins">mins</string>
+    <string name="custom_food_entry">Custom Food Entry</string>
+    <string name="manual_food_subtitle">Enter nutritional details manually</string>
+    <string name="meal_category">Meal Category</string>
+    <string name="select_category">Select Category</string>
+    <string name="food_name">Food Name</string>
+    <string name="food_name_hint">e.g., Vadapav</string>
+    <string name="calories_kcal">Calories (kcal)</string>
+    <string name="enter_calories">Enter calories</string>
+    <string name="protein_g">Protein (g)</string>
+    <string name="carbs_g">Carbs (g)</string>
+    <string name="fat_g">Fat (g)</string>
+    <string name="save_custom_food">Save Custom Food</string>
+    <string name="complete_signup">Complete Signup</string>
+    <string name="signup_error">Sign Up Error</string>
+    <string name="goal_title_format">%1$s Goal</string>
+    <string name="workout_summary">Workout Summary</string>
+    <string name="take_photo">Take Photo</string>
+    <string name="choose_gallery">Choose from Gallery</string>
+    <string name="profile_updated">Profile Updated</string>
+
+    <!-- Workout Intro & Plan Strings -->
+    <string name="get_ready_ellipsis">Get Ready...</string>
+    <string name="today_session">TODAY\'S SESSION</string>
+    <string name="view_plan_btn">View Plan ›</string>
+    <string name="days_completed">%1$d / %2$d Days Completed</string>
+    <string name="days_completed_placeholder">0 / 7 Days Completed</string>
+    <string name="exercise_list">Exercise List</string>
+    <string name="tips_label">Tips</string>
+    <string name="min_unit">%1$d Min</string>
+    <string name="duration_label">Duration: %1$s</string>
+
+    <!-- Workout Themes (Subtitles, Session Titles, Descriptions) -->
+    <string name="sub_running">Get Ready...</string>
+    <string name="session_morning_run">Morning Run</string>
+    <string name="desc_morning_run">Enjoy the fresh air and keep a steady pace.</string>
+
+    <string name="sub_indoor_running">Run anytime, rain or shine.</string>
+    <string name="session_treadmill">Treadmill Session</string>
+    <string name="desc_treadmill">Focus on your pace and breathing.</string>
+
+    <string name="session_evening_walk">Evening Walk</string>
+    <string name="desc_evening_walk">Refresh your mind with a peaceful walk.</string>
+    <string name="sub_walking">Get Ready...</string>
+    <string name="session_outdoor_ride">Outdoor Ride</string>
+    <string name="desc_outdoor_ride">Challenge yourself and improve your fitness.</string>
+    <string name="sub_cycling">Get Ready...</string>
+
+    <!-- Benefits -->
+    <string name="benefit_improve">Improve</string>
+    <string name="benefit_endurance">Endurance</string>
+    <string name="benefit_burn">Burn</string>
+    <string name="benefit_fat">Fat</string>
+    <string name="benefit_strong">Strong</string>
+    <string name="benefit_heart">Heart</string>
+    <string name="benefit_boost">Boost</string>
+    <string name="benefit_stamina">Stamina</string>
+
+    <!-- Exercises & Tips -->
+    <string name="ex_dynamic_warmup">Dynamic Warm-up</string>
+    <string name="ex_prepare_muscles">Prepare muscles</string>
+    <string name="ex_easy_run">Easy Run</string>
+    <string name="ex_steady_jogging">Steady jogging pace</string>
+    <string name="ex_sprint_intervals">Sprint Intervals</string>
+    <string name="ex_improve_speed">Improve speed</string>
+    <string name="ex_cooldown_jog">Cool-down Jog</string>
+    <string name="ex_recover_gradually">Recover gradually</string>
+
+    <string name="tips_running">• Wear proper running shoes\n• Land softly on your feet\n• Keep a steady breathing rhythm\n• Warm up before running</string>
+    <string name="tips_walking">• Wear comfortable walking shoes\n• Keep your posture upright\n• Swing your arms naturally\n• Stay hydrated</string>
+    <string name="tips_cycling">• Wear a helmet\n• Maintain a steady cadence\n• Stay hydrated\n• Wear proper gear</string>
+    <string name="tips_general">• Warm up before exercising\n• Wear comfortable clothing\n• Stay hydrated\n• Cool down after your workout</string>
+
+    <!-- Plan Titles -->
+    <string name="plan_title_format">%1$s Plan</string>
+
+    <string name="please_complete_profile">Please complete your profile first.</string>
+    <string name="fill_all_fields">Please fill all fields to continue.</string>
+    <string name="mixed_activity">Mixed Activity</string>
+    <string name="heavy_physical_work">Heavy Physical Work</string>
+    <string name="driving">Driving</string>
+    <string name="home_and_care">Home &amp; Care</string>
+
+    <!-- AI & Chat -->
+    <string name="ai_greeting_format">Hello! I\'m %1$s, your AI health assistant. How can I help you today?</string>
+    <string name="no_internet_error">No internet connection. Please check your settings.</string>
+    <string name="speech_error_format">Speech Error: %1$s</string>
+    <string name="speech_not_available">Speech recognition is not available on this device.</string>
+    <string name="speech_start_error">Unable to start speech recognition.</string>
+
+    <!-- Medical Help -->
+    <string name="symptoms_question">What symptoms are you experiencing?</string>
+    <string name="symptoms_subtitle">Describe what you\'re feeling in your own words.</string>
+    <string name="step_initial_complaint">Step 1: Initial Complaint</string>
+    <string name="enter_symptoms_error">Please enter your symptoms</string>
+    <string name="select_option_error">Please select an option</string>
+    <string name="specify_other_error">Please specify your input for \'Other\'</string>
+    <string name="enter_answer_error">Please enter an answer</string>
+    <string name="emergency_alert_title">🚨 EMERGENCY ALERT</string>
+    <string name="emergency_alert_msg">Your symptoms indicate a potentially severe or life-threatening situation. Please seek professional emergency medical care immediately or call your local emergency number (e.g., 911).</string>
+    <string name="i_understand">I Understand</string>
+    <string name="cancel_assessment_title">Cancel Assessment?</string>
+    <string name="cancel_assessment_msg">Are you sure you want to exit the assessment? Your progress will not be saved.</string>
+    <string name="exit">Exit</string>
+    <string name="resume">Resume</string>
+    <string name="type_response_hint">Type your response here...</string>
+    <string name="select_option_subtitle">Select an option below.</string>
+    <string name="type_response_subtitle">Type your response below.</string>
+    <string name="question_number_format">Question %1$d</string>
+    <string name="reminder_title_format">%1$s Reminder</string>
+    <string name="reminder_message_format">Time for your %1$s!</string>
+    <string name="reminder_water_msg">Stay hydrated! Drink some water. 💧</string>
+    <string name="reminder_stand_up_msg">Time to stand up and stretch! 🧘</string>
+    <string name="reminder_walk_msg">How about a 5-min walk? 🚶</string>
+    <string name="reminder_eye_exercise_msg">Rest your eyes, look away! 👀</string>
+    <string name="reminder_stretch_msg">Neck and shoulder stretch time! 💆‍♂️</string>
+    <string name="reminder_sit_break_msg">Give your feet a rest! 🪑</string>
+    <string name="reminder_leg_stretch_msg">Stretch those tired legs! 🦵</string>
+    <string name="reminder_foot_relaxation_msg">Rotate your ankles! 🦶</string>
+    <string name="reminder_deep_breathing_msg">Take 3 deep breaths. 🌬️</string>
+    <string name="reminder_rest_msg">Time for a quick recovery. ☕</string>
+    <string name="reminder_nutrition_msg">Fuel up with a healthy snack! 🍎</string>
+    <string name="reminder_safe_break_msg">Stop, stretch, and hydrate! ⛽</string>
+    <string name="reminder_eye_relaxation_msg">Focus on the horizon for a bit. 🛣️</string>
+    <string name="reminder_posture_msg">Check your back and posture! ✨</string>
+    <string name="reminder_relaxation_msg">You\'re doing great, take a breath! 🌸</string>
+    <string name="reminder_stretching_msg">A quick stretch to stay limber! 🧘‍♀️</string>
+    <string name="reminder_exercise_msg">Time for your workout!</string>
+    <string name="reminder_sleep_prep_msg">Time to wind down for sleep. 🌙</string>
+
+    <string name="type_water">Water</string>
+    <string name="type_stand_up">Stand Up</string>
+    <string name="type_walk">Walk</string>
+    <string name="type_eye_exercise">Eye Exercise</string>
+    <string name="type_stretch">Stretch</string>
+    <string name="type_sit_break">Sit Break</string>
+    <string name="type_leg_stretch">Leg Stretch</string>
+    <string name="type_foot_relaxation">Foot Relaxation</string>
+    <string name="type_deep_breathing">Deep Breathing</string>
+    <string name="type_rest">Rest</string>
+    <string name="type_nutrition">Nutrition</string>
+    <string name="type_safe_break">Safe Break</string>
+    <string name="type_eye_relaxation">Eye Relaxation</string>
+    <string name="type_posture">Posture</string>
+    <string name="type_relaxation">Relaxation</string>
+    <string name="type_stretching">Stretching</string>
+    <string name="type_exercise">Exercise</string>
+    <string name="type_sleep_prep">Sleep Preparation</string>
+
+    <!-- Food & Meals -->
+    <string name="breakfast">Breakfast</string>
+    <string name="lunch">Lunch</string>
+    <string name="dinner">Dinner</string>
+    <string name="snacks">Snacks</string>
+    <string name="food_added_success">%1$s added successfully!</string>
+    <string name="enter_name_cal_error">Please enter name and calories</string>
+    <string name="min">min</string>
+
+    <!-- Workout Exercises -->
+    <string name="ex_warm_up">Warm-up</string>
+    <string name="ex_warm_up_walk">Warm-up Walk</string>
+    <string name="ex_brisk_walking">Brisk Walking</string>
+    <string name="ex_incline_walk">Incline Walk</string>
+    <string name="ex_cool_down_walk">Cool-down Walk</string>
+    <string name="ex_easy_pedaling">Easy Pedaling</string>
+    <string name="ex_warm_up_legs">Warm up legs</string>
+    <string name="ex_improve_endurance">Improve endurance</string>
+    <string name="ex_build_leg_strength">Build leg strength</string>
+    <string name="ex_high_cadence_ride">High Cadence Ride</string>
+    <string name="ex_hill_climb">Hill Climb</string>
+    <string name="ex_recovery_ride">Recovery Ride</string>
+    <string name="ex_jump_rope">Jump Rope</string>
+    <string name="ex_warm_up_body">Warm up body</string>
+    <string name="ex_technique_practice">Technique practice</string>
+    <string name="ex_power_punches">Power punches</string>
+    <string name="ex_improve_coordination">Improve coordination</string>
+    <string name="ex_shadow_boxing">Shadow Boxing</string>
+    <string name="ex_heavy_bag">Heavy Bag</string>
+    <string name="ex_speed_bag">Speed Bag</string>
+    <string name="ex_warm_up_laps">Warm-up Laps</string>
+    <string name="ex_freestyle">Freestyle</string>
+    <string name="ex_breaststroke">Breaststroke</string>
+    <string name="ex_cool_down">Cool-down</string>
+    <string name="ex_footwork_drill">Footwork Drill</string>
+    <string name="ex_smash_practice">Smash Practice</string>
+    <string name="ex_net_play">Net Play</string>
+    <string name="ex_match_rally">Match Rally</string>
+    <string name="ex_forehand_drill">Forehand Drill</string>
+    <string name="ex_backhand_drill">Backhand Drill</string>
+    <string name="ex_serve_practice">Serve Practice</string>
+    <string name="ex_warm_up_jog">Warm-up Jog</string>
+    <string name="ex_warm_up_run">Warm-up Run</string>
+    <string name="ex_dribbling_drill">Dribbling Drill</string>
+    <string name="ex_passing_drill">Passing Drill</string>
+    <string name="ex_shooting_practice">Shooting Practice</string>
+    <string name="ex_stick_handling">Stick Handling</string>
+    <string name="ex_goal_shooting">Goal Shooting</string>
+    <string name="ex_layup_drill">Layup Drill</string>
+    <string name="ex_warm_up_dance">Warm-up Dance</string>
+    <string name="ex_cardio_routine">Cardio Routine</string>
+    <string name="ex_dance_combo">Dance Combo</string>
+    <string name="ex_stretch_relax">Stretch &amp; Relax</string>
+    <string name="ex_high_knees">High Knees</string>
+    <string name="ex_jumping_jacks">Jumping Jacks</string>
+    <string name="ex_cool_down_stretch">Cool-down Stretch</string>
+    <string name="ex_warm_up_set">Warm-up Set</string>
+    <string name="ex_squats">Squats</string>
+    <string name="ex_bench_press">Bench Press</string>
+    <string name="ex_deadlift">Deadlift</string>
+    <string name="ex_plank">Plank</string>
+    <string name="ex_russian_twists">Russian Twists</string>
+    <string name="ex_leg_raises">Leg Raises</string>
+    <string name="ex_setting_drill">Setting Drill</string>
+    <string name="ex_spike_practice">Spike Practice</string>
+    <string name="ex_batting_practice">Batting Practice</string>
+    <string name="ex_bowling_drills">Bowling Drills</string>
+    <string name="ex_fielding_practice">Fielding Practice</string>
+    <string name="ex_sprint_runs">Sprint Runs</string>
+    <string name="ex_raid_practice">Raid Practice</string>
+    <string name="ex_defensive_holds">Defensive Holds</string>
+    <string name="ex_agility_drills">Agility Drills</string>
+    <string name="ex_breath_work">Breath Work</string>
+    <string name="ex_warm_up_stretches">Warm-up Stretches</string>
+    <string name="ex_main_flow">Main Flow</string>
+
+    <!-- Exercise Descriptions -->
+    <string name="ex_desc_slow_walking">Slow walking to loosen muscles</string>
+    <string name="ex_desc_increase_pace">Increase pace for cardio</string>
+    <string name="ex_desc_boost_endurance">Boost endurance</string>
+    <string name="ex_desc_reduce_hr">Reduce heart rate</string>
+    <string name="ex_desc_warm_up_legs">Warm up legs</string>
+    <string name="ex_desc_improve_endurance">Improve endurance</string>
+    <string name="ex_desc_build_leg_strength">Build leg strength</string>
+    <string name="ex_desc_warm_up_body">Warm up body</string>
+    <string name="ex_desc_technique_practice">Technique practice</string>
+    <string name="ex_desc_power_punches">Power punches</string>
+    <string name="ex_desc_improve_coordination">Improve coordination</string>
+    <string name="ex_desc_easy_freestyle">Easy freestyle</string>
+    <string name="ex_desc_main_cardio">Main cardio</string>
+    <string name="ex_desc_slow_swimming">Slow swimming</string>
+    <string name="ex_desc_quick_court_movement">Quick court movement</string>
+    <string name="ex_desc_power_shots">Power shots</string>
+    <string name="ex_desc_control_reflex">Control &amp; reflex</string>
+    <string name="ex_desc_continuous_play">Continuous play</string>
+    <string name="ex_desc_court_movement">Court movement</string>
+    <string name="ex_desc_consistency">Consistency</string>
+    <string name="ex_desc_shot_control">Shot control</string>
+    <string name="ex_desc_accuracy">Accuracy</string>
+    <string name="ex_desc_prepare_body">Prepare body</string>
+    <string name="ex_desc_prepare_muscles">Prepare muscles</string>
+    <string name="ex_desc_ball_control">Ball control</string>
+    <string name="ex_desc_passing_accuracy">Passing accuracy</string>
+    <string name="ex_desc_finishing_skills">Finishing skills</string>
+    <string name="ex_desc_increase_mobility">Increase mobility</string>
+    <string name="ex_desc_team_coordination">Team coordination</string>
+    <string name="ex_desc_ball_handling">Ball handling</string>
+    <string name="ex_desc_improve_accuracy">Improve accuracy</string>
+    <string name="ex_desc_finishing_practice">Finishing practice</string>
+    <string name="ex_desc_light_rhythm">Light rhythm</string>
+    <string name="ex_desc_burn_calories">Burn calories</string>
+    <string name="ex_desc_full_body_movement">Full body movement</string>
+    <string name="ex_desc_recovery">Recovery</string>
+    <string name="ex_desc_light_movement">Light movement</string>
+    <string name="ex_desc_cardio_exercise">Cardio exercise</string>
+    <string name="ex_desc_full_body_workout">Full body workout</string>
+    <string name="ex_desc_relax_muscles">Relax muscles</string>
+    <string name="ex_desc_light_weights">Light weights</string>
+    <string name="ex_desc_lower_body_strength">Lower body strength</string>
+    <string name="ex_desc_chest_strength">Chest strength</string>
+    <string name="ex_desc_full_body_strength">Full body strength</string>
+    <string name="ex_desc_core_stability">Core stability</string>
+    <string name="ex_desc_abdominal_strength">Abdominal strength</string>
+    <string name="ex_desc_oblique_muscles">Oblique muscles</string>
+    <string name="ex_desc_lower_abs">Lower abs</string>
+    <string name="ex_desc_jump_rope_footwork">Warm up &amp; footwork</string>
+    <string name="ex_desc_serving_accuracy">Serving accuracy</string>
+    <string name="ex_desc_accurate_sets">Accurate sets</string>
+    <string name="ex_desc_attack_power">Attack power</string>
+    <string name="ex_desc_cricket_warmup">Light jogging and dynamic stretching</string>
+    <string name="ex_desc_batting_control">Improve shot timing and control</string>
+    <string name="ex_desc_bowling_consistency">Work on accuracy and consistency</string>
+    <string name="ex_desc_fielding_reflex">Catching, throwing &amp; reflex training</string>
+    <string name="ex_desc_speed_wickets">Improve speed between wickets</string>
+    <string name="ex_desc_raid_agility">Improve agility and raiding techniques</string>
+    <string name="ex_desc_defensive_tackles">Practice ankle holds and tackles</string>
+    <string name="ex_desc_agility_drills">Enhance speed, balance, and quick direction changes</string>
+    <string name="ex_desc_explosive_speed">Build explosive speed and endurance</string>
+    <string name="ex_desc_focus_relax">Focus and relax</string>
+    <string name="ex_desc_loosen_up">Loosen up</string>
+    <string name="ex_desc_core_activity">Core activity</string>
+    <string name="ex_desc_relax_recover">Relax and recover</string>
+    <!-- Medical Home -->
+    <string name="medical_help_title">Medical Help</string>
+    <string name="medical_intro_text">Tell us what you\'re experiencing and HealthPilot will help you understand what to do next.</string>
+    <string name="medical_disclaimer">HealthPilot provides general health information and does not replace a doctor or emergency medical care.</string>
+    <string name="quick_categories">Quick Categories</string>
+    <string name="start_medical_assessment">Start Medical Assessment</string>
+
+    <!-- Medical Categories -->
+    <string name="cat_general_triage">General Triage</string>
+    <string name="cat_fever_cold">Fever &amp; Cold</string>
+    <string name="cat_stomach_digestion">Stomach &amp; Digestion</string>
+    <string name="cat_headache_neuro">Headache &amp; Neuro</string>
+    <string name="cat_muscle_joints">Muscle &amp; Joints</string>
+    <string name="cat_skin_rash">Skin &amp; Rash</string>
+
+    <!-- Medical Assessment -->
+    <string name="assessment_in_progress">Assessment in progress</string>
+    <string name="what_happened_question">What happened?</string>
+    <string name="symptoms_hint_example">Example: I have a headache since this morning and I feel slightly dizzy.</string>
+    <string name="info_being_used">Information being used</string>
+    <string name="user_stats_format">Age: %1$d | Weight: %2$s | Height: %3$s</string>
+    <string name="back">Back</string>
+    <string name="btn_continue">Continue</string>
+    <string name="loading_assessment">Understanding your symptoms...</string>
+    <string name="hint_type_symptoms">Describe your symptoms here...</string>
+
+    <!-- Medical Result -->
+    <string name="assessment_report_title">🩺 HealthPilot Assessment</string>
+    <string name="summary_label">Summary</string>
+    <string name="share_with_doctor">Share with Doctor</string>
+    <string name="done">Done</string>
+
+    <!-- Urgency Levels -->
+    <string name="urgency_emergency_title">EMERGENCY CARE REQUIRED</string>
+    <string name="urgency_emergency_desc">Seek immediate emergency medical attention.</string>
+    <string name="urgency_urgent_title">URGENT ATTENTION NEEDED</string>
+    <string name="urgency_urgent_desc">Consult a healthcare provider promptly.</string>
+    <string name="urgency_doctor_soon_title">SCHEDULE DOCTOR VISIT</string>
+    <string name="urgency_doctor_soon_desc">We recommend seeing a doctor soon.</string>
+    <string name="urgency_self_care_title">SELF-CARE &amp; MONITORING</string>
+    <string name="urgency_self_care_desc">Symptoms can be managed with home care.</string>
+    <string name="urgency_routine_title">ROUTINE CARE &amp; GUIDANCE</string>
+    <string name="urgency_routine_desc">Standard health recommendations.</string>
+
+    <!-- Result Sections -->
+    <string name="section_explanations">Possible Explanations</string>
+    <string name="section_guidance">General Guidance</string>
+    <string name="section_medication">Medication Information</string>
+    <string name="section_doctor_rec">Doctor Recommendation</string>
+    <string name="section_warning_signs">Warning Signs to Watch For</string>
+
+    <!-- Sharing -->
+    <string name="share_report_subject">HealthPilot Medical Assessment</string>
+    <string name="share_report_header">HealthPilot Medical Assessment Report</string>
+    <string name="share_urgency_label">Urgency Level: %1$s</string>
+    <string name="share_disclaimer">Disclaimer: For informational purposes only. Does not replace professional medical advice.</string>
+    <string name="share_via">Share Report Via</string>
+
+    <!--OnBoarding guide -->
+<!--    <string name="ds"> swsw </string>-->
+
 </resources>

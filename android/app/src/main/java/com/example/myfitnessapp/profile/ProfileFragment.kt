@@ -160,9 +160,9 @@ class ProfileFragment : Fragment() {
 
         binding.btnLogout.setOnClickListener {
             android.app.AlertDialog.Builder(requireContext())
-                .setTitle("Logout")
-                .setMessage("Are you sure you want to logout?")
-                .setPositiveButton("Logout") { _, _ ->
+                .setTitle(getString(R.string.logout))
+                .setMessage(getString(R.string.logout_confirm))
+                .setPositiveButton(getString(R.string.logout)) { _, _ ->
                     BiometricHelper.setBiometricEnabled(requireContext(), false)
                     FirebaseAuth.getInstance().signOut()
                     val intent = android.content.Intent(requireActivity(), com.example.myfitnessapp.MainActivity::class.java)
@@ -170,7 +170,7 @@ class ProfileFragment : Fragment() {
                     startActivity(intent)
                     requireActivity().finish()
                 }
-                .setNegativeButton("Cancel", null)
+                .setNegativeButton(getString(R.string.cancel), null)
                 .show()
         }
 
@@ -385,15 +385,22 @@ class ProfileFragment : Fragment() {
                             binding.tvUserName.text = it.name
                             binding.tvUserEmail.text = it.email
                             binding.tvProfileAge.text = it.age.toString()
-                            binding.tvProfileGender.text = it.gender
+                            
+                            val genderResId = resources.getIdentifier(it.gender.lowercase(), "string", requireContext().packageName)
+                            binding.tvProfileGender.text = if (genderResId != 0) getString(genderResId) else it.gender
+                            
                             binding.tvProfileHeight.text = "${it.height} cm"
                             binding.tvProfileWeight.text = "${it.weight} kg"
                             binding.tvProfilePhone.text = it.phone
                             binding.tvProfileDob.text = it.dob
 
                             binding.tvProfileScheduleRange.text = "${formatTo12h(it.wakeUpTime)} - ${formatTo12h(it.sleepTime)}"
-                            binding.tvProfileWorkStyle.text = it.workStyle
-                            binding.tvProfileWorkMeta.text = "${formatTo12h(it.workStartTime)} - ${formatTo12h(it.workEndTime)} | ${it.dailyScreenTime} hrs screen"
+                            
+                            val workStyleResId = resources.getIdentifier(it.workStyle.lowercase().replace(" ", "_"), "string", requireContext().packageName)
+                            binding.tvProfileWorkStyle.text = if (workStyleResId != 0) getString(workStyleResId) else it.workStyle
+                            
+                            val hrsScreenText = getString(R.string.hrs_screen, it.dailyScreenTime)
+                            binding.tvProfileWorkMeta.text = "${formatTo12h(it.workStartTime)} - ${formatTo12h(it.workEndTime)} | $hrsScreenText"
 
                             if (it.profileImageUrl.isNotEmpty()) {
                                 if (it.profileImageUrl.startsWith("http")) {

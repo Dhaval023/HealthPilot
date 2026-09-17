@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.util.Log
+import com.example.myfitnessapp.R
 import com.example.myfitnessapp.models.Reminder
 import java.util.*
 
@@ -19,10 +20,13 @@ class ReminderManager(private val context: Context) {
             return
         }
 
+        val localizedType = ReminderLocalizationUtils.getLocalizedType(context, reminder.type)
+        val localizedMessage = ReminderLocalizationUtils.getLocalizedMessage(context, reminder.type, reminder.message)
+        
         val intent = Intent(context, ReminderReceiver::class.java).apply {
             action = "com.example.myfitnessapp.ACTION_REMINDER"
-            putExtra("TITLE", "${reminder.type} Reminder")
-            putExtra("MESSAGE", if (reminder.message.isNotEmpty()) reminder.message else "Time for your ${reminder.type.lowercase()}!")
+            putExtra("TITLE", context.getString(R.string.reminder_title_format, localizedType))
+            putExtra("MESSAGE", if (localizedMessage.isNotEmpty()) localizedMessage else context.getString(R.string.reminder_message_format, localizedType.lowercase()))
             putExtra("REMINDER_ID", reminder.id)
             putExtra("REMINDER_TYPE", reminder.type)
             putExtra("REMINDER_TIME", reminder.time)

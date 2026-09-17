@@ -1,0 +1,716 @@
+<resources>
+    <string name="app_name">HealthPilot</string>
+    <string name="chat_assistant">वेद (एआई सहायक)</string>
+    <string name="type_a_message">संदेश टाइप करें...</string>
+    <string name="send_message">संदेश भेजें</string>
+    <string name="start_workout">वर्कआउट शुरू करें</string>
+    <string name="select_work_style">कार्य शैली चुनें</string>
+    <string name="select_workout">वर्कआउट चुनें</string>
+    <string name="walking">पैदल चलना</string>
+    <string name="running">दौड़ना</string>
+    <string name="cycling">साइकिल चलाना</string>
+    <string name="yoga">योग</string>
+
+    <!-- UI Components -->
+    <string name="nav_home">होम</string>
+    <string name="nav_health">स्वास्थ्य</string>
+    <string name="nav_report">रिपोर्ट</string>
+    <string name="nav_goal">लक्ष्य</string>
+    <string name="nav_profile">प्रोफ़ाइल</string>
+    <string name="hello_user">नमस्ते यूजर !</string>
+    <string name="hello_name">नमस्ते %1$s !</string>
+    <string name="disconnected">डिस्कनेक्ट किया गया</string>
+    <string name="connect">कनेक्ट करें</string>
+    <string name="disconnect">डिस्कनेक्ट करें</string>
+    <string name="today">आज</string>
+    <string name="remaining_cal">बाकी कैलोरी</string>
+    <string name="total_gain">कुल लाभ</string>
+    <string name="total_burn">कुल बर्न</string>
+    <string name="heart_rate">हृदय गति</string>
+    <string name="bpm">बीपीएम</string>
+    <string name="steps">कदम</string>
+    <string name="burned">बर्न की गई</string>
+    <string name="kcal">कैलोरी</string>
+    <string name="distance">दूरी</string>
+    <string name="km">किमी</string>
+    <string name="spo2">SPO2</string>
+    <string name="intake">सेवन</string>
+    <string name="water">पानी</string>
+    <string name="protein">प्रोटीन</string>
+    <string name="carbs">कार्ब्स</string>
+    <string name="fats">वसा</string>
+    <string name="searching_devices">उपकरणों की खोज की जा रही है...</string>
+    <string name="got_it">समझ गया</string>
+
+    <!-- Health Goals -->
+    <string name="daily_goals">दैनिक लक्ष्य</string>
+    <string name="weekly_goals">साप्ताहिक लक्ष्य</string>
+    <string name="save_goals">लक्ष्य सहेजें</string>
+    <string name="weight_loss_goal">वजन घटाने का लक्ष्य</string>
+    <string name="current_weight">वर्तमान वजन</string>
+    <string name="target_weight">लक्ष्य वजन (किग्रा)</string>
+    <string name="remaining">शेष</string>
+    <string name="progress">प्रगति</string>
+    <string name="add_food">भोजन जोड़ें</string>
+    <string name="water_intake">पानी का सेवन</string>
+
+    <!-- Workout Tracking -->
+    <string name="duration">अवधि</string>
+    <string name="workout_history">वर्कआउट इतिहास</string>
+    <string name="workout_plan">वर्कआउट योजना</string>
+    <string name="start_workout_btn">%1$s शुरू करें</string>
+
+    <!-- AI Chat -->
+    <string name="ved_welcome">नमस्ते! मैं वेद हूँ, आपका एआई स्वास्थ्य सहायक। आज मैं आपकी क्या मदद कर सकता हूँ?</string>
+    <string name="listening">सुन रहा हूँ...</string>
+    <string name="speaking">बोल रहा हूँ...</string>
+    <string name="ready_to_chat">चैट के लिए तैयार..</string>
+
+    <!-- Profile & Auth -->
+    <string name="welcome_back">वापस स्वागत है</string>
+    <string name="change_profile_pic">प्रोफ़ाइल चित्र बदलें</string>
+    <string name="logout">लॉग आउट</string>
+    <string name="logout_confirm">क्या आप वाकई लॉग आउट करना चाहते हैं?</string>
+    <string name="cancel">रद्द करें</string>
+    <string name="dismiss">खारिज करें</string>
+    <string name="login_subtitle">अपनी फिटनेस यात्रा जारी रखने के लिए साइन इन करें</string>
+    <string name="hint_email">ईमेल</string>
+    <string name="hint_password">पासवर्ड</string>
+    <string name="btn_login">लॉगिन</string>
+    <string name="forgot_password_title">पासवर्ड भूल गए?</string>
+    <string name="text_or">या</string>
+    <string name="dont_have_account">खाता नहीं है? साइन अप करें</string>
+    <string name="reset_password_title">पासवर्ड रीसेट करें</string>
+    <string name="reset_password_subtitle">पासवर्ड रीसेट लिंक प्राप्त करने के लिए अपना ईमेल पता दर्ज करें</string>
+    <string name="btn_send_reset_link">रीसेट लिंक भेजें</string>
+    <string name="create_account_title">खाता बनाएं</string>
+    <string name="signup_step1_subtitle">चरण 1: बुनियादी जानकारी</string>
+    <string name="hint_full_name">पूरा नाम</string>
+    <string name="hint_email_address">ईमेल पता</string>
+    <string name="hint_phone_number">फोन नंबर</string>
+    <string name="btn_verify_email">ईमेल सत्यापित करें</string>
+    <string name="btn_next_step">अगला कदम</string>
+    <string name="already_have_account">पहले से ही एक खाता है? साइन इन करें</string>
+    <string name="login_error_title">लॉगिन त्रुटि</string>
+    <string name="please_fill_fields">कृपया सभी फ़ील्ड भरें</string>
+    <string name="reminder_added">अनुस्मारक जोड़ा गया!</string>
+
+    <!-- Reminders -->
+    <string name="daily_wellness">दैनिक स्वास्थ्य</string>
+    <string name="meal_schedule">भोजन की समय सारणी</string>
+    <string name="add_new_meal">नया भोजन जोड़ें</string>
+    <string name="turn_off_reminder">अनुस्मारक बंद करें</string>
+    <string name="turn_on_reminder">अनुस्मारक चालू करें</string>
+
+    <!-- Settings and Localization Strings -->
+    <string name="settings">सेटिंग्स</string>
+    <string name="goal_type">लक्ष्य का प्रकार</string>
+    <string name="weight_gain">वजन बढ़ाना 💪</string>
+    <string name="weight_loss">वजन घटाना 🔥</string>
+    <string name="notifications">सूचनाएं</string>
+    <string name="alarm_sound">अलार्म ध्वनि</string>
+    <string name="ai_assistant">एआई सहायक</string>
+    <string name="female_voice">महिला आवाज</string>
+    <string name="male_voice">पुरुष आवाज</string>
+    <string name="language">भाषा</string>
+
+    <!-- Onboarding Buttons -->
+    <string name="btn_skip">छोड़ें</string>
+    <string name="btn_back">पीछे</string>
+    <string name="btn_next">अगला</string>
+    <string name="btn_finish">खोजना शुरू करें</string>
+
+    <!-- SignUp Step 2 and 3 -->
+    <string name="finish_signup">साइनअप पूरा करें</string>
+    <string name="step2_title">चरण 2: शारीरिक मेट्रिक्स</string>
+    <string name="select_gender">लिंग चुनें</string>
+    <string name="gender_male">पुरुष</string>
+    <string name="gender_female">महिला</string>
+    <string name="gender_other">अन्य</string>
+    <string name="hint_dob">जन्म तिथि</string>
+    <string name="hint_height">ऊंचाई (सेमी)</string>
+    <string name="hint_weight">वजन (किग्रा)</string>
+    <string name="hint_age">परिकलित आयु</string>
+    <string name="step3_title">चरण 3: जीवनशैली और दिनचर्या</string>
+    <string name="hint_wake_time">जागने का समय</string>
+    <string name="hint_sleep_time">सोने का समय</string>
+    <string name="hint_work_style">कार्य शैली</string>
+    <string name="hint_work_start">काम शुरू होने का समय</string>
+    <string name="hint_work_end">काम खत्म होने का समय</string>
+    <string name="hint_screen_time">दैनिक स्क्रीन समय (घंटे)</string>
+
+    <!-- Verification and Dialogs -->
+    <string name="email_sent_msg">ईमेल भेजा गया! इनबॉक्स/स्पैम जांचें</string>
+    <string name="logout_title">लॉग आउट</string>
+
+    <!-- Onboarding Steps -->
+    <string name="onboarding_title_1">HealthPilot में आपका स्वागत है</string>
+    <string name="onboarding_desc_1">आपकी व्यापक फिटनेस यात्रा यहाँ से शुरू होती है। अपने दैनिक सारांश और लक्ष्यों को एक नज़र में ट्रैक करें।</string>
+    <string name="onboarding_title_2">स्मार्ट वॉच कनेक्ट करें</string>
+    <string name="onboarding_desc_2">अपनी घड़ी को कनेक्ट करके अपने कदम, हृदय गति, SpO2 और बहुत कुछ स्वचालित रूप से सिंक करें और सटीक डेटा के लिए कनेक्ट होने के बाद थोड़ा चलने का प्रयास करें।</string>
+    <string name="onboarding_title_3">वर्कआउट</string>
+    <string name="onboarding_desc_3">विभिन्न वर्कआउट में से चुनें और अपनी घड़ी या फोन पेडोमीटर के साथ अपने रीयल-टाइम आंकड़े ट्रैक करें।</string>
+    <string name="onboarding_title_4">स्वास्थ्य और पोषण</string>
+    <string name="onboarding_desc_4">अपने वजन के लक्ष्य (बढ़ाना/घटाना) निर्धारित करें, अपने भोजन को लॉग करें, और अपने लक्ष्य तक पहुँचने के लिए प्रोटीन, कार्ब्स और फैट जैसे मैक्रोज़ को ट्रैक करें।</string>
+    <string name="onboarding_title_5">भोजन अनुस्मारक</string>
+    <string name="onboarding_desc_5">भोजन अनुस्मारक शेड्यूल करके और अपने दैनिक कल्याण लक्ष्यों को देखकर ट्रैक पर रहें।</string>
+    <string name="onboarding_title_6">दैनिक कल्याण</string>
+    <string name="onboarding_desc_6">एक स्वस्थ जीवन शैली बनाए रखने के लिए अपने मूड, पानी के सेवन और दैनिक आदतों की निगरानी करें।</string>
+    <string name="onboarding_title_7">प्रगति और रिपोर्ट</string>
+    <string name="onboarding_desc_7">समय के साथ अपनी गतिविधि, वर्कआउट इतिहास और स्वास्थ्य उपलब्धियों की विस्तृत रिपोर्ट देखें।</string>
+    <string name="onboarding_title_8">लक्ष्य और बीएमआई</string>
+    <string name="onboarding_desc_8">अपने बीएमआई की निगरानी करें, अपने लक्षित दैनिक कदम और कैलोरी निर्धारित करें, और अपनी साप्ताहिक फिटनेस उपलब्धियों को ट्रैक करें।</string>
+    <string name="onboarding_title_9">वेद से मिलें - आपका एआई सहायक</string>
+    <string name="onboarding_desc_9">नमस्ते! मैं वेद हूँ, आपका व्यक्तिगत एआई फिटनेस साथी। मुझसे वर्कआउट, पोषण या स्वास्थ्य युक्तियों के बारे में कभी भी कुछ भी पूछें!</string>
+    <string name="onboarding_title_10">व्यक्तिगत प्रोफ़ाइल</string>
+    <string name="onboarding_desc_10">अपनी प्रोफ़ाइल को कस्टमाइज़ करें, सेटिंग्स समायोजित करें और अपने कनेक्टेड डिवाइस प्रबंधित करें।</string>
+    <string name="onboarding_title_11">सब तैयार है!</string>
+    <string name="onboarding_desc_11">🎉 आप पूरी तरह तैयार हैं! अपनी फिटनेस यात्रा शुरू करें और HealthPilot के साथ अपने लक्ष्यों को प्राप्त करें।</string>
+    <string name="select_language">भाषा चुनें</string>
+    <string name="english">अंग्रेज़ी (English)</string>
+    <string name="hindi">हिंदी</string>
+    <string name="gujarati">गुजराती (ગુજરાતી)</string>
+    <string name="sleep">नींद</string>
+    <string name="hrs">घंटे</string>
+    <string name="sleep_history">नींद का इतिहास</string>
+    <string name="sleep_time">सोने का समय</string>
+    <string name="health_reports">स्वास्थ्य रिपोर्ट</string>
+    <string name="this_week">इस सप्ताह</string>
+    <string name="body_mass_index">बॉडी मास इंडेक्स (BMI)</string>
+    <string name="calculate">गणना करें</string>
+    <string name="normal">सामान्य</string>
+    <string name="healthy_weight_range">स्वस्थ वजन सीमा</string>
+    <string name="underweight">कम वजन</string>
+    <string name="overweight">अधिक वजन</string>
+    <string name="obese">मोटापा</string>
+    <string name="eat_goal">भोजन लक्ष्य</string>
+    <string name="burn_goal">बर्न लक्ष्य</string>
+    <string name="target_calories">लक्ष्य कैलोरी</string>
+    <string name="distance_km">दूरी (किमी)</string>
+    <string name="todays_progress">आज की प्रगति</string>
+    <string name="get_ready">तैयार हो जाओ...</string>
+    <string name="profile_header">प्रोफ़ाइल</string>
+    <string name="based_on_profile">आपकी प्रोफ़ाइल और गतिविधि स्तर के आधार पर</string>
+
+    <!-- Side Menu / Navigation Drawer Strings -->
+    <string name="drawer_home">होम</string>
+    <string name="drawer_medical_help">चिकित्सा सहायता</string>
+    <string name="drawer_start_workout">वर्कआउट शुरू करें</string>
+    <string name="drawer_report">रिपोर्ट</string>
+    <string name="drawer_daily_goals">दैनिक लक्ष्य</string>
+    <string name="drawer_health_goal">स्वास्थ्य लक्ष्य</string>
+    <string name="drawer_meal_reminder">भोजन अनुस्मारक और समय सारिणी</string>
+    <string name="drawer_daily_wellness">दैनिक स्वास्थ्य</string>
+    <string name="drawer_profile">प्रोफ़ाइल</string>
+    <string name="drawer_settings">सेटिंग्स</string>
+    <string name="drawer_logout">लॉग आउट</string>
+
+    <!-- Workouts List Strings -->
+    <string name="badminton">बैडमिंटन</string>
+    <string name="swimming">तैराकी</string>
+    <string name="dancing">नृत्य</string>
+    <string name="aerobics">एरोबिक्स</string>
+    <string name="football">फुटबॉल</string>
+    <string name="hockey">हॉकी</string>
+    <string name="cricket">क्रिकेट</string>
+    <string name="kabaddi">कबड्डी</string>
+    <string name="indoor_running">इंडोर रनिंग</string>
+    <string name="zumba">जुम्बा</string>
+    <string name="sit_ups">सिट-अप्स</string>
+    <string name="weightlifting">भारोत्तोलन</string>
+    <string name="boxing">मुक्केबाजी</string>
+    <string name="wrestling">कुश्ती</string>
+    <string name="basketball">बास्केटबॉल</string>
+    <string name="tennis">टेनिस</string>
+    <string name="volleyball">वॉलीबॉल</string>
+
+    <!-- Workout History & Share Strings -->
+    <string name="share_studio">शेयर स्टूडियो</string>
+    <string name="live_preview">लाइव पूर्वावलोकन</string>
+    <string name="select_background">पृष्ठभूमि चुनें</string>
+    <string name="custom_styling">कस्टम स्टाइलिंग</string>
+    <string name="select_theme">थीम चुनें</string>
+    <string name="show_hide_details">विवरण दिखाएं/छिपाएं</string>
+    <string name="export_share">निर्यात और साझा करें</string>
+    <string name="duration_min">अवधि (मिनट)</string>
+    <string name="steps_caps">कदम</string>
+    <string name="calories_caps">कैलोरी</string>
+    <string name="avg_hr_bpm">औसत हृदय गति (BPM)</string>
+    <string name="goal_completed">लक्ष्य पूरा हुआ</string>
+    <string name="no_workouts">इस दिन कोई वर्कआउट रिकॉर्ड नहीं मिला</string>
+
+    <!-- Profile & Detail Strings -->
+    <string name="age">आयु</string>
+    <string name="gender">लिंग</string>
+    <string name="height">ऊंचाई</string>
+    <string name="weight">वजन</string>
+    <string name="information">जानकारी</string>
+    <string name="schedule">समय सारिणी</string>
+    <string name="work_style">कार्य शैली</string>
+    <string name="mostly_sitting">ज्यादातर बैठना</string>
+    <string name="mostly_standing">ज्यादातर खड़ा रहना</string>
+    <string name="active">सक्रिय</string>
+    <string name="very_active">बहुत सक्रिय</string>
+    <string name="male">पुरुष</string>
+    <string name="female">महिला</string>
+    <string name="work_hours_screen">कार्य समय और स्क्रीन</string>
+    <string name="hrs_screen">%1$d घंटे स्क्रीन</string>
+    <string name="no_watch_connected">कोई घड़ी कनेक्ट नहीं है</string>
+    <string name="current_session">वर्तमान सत्र</string>
+    <string name="live">लाइव</string>
+    <string name="unit_km">%1$.2f किमी</string>
+    <string name="unit_kcal">%1$.0f कैलोरी</string>
+    <string name="unit_min">%1$d मिनट</string>
+    <string name="unit_sec">%1$d सेकंड</string>
+    <string name="bg_start">Bg स्टार्ट</string>
+    <string name="bg_end">Bg एंड</string>
+    <string name="title_color">शीर्षक रंग</string>
+    <string name="quote_color">कोट रंग</string>
+    <string name="brand_color">ब्रांड रंग</string>
+    <string name="user_name_color">यूजर नाम रंग</string>
+    <string name="stats_color">आंकड़े रंग</string>
+    <string name="refresh_quote">कोट बदलें</string>
+    <string name="quote">अनमोल वचन</string>
+    <string name="quote_1">अनुशासन प्रेरणा से बढ़कर है।</string>
+    <string name="quote_2">हर कदम मायने रखता है।</string>
+    <string name="quote_3">निरंतरता चैंपियंस बनाती है।</string>
+    <string name="quote_4">शरीर वही हासिल करता है जो मन मानता है।</string>
+    <string name="quote_5">अपने आप को आगे बढ़ाएं क्योंकि कोई और नहीं करेगा।</string>
+    <string name="quote_6">प्रगति प्रगति है।</string>
+    <string name="quote_7">पसीना सिर्फ वसा का रोना है।</string>
+    <string name="quote_8">जब आप थक जाएं तो न रुकें। जब आप काम पूरा कर लें तब रुकें।</string>
+
+    <!-- Additional Missing Strings -->
+    <string name="full_name">पूरा नाम</string>
+    <string name="email_address">ईमेल पता</string>
+    <string name="phone_number">फ़ोन नंबर</string>
+    <string name="height_cm">ऊंचाई (सेमी)</string>
+    <string name="weight_kg">वजन (किग्रा)</string>
+    <string name="date_of_birth">जन्म तिथि</string>
+    <string name="daily_wellness_settings">दैनिक कल्याण सेटिंग्स</string>
+    <string name="wake_up_time">जागने का समय</string>
+    <string name="work_start">कार्य शुरू</string>
+    <string name="work_end">कार्य समाप्त</string>
+    <string name="daily_screen_time">दैनिक स्क्रीन समय (घंटे)</string>
+    <string name="steps_history">कदमों का इतिहास</string>
+    <string name="distance_history">दूरी का इतिहास</string>
+    <string name="heart_rate_history">हृदय गति इतिहास</string>
+    <string name="calories_history">कैलोरी इतिहास</string>
+    <string name="weight_progress">वजन प्रगति</string>
+    <string name="health_goal_progress">स्वास्थ्य लक्ष्य प्रगति</string>
+    <string name="seven_day_overview">7-दिवसीय अवलोकन</string>
+    <string name="total">कुल</string>
+    <string name="most_active">सबसे सक्रिय</string>
+    <string name="least_active">सबसे कम सक्रिय</string>
+    <string name="set_target">लक्ष्य निर्धारित करें</string>
+    <string name="weight_gain_goal">वजन बढ़ाने का लक्ष्य</string>
+    <string name="on_track">ट्रैक पर</string>
+    <string name="behind_schedule">समय से पीछे</string>
+    <string name="ahead_of_schedule">समय से आगे</string>
+    <string name="target_duration">लक्ष्य अवधि</string>
+    <string name="view_more">और देखें</string>
+    <string name="search_food_hint">भोजन खोजें...</string>
+    <string name="custom">कस्टम</string>
+    <string name="meal">भोजन</string>
+    <string name="recent_food">हाल ही के भोजन</string>
+    <string name="p_label">P (प्रोटीन)</string>
+    <string name="c_label">C (कार्ब्स)</string>
+    <string name="f_label">F (वसा)</string>
+    <string name="change_password">पासवर्ड बदलें</string>
+    <string name="save_profile">प्रोफ़ाइल सहेजें</string>
+    <string name="health_goals">स्वास्थ्य लक्ष्य</string>
+    <string name="recalculating">पुनर्गणना की जा रही है...</string>
+    <string name="weeks">सप्ताह</string>
+    <string name="add_meal_or_food">भोजन जोड़ें</string>
+    <string name="todays_logged_food">आज का दर्ज भोजन</string>
+    <string name="total_calories">कुल कैलोरी</string>
+    <string name="total_items">कुल आइटम</string>
+    <string name="items_count">%1$d आइटम</string>
+    <string name="watch">घड़ी</string>
+    <string name="goal_count">लक्ष्य: %1$s</string>
+    <string name="streaks">लगातार दिन</string>
+    <string name="days_count">%1$d दिन</string>
+    <string name="keep_it_up">ऐसे ही जारी रखें!</string>
+    <string name="of_goal">लक्ष्य का %1$d%%</string>
+    <string name="show_less">कम दिखाएं</string>
+    <string name="food_macros_format">%1$d %2$s | %3$s: %4$.1fg | %5$s: %6$.1fg | %7$s: %8$.1fg</string>
+    <string name="weight_entry">वजन प्रविष्टि</string>
+    <string name="goal_updated">लक्ष्य अपडेट किया गया!</string>
+    <string name="weights_updated">वजन अपडेट किया गया!</string>
+    <string name="enter_valid_weight">कृपया एक मान्य वजन दर्ज करें</string>
+    <string name="added_water">%1$s पानी जोड़ा गया</string>
+    <string name="removed_water">%1$s पानी निकाला गया</string>
+    <string name="total_label">कुल</string>
+    <string name="value_unit_format">%1$s %2$s</string>
+    <string name="todays_overview">आज का अवलोकन</string>
+    <string name="thirty_day_overview">30-दिवसीय अवलोकन</string>
+    <string name="overview">अवलोकन</string>
+    <string name="k_steps_format">%1$.1fK %2$s</string>
+    <string name="wellness_subtitle">आपकी व्यक्तिगत स्वास्थ्य समयरेखा</string>
+    <string name="refresh">रीफ्रेश करें</string>
+    <string name="wellness_profile">कल्याण प्रोफ़ाइल</string>
+    <string name="active_range">सक्रिय सीमा</string>
+    <string name="work_meta">कार्य विवरण</string>
+    <string name="edit_wellness_settings">कल्याण सेटिंग्स संपादित करें</string>
+    <string name="wake_up">जागना</string>
+    <string name="screen_time_hrs">स्क्रीन समय (घंटे)</string>
+    <string name="save_and_refresh">सहेजें और रीफ्रेश करें</string>
+    <string name="wellness_timeline">दैनिक कल्याण समयरेखा</string>
+    <string name="schedule_refreshed">समय सारिणी रीफ्रेश की गई</string>
+    <string name="settings_updated_refreshed">सेटिंग्स अपडेट और समय सारिणी रीफ्रेश की गई</string>
+    <string name="select_work_style_dialog">कार्य शैली चुनें</string>
+    <string name="turn_off">बंद करें</string>
+    <string name="turn_on">चालू करें</string>
+    <string name="change_time">समय बदलें</string>
+    <string name="remove">हटाएं</string>
+    <string name="history_details_format">%1$d %2$s • %3$.2f %4$s</string>
+    <string name="mins">मिनट</string>
+    <string name="custom_food_entry">कस्टम भोजन प्रविष्टि</string>
+    <string name="manual_food_subtitle">पोषण संबंधी विवरण मैन्युअल रूप से दर्ज करें</string>
+    <string name="meal_category">भोजन श्रेणी</string>
+    <string name="select_category">श्रेणी चुनें</string>
+    <string name="food_name">भोजन का नाम</string>
+    <string name="food_name_hint">जैसे, वड़ा पाव</string>
+    <string name="calories_kcal">कैलोरी (किलो कैलोरी)</string>
+    <string name="enter_calories">कैलोरी दर्ज करें</string>
+    <string name="protein_g">प्रोटीन (ग्राम)</string>
+    <string name="carbs_g">कार्ब्स (ग्राम)</string>
+    <string name="fat_g">वसा (ग्राम)</string>
+    <string name="save_custom_food">कस्टम भोजन सहेजें</string>
+    <string name="complete_signup">पंजीकरण पूरा करें</string>
+    <string name="signup_error">पंजीकरण त्रुटि</string>
+    <string name="goal_title_format">%1$s लक्ष्य</string>
+    <string name="workout_summary">वर्कआउट सारांश</string>
+    <string name="take_photo">फोटो लें</string>
+    <string name="choose_gallery">गैलरी से चुनें</string>
+    <string name="profile_updated">प्रोफ़ाइल अपडेट की गई</string>
+
+    <!-- Workout Intro & Plan Strings -->
+    <string name="get_ready_ellipsis">तैयार हो जाओ...</string>
+    <string name="today_session">आज का सत्र</string>
+    <string name="view_plan_btn">प्लान देखें ›</string>
+    <string name="days_completed">%1$d / %2$d दिन पूरे हुए</string>
+    <string name="days_completed_placeholder">0 / 7 दिन पूरे हुए</string>
+    <string name="exercise_list">व्यायाम सूची</string>
+    <string name="tips_label">सुझाव</string>
+    <string name="min_unit">%1$d मिनट</string>
+    <string name="duration_label">अवधि: %1$s</string>
+
+    <!-- Workout Themes -->
+    <string name="sub_running">तैयार हो जाओ...</string>
+    <string name="session_morning_run">सुबह की दौड़</string>
+    <string name="desc_morning_run">ताजी हवा का आनंद लें और एक स्थिर गति बनाए रखें।</string>
+
+    <string name="sub_indoor_running">किसी भी समय दौड़ें, बारिश हो या धूप।</string>
+    <string name="session_treadmill">ट्रेडमिल सत्र</string>
+    <string name="desc_treadmill">अपनी गति और सांस लेने पर ध्यान दें।</string>
+
+    <string name="session_evening_walk">शाम की सैर</string>
+    <string name="desc_evening_walk">शांतिपूर्ण सैर के साथ अपने दिमाग को तरोताजा करें।</string>
+    <string name="sub_walking">तैयार हो जाओ...</string>
+    <string name="session_outdoor_ride">आउटडोर सवारी</string>
+    <string name="desc_outdoor_ride">खुद को चुनौती दें और अपनी फिटनेस में सुधार करें।</string>
+    <string name="sub_cycling">तैयार हो जाओ...</string>
+
+    <!-- Benefits -->
+    <string name="benefit_improve">सुधारें</string>
+    <string name="benefit_endurance">सहनशक्ति</string>
+    <string name="benefit_burn">बर्न</string>
+    <string name="benefit_fat">वसा</string>
+    <string name="benefit_strong">मजबूत</string>
+    <string name="benefit_heart">दिल</string>
+    <string name="benefit_boost">बढ़ावा</string>
+    <string name="benefit_stamina">स्टैमिना</string>
+
+    <!-- Exercises & Tips -->
+    <string name="ex_dynamic_warmup">गतिशील वार्म-अप</string>
+    <string name="ex_prepare_muscles">मांसपेशियों को तैयार करें</string>
+    <string name="ex_easy_run">आसान दौड़</string>
+    <string name="ex_steady_jogging">स्थिर जॉगिंग गति</string>
+    <string name="ex_sprint_intervals">स्प्रिंट अंतराल</string>
+    <string name="ex_improve_speed">गति में सुधार करें</string>
+    <string name="ex_cooldown_jog">कूल-डाउन जॉग</string>
+    <string name="ex_recover_gradually">धीरे-धीरे ठीक हो जाएं</string>
+
+    <string name="tips_running">• दौड़ने के उचित जूते पहनें\n• अपने पैरों पर धीरे से उतरें\n• सांस लेने की स्थिर लय बनाए रखें\n• दौड़ने से पहले वार्म-अप करें</string>
+    <string name="tips_walking">• आरामदायक चलने वाले जूते पहनें\n• अपनी मुद्रा सीधी रखें\n• अपनी भुजाओं को स्वाभाविक रूप से घुमाएं\n• हाइड्रेटेड रहें</string>
+    <string name="tips_cycling">• हेलमेट पहनें\n• स्थिर ताल बनाए रखें\n• हाइड्रेटेड रहें\n• उचित गियर पहनें</string>
+    <string name="tips_general">• व्यायाम करने से पहले वार्म-अप करें\n• आरामदायक कपड़े पहनें\n• हाइड्रेटेड रहें\n• वर्कआउट के बाद कूल डाउन करें</string>
+
+    <!-- Plan Titles -->
+    <string name="plan_title_format">%1$s प्लान</string>
+
+    <string name="please_complete_profile">कृपया पहले अपनी प्रोफ़ाइल पूरी करें।</string>
+    <string name="fill_all_fields">आगे बढ़ने के लिए कृपया सभी फ़ील्ड भरें।</string>
+    <string name="mixed_activity">मिश्रित गतिविधि</string>
+    <string name="heavy_physical_work">भारी शारीरिक कार्य</string>
+    <string name="driving">ड्राइविंग</string>
+    <string name="home_and_care">घर और देखभाल</string>
+
+    <string name="ai_greeting_format">नमस्ते! मैं %1$s हूँ, आपका AI स्वास्थ्य सहायक। आज मैं आपकी क्या मदद कर सकता हूँ?</string>
+    <string name="no_internet_error">कोई इंटरनेट कनेक्शन नहीं। कृपया अपनी सेटिंग्स जांचें।</string>
+    <string name="speech_error_format">वॉयस त्रुटि: %1$s</string>
+    <string name="speech_not_available">इस डिवाइस पर वॉयस रिकग्निशन उपलब्ध नहीं है।</string>
+    <string name="speech_start_error">वॉयस रिकग्निशन शुरू करने में असमर्थ।</string>
+
+    <!-- Medical Help -->
+    <string name="symptoms_question">आप किन लक्षणों का अनुभव कर रहे हैं?</string>
+    <string name="symptoms_subtitle">आप अपने शब्दों में बताएं कि आप कैसा महसूस कर रहे हैं।</string>
+    <string name="step_initial_complaint">चरण 1: प्रारंभिक शिकायत</string>
+    <string name="enter_symptoms_error">कृपया अपने लक्षण दर्ज करें</string>
+    <string name="select_option_error">कृपया एक विकल्प चुनें</string>
+    <string name="specify_other_error">कृपया \'अन्य\' के लिए अपना इनपुट निर्दिष्ट करें</string>
+    <string name="enter_answer_error">कृपया उत्तर दर्ज करें</string>
+    <string name="emergency_alert_title">🚨 आपातकालीन चेतावनी</string>
+    <string name="emergency_alert_msg">आपके लक्षण संभावित रूप से गंभीर या जीवन के लिए खतरा पैदा करने वाली स्थिति का संकेत देते हैं। कृपया तुरंत पेशेवर आपातकालीन चिकित्सा सहायता लें या अपने स्थानीय आपातकालीन नंबर (जैसे, 108 या 112) पर कॉल करें।</string>
+    <string name="i_understand">मैं समझता हूँ</string>
+    <string name="cancel_assessment_title">मूल्यांकन रद्द करें?</string>
+    <string name="cancel_assessment_msg">क्या आप वाकई मूल्यांकन से बाहर निकलना चाहते हैं? आपकी प्रगति सहेजी नहीं जाएगी।</string>
+    <string name="exit">बाहर निकलें</string>
+    <string name="resume">जारी रखें</string>
+    <string name="type_response_hint">अपनी प्रतिक्रिया यहाँ टाइप करें...</string>
+    <string name="select_option_subtitle">नीचे एक विकल्प चुनें।</string>
+    <string name="type_response_subtitle">नीचे अपनी प्रतिक्रिया टाइप करें।</string>
+    <string name="question_number_format">प्रश्न %1$d</string>
+    <string name="reminder_title_format">%1$s रिमाइंडर</string>
+    <string name="reminder_message_format">यह आपके %1$s का समय है!</string>
+    <string name="reminder_water_msg">हाइड्रेटेड रहें! थोड़ा पानी पिएं। 💧</string>
+    <string name="reminder_stand_up_msg">खड़े होने और स्ट्रेच करने का समय! 🧘</string>
+    <string name="reminder_walk_msg">5 मिनट की सैर के बारे में क्या ख्याल है? 🚶</string>
+    <string name="reminder_eye_exercise_msg">अपनी आँखों को आराम दें, दूर देखें! 👀</string>
+    <string name="reminder_stretch_msg">गर्दन और कंधे को स्ट्रेच करने का समय! 💆‍♂️</string>
+    <string name="reminder_sit_break_msg">अपने पैरों को आराम दें! 🪑</string>
+    <string name="reminder_leg_stretch_msg">उन थके हुए पैरों को स्ट्रेच करें! 🦵</string>
+    <string name="reminder_foot_relaxation_msg">अपने टखनों को घुमाएं! 🦶</string>
+    <string name="reminder_deep_breathing_msg">3 गहरी सांसें लें। 🌬️</string>
+    <string name="reminder_rest_msg">त्वरित रिकवरी का समय। ☕</string>
+    <string name="reminder_nutrition_msg">स्वस्थ नाश्ते के साथ ऊर्जा बढ़ाएं! 🍎</string>
+    <string name="reminder_safe_break_msg">रुकें, स्ट्रेच करें और हाइड्रेट रहें! ⛽</string>
+    <string name="reminder_eye_relaxation_msg">कुछ देर क्षितिज पर ध्यान केंद्रित करें। 🛣️</string>
+    <string name="reminder_posture_msg">अपनी पीठ और मुद्रा की जाँच करें! ✨</string>
+    <string name="reminder_relaxation_msg">आप बहुत अच्छा कर रहे हैं, एक सांस लें! 🌸</string>
+    <string name="reminder_stretching_msg">फुर्तीले रहने के लिए एक त्वरित स्ट्रेच! 🧘‍♀️</string>
+    <string name="reminder_exercise_msg">आपके वर्कआउट का समय!</string>
+    <string name="reminder_sleep_prep_msg">सोने के लिए आराम करने का समय। 🌙</string>
+
+    <string name="type_water">पानी</string>
+    <string name="type_stand_up">खड़े होना</string>
+    <string name="type_walk">सैर</string>
+    <string name="type_eye_exercise">आँखों का व्यायाम</string>
+    <string name="type_stretch">स्ट्रेच</string>
+    <string name="type_sit_break">बैठने का ब्रेक</string>
+    <string name="type_leg_stretch">पैरों का स्ट्रेच</string>
+    <string name="type_foot_relaxation">पैरों का आराम</string>
+    <string name="type_deep_breathing">गहरी सांस</string>
+    <string name="type_rest">आराम</string>
+    <string name="type_nutrition">पोषण</string>
+    <string name="type_safe_break">सुरक्षित ब्रेक</string>
+    <string name="type_eye_relaxation">आँखों का आराम</string>
+    <string name="type_posture">मुद्रा</string>
+    <string name="type_relaxation">विश्राम</string>
+    <string name="type_stretching">स्ट्रेचिंग</string>
+    <string name="type_exercise">व्यायाम</string>
+    <string name="type_sleep_prep">नींद की तैयारी</string>
+
+    <!-- Food & Meals -->
+    <string name="breakfast">नाश्ता</string>
+    <string name="lunch">दोपहर का भोजन</string>
+    <string name="dinner">रात का भोजन</string>
+    <string name="snacks">स्नैक्स</string>
+    <string name="food_added_success">%1$s सफलतापूर्वक जोड़ा गया!</string>
+    <string name="enter_name_cal_error">कृपया नाम और कैलोरी दर्ज करें</string>
+    <string name="min">मिनट</string>
+
+    <!-- Workout Exercises -->
+    <string name="ex_warm_up">वार्म-अप</string>
+    <string name="ex_warm_up_walk">वार्म-अप वॉक</string>
+    <string name="ex_brisk_walking">तेज चलना</string>
+    <string name="ex_incline_walk">चढ़ाई पर चलना</string>
+    <string name="ex_cool_down_walk">कूल-डाउन वॉक</string>
+    <string name="ex_easy_pedaling">आसान पेडलिंग</string>
+    <string name="ex_warm_up_legs">पैरों का वार्म-अप</string>
+    <string name="ex_improve_endurance">सहनशक्ति में सुधार करें</string>
+    <string name="ex_build_leg_strength">पैरों की ताकत बनाएं</string>
+    <string name="ex_high_cadence_ride">हाई कैडेंस राइड</string>
+    <string name="ex_hill_climb">पहाड़ी चढ़ाई</string>
+    <string name="ex_recovery_ride">रिकवरी राइड</string>
+    <string name="ex_jump_rope">रस्सी कूदना</string>
+    <string name="ex_warm_up_body">शरीर को वार्म अप करें</string>
+    <string name="ex_technique_practice">तकनीक का अभ्यास</string>
+    <string name="ex_power_punches">पावर पंच</string>
+    <string name="ex_improve_coordination">समन्वय में सुधार करें</string>
+    <string name="ex_shadow_boxing">शैडो बॉक्सिंग</string>
+    <string name="ex_heavy_bag">हैवी बैग</string>
+    <string name="ex_speed_bag">स्पीड बैग</string>
+    <string name="ex_warm_up_laps">वार्म-अप लैप्स</string>
+    <string name="ex_freestyle">फ्रीस्टाइल</string>
+    <string name="ex_breaststroke">ब्रेस्टस्ट्रोक</string>
+    <string name="ex_cool_down">कूल-डाउन</string>
+    <string name="ex_footwork_drill">फुटवर्क ड्रिल</string>
+    <string name="ex_smash_practice">स्मैश अभ्यास</string>
+    <string name="ex_net_play">नेट प्ले</string>
+    <string name="ex_match_rally">मैच रैली</string>
+    <string name="ex_forehand_drill">फोरहैंड ड्रिल</string>
+    <string name="ex_backhand_drill">बैकहैंड ड्रिल</string>
+    <string name="ex_serve_practice">सर्विस अभ्यास</string>
+    <string name="ex_warm_up_jog">वार्म-अप जॉग</string>
+    <string name="ex_warm_up_run">वार्म-अप रन</string>
+    <string name="ex_dribbling_drill">ड्रिबलिंग ड्रिल</string>
+    <string name="ex_passing_drill">पासिंग ड्रिल</string>
+    <string name="ex_shooting_practice">shooting अभ्यास</string>
+    <string name="ex_stick_handling">स्टिक हैंडलिंग</string>
+    <string name="ex_goal_shooting">गोल शूटिंग</string>
+    <string name="ex_layup_drill">लेअप ड्रिल</string>
+    <string name="ex_warm_up_dance">वार्म-अप डांस</string>
+    <string name="ex_cardio_routine">कार्डियो रूटीन</string>
+    <string name="ex_dance_combo">डांस कॉम्बो</string>
+    <string name="ex_stretch_relax">स्ट्रेच और रिलैक्स</string>
+    <string name="ex_high_knees">हाई नीज़</string>
+    <string name="ex_jumping_jacks">जंपिंग जैक</string>
+    <string name="ex_cool_down_stretch">कूल-डाउन स्ट्रेच</string>
+    <string name="ex_warm_up_set">वार्म-अप सेट</string>
+    <string name="ex_squats">स्क्वाट्स</string>
+    <string name="ex_bench_press">बेंच प्रेस</string>
+    <string name="ex_deadlift">डेडलिफ्ट</string>
+    <string name="ex_plank">प्लैंक</string>
+    <string name="ex_russian_twists">रशियन ट्विस्ट</string>
+    <string name="ex_leg_raises">लेग रेज़</string>
+    <string name="ex_setting_drill">सेटिंग ड्रिल</string>
+    <string name="ex_spike_practice">स्पाइक अभ्यास</string>
+    <string name="ex_batting_practice">बल्लेबाजी अभ्यास</string>
+    <string name="ex_bowling_drills">गेंदबाजी अभ्यास</string>
+    <string name="ex_fielding_practice">फील्डिंग अभ्यास</string>
+    <string name="ex_sprint_runs">स्प्रिंट रन</string>
+    <string name="ex_raid_practice">रेड अभ्यास</string>
+    <string name="ex_defensive_holds">रक्षात्मक पकड़</string>
+    <string name="ex_agility_drills">चपलता अभ्यास</string>
+    <string name="ex_breath_work">श्वास क्रिया</string>
+    <string name="ex_warm_up_stretches">वार्म-अप स्ट्रेच</string>
+    <string name="ex_main_flow">मुख्य प्रवाह</string>
+
+    <!-- Exercise Descriptions -->
+    <string name="ex_desc_slow_walking">मांसपेशियों को ढीला करने के लिए धीमी चाल</string>
+    <string name="ex_desc_increase_pace">कार्डियो के लिए गति बढ़ाएं</string>
+    <string name="ex_desc_boost_endurance">सहनशक्ति बढ़ाएं</string>
+    <string name="ex_desc_reduce_hr">हृदय गति कम करें</string>
+    <string name="ex_desc_warm_up_legs">पैरों को वार्म अप करें</string>
+    <string name="ex_desc_improve_endurance">सहनशक्ति में सुधार करें</string>
+    <string name="ex_desc_build_leg_strength">पैरों की ताकत बनाएं</string>
+    <string name="ex_desc_warm_up_body">शरीर को वार्म अप करें</string>
+    <string name="ex_desc_technique_practice">तकनीक का अभ्यास</string>
+    <string name="ex_desc_power_punches">पावर पंच</string>
+    <string name="ex_desc_improve_coordination">समन्वय में सुधार करें</string>
+    <string name="ex_desc_easy_freestyle">आसान फ्रीस्टाइल</string>
+    <string name="ex_desc_main_cardio">मुख्य कार्डियो</string>
+    <string name="ex_desc_slow_swimming">धीमी तैराकी</string>
+    <string name="ex_desc_quick_court_movement">कोर्ट पर तेज गति</string>
+    <string name="ex_desc_power_shots">पावर शॉट</string>
+    <string name="ex_desc_control_reflex">नियंत्रण और रिफ्लेक्स</string>
+    <string name="ex_desc_continuous_play">निरंतर खेल</string>
+    <string name="ex_desc_court_movement">कोर्ट मूवमेंट</string>
+    <string name="ex_desc_consistency">निरंतरता</string>
+    <string name="ex_desc_shot_control">शॉट नियंत्रण</string>
+    <string name="ex_desc_accuracy">सटीकता</string>
+    <string name="ex_desc_prepare_body">शरीर को तैयार करें</string>
+    <string name="ex_desc_prepare_muscles">मांसपेशियों को तैयार करें</string>
+    <string name="ex_desc_ball_control">बॉल नियंत्रण</string>
+    <string name="ex_desc_passing_accuracy">पासिंग सटीकता</string>
+    <string name="ex_desc_finishing_skills">फिनिशिंग कौशल</string>
+    <string name="ex_desc_increase_mobility">गतिशीलता बढ़ाएं</string>
+    <string name="ex_desc_team_coordination">टीम समन्वय</string>
+    <string name="ex_desc_ball_handling">बॉल हैंडलिंग</string>
+    <string name="ex_desc_improve_accuracy">सटीकता में सुधार करें</string>
+    <string name="ex_desc_finishing_practice">फिनिशिंग अभ्यास</string>
+    <string name="ex_desc_light_rhythm">हल्का लय</string>
+    <string name="ex_desc_burn_calories">कैलोरी बर्न करें</string>
+    <string name="ex_desc_full_body_movement">पूरे शरीर की गति</string>
+    <string name="ex_desc_recovery">रिकवरी</string>
+    <string name="ex_desc_light_movement">हल्की गति</string>
+    <string name="ex_desc_cardio_exercise">कार्डियो व्यायाम</string>
+    <string name="ex_desc_full_body_workout">फुल बॉडी वर्कआउट</string>
+    <string name="ex_desc_relax_muscles">मांसपेशियों को आराम दें</string>
+    <string name="ex_desc_light_weights">हल्के वजन</string>
+    <string name="ex_desc_lower_body_strength">निचले शरीर की ताकत</string>
+    <string name="ex_desc_chest_strength">छाती की ताकत</string>
+    <string name="ex_desc_full_body_strength">पूरे शरीर की ताकत</string>
+    <string name="ex_desc_core_stability">कोर स्थिरता</string>
+    <string name="ex_desc_abdominal_strength">पेट की ताकत</string>
+    <string name="ex_desc_oblique_muscles">तिरछी मांसपेशियां</string>
+    <string name="ex_desc_lower_abs">निचला पेट</string>
+    <string name="ex_desc_jump_rope_footwork">वार्म अप और फुटवर्क</string>
+    <string name="ex_desc_serving_accuracy">सर्विस सटीकता</string>
+    <string name="ex_desc_accurate_sets">सटीक सेट</string>
+    <string name="ex_desc_attack_power">हमले की शक्ति</string>
+    <string name="ex_desc_cricket_warmup">हल्की जॉगिंग और डायनेमिक स्ट्रेचिंग</string>
+    <string name="ex_desc_batting_control">शॉट टाइमिंग और कंट्रोल में सुधार करें</string>
+    <string name="ex_desc_bowling_consistency">सटीकता और निरंतरता पर काम करें</string>
+    <string name="ex_desc_fielding_reflex">कैचिंग, थ्रोइंग और रिफ्लेक्स ट्रेनिंग</string>
+    <string name="ex_desc_speed_wickets">विकेटों के बीच गति में सुधार करें</string>
+    <string name="ex_desc_raid_agility">चपलता और रेडिंग तकनीक में सुधार करें</string>
+    <string name="ex_desc_defensive_tackles">एंकल होल्ड और टैकल का अभ्यास करें</string>
+    <string name="ex_desc_agility_drills">गति, संतुलन और त्वरित दिशा परिवर्तन बढ़ाएं</string>
+    <string name="ex_desc_explosive_speed">विस्फोटक गति और सहनशक्ति बनाएं</string>
+    <string name="ex_desc_focus_relax">ध्यान केंद्रित करें और आराम करें</string>
+    <string name="ex_desc_loosen_up">ढीला छोड़ें</string>
+    <string name="ex_desc_core_activity">मुख्य गतिविधि</string>
+    <string name="ex_desc_relax_recover">आराम करें और ठीक हो जाएं</string>
+    <string name="medical_help_title">चिकित्सा सहायता</string>
+    <string name="medical_intro_text">हमें बताएं कि आप क्या अनुभव कर रहे हैं और हेल्थपायलट आपको यह समझने में मदद करेगा कि आगे क्या करना है।</string>
+    <string name="medical_disclaimer">हेल्थपायलट सामान्य स्वास्थ्य जानकारी प्रदान करता है और डॉक्टर या आपातकालीन चिकित्सा देखभाल का स्थान नहीं लेता है।</string>
+    <string name="quick_categories">त्वरित श्रेणियां</string>
+    <string name="start_medical_assessment">चिकित्सा मूल्यांकन शुरू करें</string>
+
+    <!-- Medical Categories -->
+    <string name="cat_general_triage">सामान्य ट्राइएज</string>
+    <string name="cat_fever_cold">बुखार और सर्दी</string>
+    <string name="cat_stomach_digestion">पेट और पाचन</string>
+    <string name="cat_headache_neuro">सिरदर्द और न्यूरो</string>
+    <string name="cat_muscle_joints">मांसपेशियां और जोड़</string>
+    <string name="cat_skin_rash">त्वचा और चकत्ते</string>
+
+    <!-- Medical Assessment -->
+    <string name="btn_continue">जारी रखें</string>
+    <string name="hint_type_symptoms">अपने लक्षणों का वर्णन यहाँ करें...</string>
+
+    <!-- Medical Result -->
+    <string name="assessment_report_title">🩺 हेल्थपायलट मूल्यांकन</string>
+    <string name="summary_label">सारांश</string>
+    <string name="share_with_doctor">डॉक्टर के साथ साझा करें</string>
+    <string name="done">हो गया</string>
+
+    <!-- Urgency Levels -->
+    <string name="urgency_emergency_title">आपातकालीन देखभाल की आवश्यकता</string>
+    <string name="urgency_emergency_desc">तुरंत आपातकालीन चिकित्सा सहायता लें।</string>
+    <string name="urgency_urgent_title">तत्काल ध्यान देने की आवश्यकता</string>
+    <string name="urgency_urgent_desc">तुरंत स्वास्थ्य सेवा प्रदाता से परामर्श करें।</string>
+    <string name="urgency_doctor_soon_title">डॉक्टर के पास जाने का समय निर्धारित करें</string>
+    <string name="urgency_doctor_soon_desc">हम जल्द ही डॉक्टर से मिलने की सलाह देते हैं।</string>
+    <string name="urgency_self_care_title">स्व-देखभाल और निगरानी</string>
+    <string name="urgency_self_care_desc">लक्षणों को घरेलू देखभाल से प्रबंधित किया जा सकता है।</string>
+    <string name="urgency_routine_title">नियमित देखभाल और मार्गदर्शन</string>
+    <string name="urgency_routine_desc">मानक स्वास्थ्य सिफारिशें।</string>
+
+    <!-- Result Sections -->
+    <string name="section_explanations">संभावित स्पष्टीकरण</string>
+    <string name="section_guidance">सामान्य मार्गदर्शन</string>
+    <string name="section_medication">दवा की जानकारी</string>
+    <string name="section_doctor_rec">डॉक्टर की सिफारिश</string>
+    <string name="section_warning_signs">ध्यान देने योग्य चेतावनी संकेत</string>
+
+    <!-- Sharing -->
+    <string name="share_report_subject">हेल्थपायलट चिकित्सा मूल्यांकन</string>
+    <string name="share_report_header">हेल्थपायलट चिकित्सा मूल्यांकन रिपोर्ट</string>
+    <string name="share_urgency_label">तात्कालिकता स्तर: %1$s</string>
+    <string name="share_disclaimer">अस्वीकरण: केवल सूचना के उद्देश्यों के लिए। पेशेवर चिकित्सा सलाह का स्थान नहीं लेता है।</string>
+    <string name="share_via">इसके माध्यम से रिपोर्ट साझा करें</string>
+
+    <!-- Medical Assessment Addition -->
+    <string name="assessment_in_progress">मूल्यांकन जारी है</string>
+    <string name="what_happened_question">क्या हुआ?</string>
+    <string name="symptoms_hint_example">उदाहरण: मुझे आज सुबह से सिरदर्द है और थोड़ा चक्कर आ रहा है।</string>
+    <string name="info_being_used">उपयोग की जा रही जानकारी</string>
+    <string name="user_stats_format">आयु: %1$d | वजन: %2$s | ऊंचाई: %3$s</string>
+    <string name="back">पीछे</string>
+    <string name="loading_assessment">आपके लक्षणों को समझा जा रहा है...</string>
+
+</resources>

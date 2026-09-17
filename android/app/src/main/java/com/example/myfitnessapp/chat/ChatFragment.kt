@@ -118,7 +118,7 @@ class ChatFragment : Fragment() {
         }
 
         viewModel.userName.observe(viewLifecycleOwner) { name ->
-            binding.tvGreeting.text = "Hii $name"
+            binding.tvGreeting.text = getString(R.string.hello_name, name)
         }
 
         viewModel.userProfileImage.observe(viewLifecycleOwner) { profileImage ->
@@ -136,7 +136,7 @@ class ChatFragment : Fragment() {
         if (isListening || isSpeaking) {
             binding.btnMic.setIconResource(R.drawable.ic_stop_square)
             binding.btnMic.setIconTintResource(R.color.accent_red)
-            binding.etMessage.hint = if (isListening) "Listening..." else "Speaking..."
+            binding.etMessage.hint = if (isListening) getString(R.string.listening) else getString(R.string.speaking)
         } else {
             binding.btnMic.setIconResource(R.drawable.ic_mic)
             binding.btnMic.setIconTintResource(R.color.white)

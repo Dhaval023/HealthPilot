@@ -65,7 +65,10 @@ class WorkoutDetailFragment : Fragment() {
     }
 
     private fun displayWorkout(it: WorkoutRecord) {
-        binding.tvWorkoutName.text = it.workoutType
+        val context = requireContext()
+        val nameResId = context.resources.getIdentifier(it.workoutType.lowercase().replace(" ", "_").replace("-", "_"), "string", context.packageName)
+        binding.tvWorkoutName.text = if (nameResId != 0) context.getString(nameResId) else it.workoutType
+        
         val dateSdf = SimpleDateFormat("MMM dd, yyyy", Locale.getDefault())
         val timeSdf = SimpleDateFormat("hh:mm a", Locale.getDefault())
         binding.tvDate.text = dateSdf.format(Date(it.startTime))
@@ -86,36 +89,36 @@ class WorkoutDetailFragment : Fragment() {
         // Fill stats
         val durationBinding = ItemSummaryStatBinding.bind(binding.cardDuration.root)
         durationBinding.ivStatIcon.setImageResource(R.drawable.ic_refresh)
-        durationBinding.tvStatLabel.text = "Duration"
+        durationBinding.tvStatLabel.text = getString(R.string.duration)
         val minutes = it.duration / 60000
         val seconds = (it.duration % 60000) / 1000
         durationBinding.tvStatValue.text = if (minutes > 0) {
-            String.format(Locale.getDefault(), "%d min", minutes)
+            getString(R.string.unit_min, minutes)
         } else {
-            String.format(Locale.getDefault(), "%d sec", seconds)
+            getString(R.string.unit_sec, seconds)
         }
 
         val stepsBinding = ItemSummaryStatBinding.bind(binding.cardSteps.root)
         stepsBinding.ivStatIcon.setImageResource(R.drawable.ic_walk)
-        stepsBinding.tvStatLabel.text = "Steps"
+        stepsBinding.tvStatLabel.text = getString(R.string.steps)
         stepsBinding.tvStatValue.text = it.totalSteps.toString()
 
         val distanceBinding = ItemSummaryStatBinding.bind(binding.cardDistance.root)
         distanceBinding.ivStatIcon.setImageResource(R.drawable.ic_location)
-        distanceBinding.tvStatLabel.text = "Distance"
-        distanceBinding.tvStatValue.text = String.format(Locale.getDefault(), "%.2f km", it.totalDistance)
+        distanceBinding.tvStatLabel.text = getString(R.string.distance)
+        distanceBinding.tvStatValue.text = getString(R.string.unit_km, it.totalDistance)
 
         val caloriesBinding = ItemSummaryStatBinding.bind(binding.cardCalories.root)
         caloriesBinding.ivStatIcon.setImageResource(R.drawable.ic_fire)
-        caloriesBinding.tvStatLabel.text = "Calories"
-        caloriesBinding.tvStatValue.text = String.format(Locale.getDefault(), "%.0f kcal", it.caloriesBurned)
+        caloriesBinding.tvStatLabel.text = getString(R.string.calories_caps)
+        caloriesBinding.tvStatValue.text = getString(R.string.unit_kcal, it.caloriesBurned)
 
         val heartBinding = ItemSummaryStatBinding.bind(binding.cardHeartRate.root)
         heartBinding.ivStatIcon.setImageResource(R.drawable.ic_heart)
         heartBinding.ivStatIcon.imageTintList = android.content.res.ColorStateList.valueOf(
             androidx.core.content.ContextCompat.getColor(requireContext(), R.color.accent_pink)
         )
-        heartBinding.tvStatLabel.text = "Heart Rate"
+        heartBinding.tvStatLabel.text = getString(R.string.heart_rate)
         heartBinding.tvStatValue.text = it.averageHeartRate?.toString() ?: "--"
     }
 

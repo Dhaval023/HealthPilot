@@ -262,4 +262,35 @@
         android:name="com.example.myfitnessapp.chat.ChatFragment"
         android:label="Ved (AI)"
         tools:layout="@layout/fragment_chat" />
+
+    <fragment
+        android:id="@+id/medicalHomeFragment"
+        android:name="com.example.myfitnessapp.medical.MedicalHomeFragment"
+        android:label="Medical Help"
+        tools:layout="@layout/fragment_medical_home">
+        <action
+            android:id="@+id/action_medicalHomeFragment_to_medicalAssessmentFragment"
+            app:destination="@id/medicalAssessmentFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/medicalAssessmentFragment"
+        android:name="com.example.myfitnessapp.medical.MedicalAssessmentFragment"
+        android:label="Symptom Assessment"
+        tools:layout="@layout/fragment_medical_assessment">
+        <argument
+            android:name="category"
+            android:defaultValue="General"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_medicalAssessmentFragment_to_medicalResultFragment"
+            app:destination="@id/medicalResultFragment"
+            app:popUpTo="@id/medicalHomeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/medicalResultFragment"
+        android:name="com.example.myfitnessapp.medical.MedicalResultFragment"
+        android:label="Assessment Result"
+        tools:layout="@layout/fragment_medical_result" />
 </navigation>

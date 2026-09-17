@@ -40,7 +40,7 @@ class DailyWellnessFragment : Fragment() {
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
                 val repository = (requireActivity().application as HealthPilot).repository
                 @Suppress("UNCHECKED_CAST")
-                return HealthGoalViewModel(repository) as T
+                return HealthGoalViewModel(requireActivity().application, repository) as T
             }
         }
     }
@@ -74,7 +74,7 @@ class DailyWellnessFragment : Fragment() {
         }
         binding.btnRefreshSchedule.setOnClickListener {
             viewModel.generateIdealSchedule()
-            android.widget.Toast.makeText(context, "Schedule Refreshed", android.widget.Toast.LENGTH_SHORT).show()
+            android.widget.Toast.makeText(context, getString(R.string.schedule_refreshed), android.widget.Toast.LENGTH_SHORT).show()
         }
 
         binding.btnEditWellness.setOnClickListener {
@@ -96,9 +96,16 @@ class DailyWellnessFragment : Fragment() {
 
         binding.etWellnessWorkStyle.isFocusable = false
         binding.etWellnessWorkStyle.setOnClickListener {
-            val styles = arrayOf("Mostly Sitting", "Mostly Standing", "Mixed Activity", "Heavy Physical Work", "Driving", "Home & Care")
+            val styles = arrayOf(
+                getString(R.string.mostly_sitting),
+                getString(R.string.mostly_standing),
+                getString(R.string.mixed_activity),
+                getString(R.string.heavy_physical_work),
+                getString(R.string.driving),
+                getString(R.string.home_and_care),
+            )
             MaterialAlertDialogBuilder(requireContext(), R.style.CustomDialogTheme)
-                .setTitle("Select Work Style")
+                .setTitle(getString(R.string.select_work_style_dialog))
                 .setItems(styles) { _, which ->
                     binding.etWellnessWorkStyle.setText(styles[which])
                 }
@@ -115,7 +122,7 @@ class DailyWellnessFragment : Fragment() {
             val hour = if (parts.size == 2) parts[0].toInt() else 8
             val minute = if (parts.size == 2) parts[1].toInt() else 0
 
-            android.app.TimePickerDialog(requireContext(), R.style.CustomPickerTheme, { _, h, m ->
+            TimePickerDialog(requireContext(), R.style.CustomPickerTheme, { _, h, m ->
                 val time24h = "%02d:%02d".format(h, m)
                 editText.tag = time24h
                 editText.setText(formatTo12h(time24h))
@@ -166,7 +173,7 @@ class DailyWellnessFragment : Fragment() {
                 
                 viewModel.generateIdealSchedule()
                 binding.wellnessViewSwitcher.showPrevious()
-                android.widget.Toast.makeText(context, "Settings Updated & Schedule Refreshed", android.widget.Toast.LENGTH_SHORT).show()
+                android.widget.Toast.makeText(context, getString(R.string.settings_updated_refreshed), android.widget.Toast.LENGTH_SHORT).show()
             } catch (e: Exception) {
                 e.printStackTrace()
                 android.widget.Toast.makeText(context, "Failed to update", android.widget.Toast.LENGTH_SHORT).show()
@@ -201,8 +208,16 @@ class DailyWellnessFragment : Fragment() {
                 val user = snapshot.toObject(User::class.java)
                 user?.let {
                     binding.tvWellnessScheduleRange.text = "${formatTo12h(it.wakeUpTime)} - ${formatTo12h(it.sleepTime)}"
-                    binding.tvWellnessWorkStyle.text = it.workStyle
-                    binding.tvWellnessWorkMeta.text = "${formatTo12h(it.workStartTime)} - ${formatTo12h(it.workEndTime)} | ${it.dailyScreenTime} hrs screen"
+                    
+                    val workStyleResId = resources.getIdentifier(
+                        it.workStyle.lowercase().replace(" ", "_").replace("&", "and"),
+                        "string",
+                        requireContext().packageName
+                    )
+                    binding.tvWellnessWorkStyle.text = if (workStyleResId != 0) getString(workStyleResId) else it.workStyle
+                    
+                    val hrsScreenText = getString(R.string.hrs_screen, it.dailyScreenTime)
+                    binding.tvWellnessWorkMeta.text = "${formatTo12h(it.workStartTime)} - ${formatTo12h(it.workEndTime)} | $hrsScreenText"
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -212,9 +227,9 @@ class DailyWellnessFragment : Fragment() {
 
     private fun showReminderOptions(reminder: Reminder) {
         val options = arrayOf(
-            if (reminder.isEnabled) "Turn Off" else "Turn On",
-            "Change Time",
-            "Remove"
+            if (reminder.isEnabled) getString(R.string.turn_off) else getString(R.string.turn_on),
+            getString(R.string.change_time),
+            getString(R.string.remove)
         )
         
         MaterialAlertDialogBuilder(requireContext(), R.style.CustomDialogTheme)
@@ -246,7 +261,7 @@ class DailyWellnessFragment : Fragment() {
             val h = parts[0].toInt()
             val m = parts[1].toInt()
             val suffix = if (h >= 12) "PM" else "AM"
-            val h12 = if (h % 12 == 0) 12 else h % 12
+            val h12 = if ((h % 12) == 0) 12 else h % 12
             "%02d:%02d %s".format(h12, m, suffix)
         } catch (e: Exception) { time24h }
     }

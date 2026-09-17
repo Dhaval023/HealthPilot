@@ -12,6 +12,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.myfitnessapp.HealthPilot
+import com.example.myfitnessapp.R
 import com.example.myfitnessapp.models.ChatMessage
 import com.example.myfitnessapp.models.DailyData
 import com.example.myfitnessapp.models.User
@@ -38,7 +39,7 @@ class ChatViewModel(application: Application) : AndroidViewModel(application) {
     private val _messages = MutableLiveData<List<ChatMessage>>(
         listOf(
             ChatMessage(
-                "Hello! I'm Ved, your AI health assistant. How can I help you today?",
+                application.getString(R.string.ai_greeting_format, "Ved"),
                 false
             )
         )
@@ -69,9 +70,9 @@ class ChatViewModel(application: Application) : AndroidViewModel(application) {
 
     private var todayHealthData: DailyData? = null
 
-    // GEMINI CONFIGURATION
-    private val apiKey = "" //Api 2
-    private val geminiModelName = "gemini-3.5-flash-lite"
+    // GEMINI CONFIGURATION FROM CENTRALIZED CONFIG FILE
+    private val apiKey = com.example.myfitnessapp.data.repository.ApiKeyConfig.GEMINI_API_KEY
+    private val geminiModelName = com.example.myfitnessapp.data.repository.ApiKeyConfig.GEMINI_MODEL_NAME
 
     // SPEECH RECOGNIZER
     private val speechRecognizer: SpeechRecognizer by lazy {
@@ -123,17 +124,57 @@ class ChatViewModel(application: Application) : AndroidViewModel(application) {
 
 
     private fun speak(text: String) {
+        if (text.isBlank()) return
 
-        if (text.isBlank()) {
-            return
+        viewModelScope.launch {
+            val uid = FirebaseAuth.getInstance().currentUser?.uid
+            var voicePreference = "Arya"
+            if (uid != null) {
+                try {
+                    val snapshot = FirebaseFirestore.getInstance().collection("users").document(uid).get().await()
+                    voicePreference = snapshot.getString("assistantVoice") ?: "Arya"
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }
+
+            val voices = tts?.voices
+            if (voices != null && voices.isNotEmpty()) {
+                val matches = voices.filter { v ->
+                    val nameLower = v.name.lowercase()
+                    if (voicePreference.equals("Ved", ignoreCase = true)) {
+                        nameLower.contains("male") || nameLower.contains("en-us-x-iom") || nameLower.contains("en-gb-x-rjs")
+                    } else {
+                        nameLower.contains("female") || nameLower.contains("en-us-x-tpf") || nameLower.contains("en-us-x-local")
+                    }
+                }
+                
+                val chosenVoice = matches.firstOrNull() ?: voices.firstOrNull { v ->
+                    if (voicePreference.equals("Ved", ignoreCase = true)) v.name.contains("male", ignoreCase = true)
+                    else v.name.contains("female", ignoreCase = true)
+                }
+                
+                if (chosenVoice != null) {
+                    tts?.voice = chosenVoice
+                }
+            }
+
+            // Adjust tone pitch to provide a clearer auditory differentiation between names
+            if (voicePreference.equals("Ved", ignoreCase = true)) {
+                tts?.setPitch(0.85f) // Deepen masculine frequency range
+                tts?.setSpeechRate(0.95f)
+            } else {
+                tts?.setPitch(1.15f) // Lighten feminine frequency range
+                tts?.setSpeechRate(1.0f)
+            }
+
+            tts?.speak(
+                text,
+                TextToSpeech.QUEUE_FLUSH,
+                null,
+                "ChatResponse"
+            )
         }
-
-        tts?.speak(
-            text,
-            TextToSpeech.QUEUE_FLUSH,
-            null,
-            "ChatResponse"
-        )
     }
 
 
@@ -214,7 +255,7 @@ class ChatViewModel(application: Application) : AndroidViewModel(application) {
 
                         updatedList.add(
                             ChatMessage(
-                                "Speech Error: $errorMessage",
+                                getApplication<Application>().getString(R.string.speech_error_format, errorMessage),
                                 false
                             )
                         )
@@ -268,7 +309,7 @@ class ChatViewModel(application: Application) : AndroidViewModel(application) {
 
             updatedList.add(
                 ChatMessage(
-                    "Speech recognition is not available on this device.",
+                    getApplication<Application>().getString(R.string.speech_not_available),
                     false
                 )
             )
@@ -315,7 +356,7 @@ class ChatViewModel(application: Application) : AndroidViewModel(application) {
 
             updatedList.add(
                 ChatMessage(
-                    "Unable to start speech recognition.",
+                    getApplication<Application>().getString(R.string.speech_start_error),
                     false
                 )
             )
@@ -375,6 +416,16 @@ class ChatViewModel(application: Application) : AndroidViewModel(application) {
                 _userProfileImage.value =
                     currentUserData?.profileImageUrl
 
+                // Dynamic welcome message naming configuration
+                val currentVoice = currentUserData?.assistantVoice ?: "Arya"
+                val welcomeName = if (currentVoice.equals("Ved", ignoreCase = true)) "Ved" else "Arya"
+                _messages.value = listOf(
+                    ChatMessage(
+                        getApplication<Application>().getString(R.string.ai_greeting_format, welcomeName),
+                        false
+                    )
+                )
+
                 // TODAY'S HEALTH DATA
                 val today =
                     SimpleDateFormat(
@@ -418,7 +469,7 @@ class ChatViewModel(application: Application) : AndroidViewModel(application) {
 
             updatedList.add(
                 ChatMessage(
-                    "No internet connection. Please check your settings.",
+                    getApplication<Application>().getString(R.string.no_internet_error),
                     false
                 )
             )
@@ -505,15 +556,23 @@ class ChatViewModel(application: Application) : AndroidViewModel(application) {
         val daily = todayHealthData
         val context = StringBuilder()
 
+        val voicePreference = user?.assistantVoice ?: "Arya"
+        val botName = if (voicePreference.equals("Ved", ignoreCase = true)) "Ved" else "Arya"
+
+        val appLocale = androidx.appcompat.app.AppCompatDelegate.getApplicationLocales().get(0)
+        val currentLanguage = appLocale?.displayLanguage ?: "English"
+
         context.append(
             """
-            You are Ved, a helpful AI health and fitness assistant
+            You are $botName, a helpful AI health and fitness assistant
             inside the HealthPilot Android app.
 
             Your job is to provide simple, useful and personalized
             health and fitness guidance.
 
             IMPORTANT RESPONSE RULES:
+            - ALWAYS respond in the user's current language: $currentLanguage.
+            - If the user speaks in Hindi, reply in Hindi. If Gujarati, reply in Gujarati.
             - Keep responses short.
             - Normally respond in 1-5 short sentences.
             - Be direct and easy to understand.

@@ -37,5 +37,6 @@ data class User(
     val waterIntakeGoalMl: Int = 2000,
     val exerciseHabit: String = "None",
     val medicalRestrictions: String = "",
-    val alarmTune: String = "default"
+    val alarmTune: String = "default",
+    val assistantVoice: String = "Arya"
 )

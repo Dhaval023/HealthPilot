@@ -104,17 +104,17 @@ class DashboardFragment : Fragment() {
         }
 
         binding.macroProtein.apply {
-            macroTitle.text = "Protein"
+            macroTitle.text = getString(R.string.protein)
             macroTitle.setTextColor(ContextCompat.getColor(requireContext(), R.color.accent_lime))
             macroProgress.setIndicatorColor(ContextCompat.getColor(requireContext(), R.color.accent_lime))
         }
         binding.macroCarbs.apply {
-            macroTitle.text = "Carbs"
+            macroTitle.text = getString(R.string.carbs)
             macroTitle.setTextColor(ContextCompat.getColor(requireContext(), R.color.accent_orange))
             macroProgress.setIndicatorColor(ContextCompat.getColor(requireContext(), R.color.accent_orange))
         }
         binding.macroFats.apply {
-            macroTitle.text = "Fats"
+            macroTitle.text = getString(R.string.fats)
             macroTitle.setTextColor(ContextCompat.getColor(requireContext(), R.color.accent_pink))
             macroProgress.setIndicatorColor(ContextCompat.getColor(requireContext(), R.color.accent_pink))
         }
@@ -176,7 +176,7 @@ class DashboardFragment : Fragment() {
                 launch {
                     viewModel.user.collect { user ->
                         user?.let {
-                            binding.tvGreeting.text = "Hello ${it.name} !"
+                            binding.tvGreeting.text = getString(R.string.hello_name, it.name)
                             startOnboarding()
                         }
                         updateUI()
@@ -211,7 +211,7 @@ class DashboardFragment : Fragment() {
                 launch {
                     viewModel.connectedDeviceName.collect { name ->
                         if (viewModel.connectionState.value == BleManager.ConnectionState.CONNECTED) {
-                            binding.statusText.text = name?.uppercase() ?: "CONNECTED"
+                            binding.statusText.text = name?.uppercase() ?: getString(R.string.connect).uppercase()
                         }
                     }
                 }
@@ -412,13 +412,13 @@ class DashboardFragment : Fragment() {
         binding.statusDot.backgroundTintList = android.content.res.ColorStateList.valueOf(color)
 
         if (state == BleManager.ConnectionState.CONNECTED) {
-            binding.connectButton.text = "Disconnect"
+            binding.connectButton.text = getString(R.string.disconnect)
             binding.connectButton.setTextColor(ContextCompat.getColor(requireContext(), R.color.accent_red))
             val disconnectAction = View.OnClickListener { viewModel.disconnectDevice() }
             binding.connectButton.setOnClickListener(disconnectAction)
             binding.connectionStatusCard.setOnClickListener(disconnectAction)
         } else {
-            binding.connectButton.text = "Connect"
+            binding.connectButton.text = getString(R.string.connect)
             binding.connectButton.setTextColor(ContextCompat.getColor(requireContext(), R.color.accent_lime))
             val connectAction = View.OnClickListener { showDeviceListBottomSheet() }
             binding.connectButton.setOnClickListener(connectAction)

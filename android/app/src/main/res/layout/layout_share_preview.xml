@@ -187,7 +187,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="DISTANCE (KM)"
+                        android:text="@string/distance_km"
                         android:textColor="@color/text_gray"
                         android:textSize="9sp"
                         android:textStyle="bold" />
@@ -237,7 +237,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="DURATION (MIN)"
+                        android:text="@string/duration_min"
                         android:textColor="@color/text_gray"
                         android:textSize="9sp"
                         android:textStyle="bold" />
@@ -293,7 +293,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="STEPS"
+                        android:text="@string/steps_caps"
                         android:textColor="@color/text_gray"
                         android:textSize="8sp"
                         android:textStyle="bold"/>
@@ -326,7 +326,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="CALORIES"
+                        android:text="@string/calories_caps"
                         android:textColor="@color/text_gray"
                         android:textSize="8sp"
                         android:textStyle="bold"/>
@@ -359,7 +359,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="AVG HR (BPM)"
+                        android:text="@string/avg_hr_bpm"
                         android:textColor="@color/text_gray"
                         android:textSize="8sp"
                         android:textStyle="bold"/>
@@ -393,7 +393,7 @@
                 android:id="@+id/tvGoalLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="GOAL PROGRESS"
+                android:text="@string/goal_type"
                 android:textColor="@color/white"
                 android:textSize="9sp"
                 android:textStyle="bold"
@@ -448,7 +448,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="GOAL COMPLETED"
+                    android:text="@string/goal_completed"
                     android:textColor="@color/white"
                     android:textSize="10sp"
                     android:textStyle="bold"

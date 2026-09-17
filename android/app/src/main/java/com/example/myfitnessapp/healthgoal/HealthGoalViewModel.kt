@@ -1,7 +1,9 @@
 package com.example.myfitnessapp.healthgoal
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.myfitnessapp.R
 import com.example.myfitnessapp.models.FoodItem
 import com.example.myfitnessapp.models.User
 import com.example.myfitnessapp.models.DailyData
@@ -25,7 +27,7 @@ import java.net.URL
 import java.text.SimpleDateFormat
 import java.util.*
 
-class HealthGoalViewModel(private val repository: HealthRepository) : ViewModel() {
+class HealthGoalViewModel(application: Application, private val repository: HealthRepository) : AndroidViewModel(application) {
 
     private val auth = FirebaseAuth.getInstance()
     private val db = FirebaseFirestore.getInstance()
@@ -50,7 +52,7 @@ class HealthGoalViewModel(private val repository: HealthRepository) : ViewModel(
     private var recalculationJob: kotlinx.coroutines.Job? = null
     private var searchJob: kotlinx.coroutines.Job? = null
     private var recentFoodsListener: ListenerRegistration? = null
-    private val FOOD_API_BASE_URL = "https://foodapi-1-6rlj.onrender.com"
+    private val FOOD_API_BASE_URL = com.example.myfitnessapp.data.repository.ApiKeyConfig.FOOD_API_BASE_URL
 
     init {
         val uid = auth.currentUser?.uid
@@ -135,7 +137,8 @@ class HealthGoalViewModel(private val repository: HealthRepository) : ViewModel(
                         startDate = it.startDate,
                         reminders = if (hasPendingReminders) state.reminders else (if (it.reminders.isNotEmpty()) it.reminders else state.reminders),
                         wellnessReminders = if (hasPendingReminders) state.wellnessReminders else it.wellnessReminders,
-                        alarmTune = if (it.alarmTune.isNotEmpty()) it.alarmTune else state.alarmTune
+                        alarmTune = if (it.alarmTune.isNotEmpty()) it.alarmTune else state.alarmTune,
+                        assistantVoice = if (it.assistantVoice.isNotEmpty()) it.assistantVoice else state.assistantVoice
                     )
                 }
 
@@ -701,10 +704,21 @@ class HealthGoalViewModel(private val repository: HealthRepository) : ViewModel(
     fun addReminder(type: String, time: String) {
         viewModelScope.launch {
             val uid = auth.currentUser?.uid ?: return@launch
+            
+            // Localize default message
+            val messageResId = when(type.lowercase()) {
+                "breakfast" -> R.string.breakfast
+                "lunch" -> R.string.lunch
+                "snack" -> R.string.snacks
+                "dinner" -> R.string.dinner
+                else -> 0
+            }
+            val localizedType = if (messageResId != 0) getApplication<Application>().getString(messageResId) else type
+            
             val newReminder = Reminder(
                 id = UUID.randomUUID().toString(),
-                type = type,
-                message = "Time for your $type!",
+                type = localizedType,
+                message = "Time for your $localizedType!",
                 time = time,
                 isEnabled = true
             )
@@ -823,6 +837,14 @@ class HealthGoalViewModel(private val repository: HealthRepository) : ViewModel(
         }
     }
 
+    fun updateAssistantVoice(voice: String) {
+        viewModelScope.launch {
+            val uid = auth.currentUser?.uid ?: return@launch
+            _uiState.update { it.copy(assistantVoice = voice) }
+            db.collection("users").document(uid).update("assistantVoice", voice)
+        }
+    }
+
     private fun updateRemindersInDb(reminders: List<Reminder>) {
         val uid = auth.currentUser?.uid ?: return
         db.collection("users").document(uid)
@@ -902,14 +924,10 @@ class HealthGoalViewModel(private val repository: HealthRepository) : ViewModel(
         val recentFoods: List<FoodItem> = emptyList(),
         val categories: List<String> = emptyList(),
         val loggedFoods: List<LoggedFood> = emptyList(),
-        val reminders: List<Reminder> = listOf(
-            Reminder("1", "Breakfast", "Time for breakfast!", "08:00"),
-            Reminder("2", "Lunch", "Time for lunch!", "13:00"),
-            Reminder("3", "Snack", "Time for a snack!", "17:00"),
-            Reminder("4", "Dinner", "Time for dinner!", "20:00")
-        ),
+        val reminders: List<Reminder> = emptyList(), // Initialize empty to fetch from localized defaults
         val wellnessReminders: List<Reminder> = emptyList(),
         val alarmTune: String = "default",
+        val assistantVoice: String = "Arya",
         val gender: String = "Male",
         val error: String? = null,
         val isLoading: Boolean = true

@@ -113,7 +113,7 @@ class ReportFragment : Fragment() {
         val today = sdf.format(Date())
 
         binding.tvDateRange.text = when(state.rangeType) {
-            "D" -> if (selectedDateStr == today) "Today" else selectedDateStr
+            "D" -> if (selectedDateStr == today) getString(R.string.today) else selectedDateStr
             "W" -> {
                 val calendar = Calendar.getInstance()
                 calendar.time = state.selectedDate
@@ -136,19 +136,19 @@ class ReportFragment : Fragment() {
 
     private fun updateReportSections(state: ReportUiState) {
         // Steps
-        setupSection(binding.sectionSteps, "Steps History", "steps", state.dailyDataList, state.user)
+        setupSection(binding.sectionSteps, getString(R.string.steps_history), "steps", state.dailyDataList, state.user)
         // Distance
-        setupSection(binding.sectionDistance, "Distance History", "km", state.dailyDataList, state.user)
+        setupSection(binding.sectionDistance, getString(R.string.distance_history), "km", state.dailyDataList, state.user)
         // Heart Rate
-        setupSection(binding.sectionHeart, "Heart Rate History", "bpm", state.dailyDataList, state.user)
+        setupSection(binding.sectionHeart, getString(R.string.heart_rate_history), "bpm", state.dailyDataList, state.user)
         // Calories
-        setupSection(binding.sectionCalories, "Calories History", "kcal", state.dailyDataList, state.user)
+        setupSection(binding.sectionCalories, getString(R.string.calories_history), "kcal", state.dailyDataList, state.user)
         // Sleep
-        setupSection(binding.sectionSleep, "Sleep History", "hours", state.dailyDataList, state.user)
+        setupSection(binding.sectionSleep, getString(R.string.sleep_history), "hours", state.dailyDataList, state.user)
         // Weight
-        setupSection(binding.sectionWeight, "Weight Progress", "kg", state.dailyDataList, state.user)
+        setupSection(binding.sectionWeight, getString(R.string.weight_progress), "kg", state.dailyDataList, state.user)
         // Health Goals
-        setupSection(binding.sectionGoals, "Health Goal Progress", "nutrition", state.dailyDataList, state.user)
+        setupSection(binding.sectionGoals, getString(R.string.health_goal_progress), "nutrition", state.dailyDataList, state.user)
         
         // Auto-scroll logic
         state.selectedMetric?.let { metric ->
@@ -178,10 +178,10 @@ class ReportFragment : Fragment() {
     ) {
         sectionBinding.tvGraphTitle.text = title
         sectionBinding.tvOverviewLabel.text = when(viewModel.uiState.value.rangeType) {
-            "D" -> "Today's overview"
-            "W" -> "7-Day overview"
-            "M" -> "30-Day overview"
-            else -> "Overview"
+            "D" -> getString(R.string.todays_overview)
+            "W" -> getString(R.string.seven_day_overview)
+            "M" -> getString(R.string.thirty_day_overview)
+            else -> getString(R.string.overview)
         }
 
         val values = dataList.map { 
@@ -266,11 +266,11 @@ class ReportFragment : Fragment() {
                 val avgWater = dataList.map { it.waterIntakeL }.average().coerceAtLeast(0.0)
 
                 val entries = ArrayList<PieEntry>()
-                if (avgProt > 0) entries.add(PieEntry(avgProt.toFloat(), "Protein"))
-                if (avgCal > 0) entries.add(PieEntry(avgCal.toFloat(), "Calories"))
-                if (avgCarb > 0) entries.add(PieEntry(avgCarb.toFloat(), "Carbs"))
-                if (avgFat > 0) entries.add(PieEntry(avgFat.toFloat(), "Fat"))
-                if (avgWater > 0) entries.add(PieEntry(avgWater.toFloat() * 100, "Water"))
+                if (avgProt > 0) entries.add(PieEntry(avgProt.toFloat(), getString(R.string.protein)))
+                if (avgCal > 0) entries.add(PieEntry(avgCal.toFloat(), getString(R.string.kcal)))
+                if (avgCarb > 0) entries.add(PieEntry(avgCarb.toFloat(), getString(R.string.carbs)))
+                if (avgFat > 0) entries.add(PieEntry(avgFat.toFloat(), getString(R.string.fats)))
+                if (avgWater > 0) entries.add(PieEntry(avgWater.toFloat() * 100, getString(R.string.water)))
 
                 val dataSet = PieDataSet(entries, "")
                 dataSet.colors = listOf(
@@ -288,7 +288,7 @@ class ReportFragment : Fragment() {
                 sectionBinding.pieChart.apply {
                     description.isEnabled = false
                     setHoleColor(Color.TRANSPARENT)
-                    centerText = "Health Goals"
+                    centerText = getString(R.string.health_goals)
                     setCenterTextColor(Color.WHITE)
                     setCenterTextSize(14f)
                     setEntryLabelColor(Color.WHITE)
@@ -345,12 +345,21 @@ class ReportFragment : Fragment() {
     }
 
     private fun formatValue(value: Double, unit: String): String {
+        val unitStr = when(unit) {
+            "steps" -> getString(R.string.steps)
+            "km" -> getString(R.string.km)
+            "bpm" -> getString(R.string.bpm)
+            "kcal" -> getString(R.string.kcal)
+            "hours" -> getString(R.string.hrs)
+            "kg" -> "kg"
+            else -> unit
+        }
         return if (value >= 1000 && unit == "steps") {
-            String.format(Locale.US, "%.1fK %s", value / 1000.0, unit)
+            getString(R.string.k_steps_format, value / 1000.0, unitStr)
         } else if (value % 1.0 == 0.0) {
-            String.format(Locale.US, "%d %s", value.toInt(), unit)
+            getString(R.string.value_unit_format, value.toInt().toString(), unitStr)
         } else {
-            String.format(Locale.US, "%.1f %s", value, unit)
+            getString(R.string.value_unit_format, "%.1f".format(value), unitStr)
         }
     }
 

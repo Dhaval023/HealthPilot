@@ -59,7 +59,10 @@ class WorkoutTrackingFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val workoutName = arguments?.getString("workoutName") ?: "Workout"
-        binding.tvToolbarTitle.text = workoutName
+        
+        val context = requireContext()
+        val nameResId = context.resources.getIdentifier(workoutName.lowercase().replace(" ", "_").replace("-", "_"), "string", context.packageName)
+        binding.tvToolbarTitle.text = if (nameResId != 0) getString(nameResId) else workoutName
 
         // Configure stats visibility based on workout type
         configureStatsVisibility(workoutName)

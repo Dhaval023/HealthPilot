@@ -132,7 +132,10 @@ class MainActivity : AppCompatActivity() {
                 destination.id == R.id.workoutHistoryFragment ||
                 destination.id == R.id.workoutPlanFragment ||
                 destination.id == R.id.workoutDetailFragment ||
-                destination.id == R.id.workoutShareFragment) {
+                destination.id == R.id.workoutShareFragment ||
+                destination.id == R.id.medicalHomeFragment ||
+                destination.id == R.id.medicalAssessmentFragment ||
+                destination.id == R.id.medicalResultFragment) {
                 binding.bottomNavigation.visibility = View.GONE
                 binding.fabChatAssistant.visibility = View.GONE
                 binding.drawerLayout.setDrawerLockMode(androidx.drawerlayout.widget.DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
@@ -185,7 +188,7 @@ class MainActivity : AppCompatActivity() {
         if (snackbar == null) {
             snackbar = Snackbar.make(
                 binding.root,
-                "No internet connection. Please check your settings.",
+                getString(R.string.no_internet_error),
                 Snackbar.LENGTH_INDEFINITE
             ).apply {
                 setAction("OK") { dismiss() }

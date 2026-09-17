@@ -48,7 +48,9 @@ class WorkoutAdapter(private val onWorkoutClick: (String) -> Unit) : RecyclerVie
 
     inner class WorkoutViewHolder(private val binding: ItemWorkoutBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(workout: WorkoutItem) {
-            binding.tvWorkoutName.text = workout.name
+            val context = itemView.context
+            val resId = context.resources.getIdentifier(workout.name.lowercase().replace(" ", "_").replace("-", "_"), "string", context.packageName)
+            binding.tvWorkoutName.text = if (resId != 0) context.getString(resId) else workout.name
             binding.ivWorkoutIcon.setImageResource(workout.iconRes)
             binding.ivWorkoutIcon.setColorFilter(ContextCompat.getColor(itemView.context, workout.colorRes))
             binding.root.setOnClickListener { onWorkoutClick(workout.name) }

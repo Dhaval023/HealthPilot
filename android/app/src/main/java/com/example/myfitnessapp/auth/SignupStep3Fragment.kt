@@ -1,6 +1,5 @@
 package com.example.myfitnessapp.auth
 
-import android.app.AlertDialog
 import android.app.TimePickerDialog
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -36,7 +35,7 @@ class SignupStep3Fragment : Fragment() {
         // Prevent going back during signup process
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                Toast.makeText(context, "Please complete your profile to continue", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, getString(R.string.please_complete_profile), Toast.LENGTH_SHORT).show()
             }
         })
 
@@ -63,7 +62,7 @@ class SignupStep3Fragment : Fragment() {
                     screenTime = screenTimeStr.toIntOrNull() ?: 0
                 )
             } else {
-                Toast.makeText(context, "Please fill all fields", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, getString(R.string.fill_all_fields), Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -115,7 +114,13 @@ class SignupStep3Fragment : Fragment() {
 
     private fun setupWorkStylePicker() {
         binding.etWorkStyle.setOnClickListener {
-            val styles = arrayOf("Mostly Sitting", "Mostly Standing", "Mixed Activity", "Heavy Physical Work", "Driving", "Home & Care")
+            val styleValues = arrayOf("Mostly Sitting", "Mostly Standing", "Mixed Activity", "Heavy Physical Work", "Driving", "Home & Care")
+            val styles = styleValues.map { 
+                val resName = it.lowercase().replace(" ", "_").replace("&", "and")
+                val resId = resources.getIdentifier(resName, "string", requireContext().packageName)
+                if(resId != 0) getString(resId) else it 
+            }.toTypedArray()
+            
             val dialog = BottomSheetDialog(requireContext(), R.style.CustomDialogTheme)
             val view = layoutInflater.inflate(R.layout.dialog_work_style_picker, null)
             dialog.setContentView(view)
@@ -133,7 +138,7 @@ class SignupStep3Fragment : Fragment() {
                     val textView = holder.itemView.findViewById<android.widget.TextView>(R.id.tv_style_name)
                     textView.text = styles[position]
                     holder.itemView.setOnClickListener {
-                        binding.etWorkStyle.setText(styles[position])
+                        binding.etWorkStyle.setText(styleValues[position]) // Set English value to save in DB
                         dialog.dismiss()
                     }
                 }
@@ -148,7 +153,7 @@ class SignupStep3Fragment : Fragment() {
 
     private fun showErrorDialog(message: String) {
         androidx.appcompat.app.AlertDialog.Builder(requireContext())
-            .setTitle("Sign Up Error")
+            .setTitle(getString(R.string.signup_error))
             .setMessage(message)
             .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
             .show()
@@ -173,7 +178,7 @@ class SignupStep3Fragment : Fragment() {
                     is AuthViewModel.AuthState.Error -> {
                         binding.progressBar.visibility = View.GONE
                         binding.btnCompleteSignup.isEnabled = true
-                        binding.btnCompleteSignup.text = "Complete Signup"
+                        binding.btnCompleteSignup.text = getString(R.string.complete_signup)
                         showErrorDialog(state.message)
                     }
                     else -> {}

@@ -44,7 +44,7 @@
                 android:layout_toEndOf="@id/btn_menu"
                 android:layout_marginStart="16dp"
                 android:layout_centerVertical="true"
-                android:text="Health Goals"
+                android:text="@string/health_goals"
                 android:textColor="@color/white"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -70,11 +70,11 @@
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Weight Loss 🏃" />
+                    android:text="@string/weight_loss" />
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Weight Gain 💪" />
+                    android:text="@string/weight_gain" />
             </com.google.android.material.tabs.TabLayout>
 
             <TextView
@@ -83,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:text="Set Target 🎯"
+                android:text="@string/set_target"
                 android:textColor="@color/accent_blue"
                 android:textSize="12sp"
                 android:textStyle="bold"
@@ -121,7 +121,7 @@
                     android:id="@+id/tv_goal_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Weight Loss Goal"
+                    android:text="@string/weight_loss_goal"
                     android:textColor="@color/accent_blue"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -133,7 +133,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:text="On Track"
+                    android:text="@string/on_track"
                     android:textColor="@color/accent_blue"
                     android:textSize="13sp"
                     android:textStyle="bold"
@@ -175,7 +175,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Progress"
+                            android:text="@string/progress"
                             android:textColor="@color/text_gray"
                             android:textSize="10sp" />
                     </LinearLayout>
@@ -193,7 +193,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Current Weight"
+                        android:text="@string/current_weight"
                         android:textColor="@color/text_gray"
                         android:textSize="12sp" />
                     <TextView
@@ -209,7 +209,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="Target Weight (kg)"
+                        android:text="@string/target_weight"
                         android:textColor="@color/text_gray"
                         android:textSize="12sp" />
                     <EditText
@@ -227,7 +227,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="Remaining"
+                        android:text="@string/remaining"
                         android:textColor="@color/text_gray"
                         android:textSize="12sp" />
                     <TextView
@@ -266,7 +266,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:text="Target Duration"
+                        android:text="@string/target_duration"
                         android:textColor="@color/text_gray"
                         android:textSize="12sp" />
                     <EditText
@@ -285,7 +285,7 @@
                         android:id="@+id/tv_duration_unit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Weeks"
+                        android:text="@string/weeks"
                         android:textColor="@color/accent_blue"
                         android:textSize="14sp"
                         android:textStyle="bold" />
@@ -302,7 +302,7 @@
                 android:id="@+id/daily_target"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Daily Targets"
+                android:text="@string/daily_goals"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -325,7 +325,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="Recalculating..."
+                    android:text="@string/recalculating"
                     android:textColor="@color/accent_blue"
                     android:textSize="12sp"
                     android:textStyle="italic" />
@@ -359,7 +359,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Today's Progress"
+                android:text="@string/todays_progress"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -402,7 +402,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add Food"
+                android:text="@string/add_food"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -436,7 +436,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginStart="16dp"
-                    android:text="Add Meal or Food"
+                    android:text="@string/add_meal_or_food"
                     android:textColor="@color/white"
                     android:textSize="16sp" />
                 <ImageView
@@ -458,7 +458,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Today's Logged Food"
+                android:text="@string/todays_logged_food"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -515,7 +515,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Total Calories"
+                            android:text="@string/total_calories"
                             android:textColor="@color/text_gray"
                             android:textSize="10sp" />
                         <TextView
@@ -554,7 +554,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Total Items"
+                            android:text="@string/total_items"
                             android:textColor="@color/text_gray"
                             android:textSize="10sp" />
                         <TextView
@@ -626,7 +626,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Water Intake"
+                            android:text="@string/water_intake"
                             android:textColor="@color/white"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -694,7 +694,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Watch"
+                            android:text="@string/watch"
                             android:textColor="@color/white"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -753,7 +753,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Streaks"
+                            android:text="@string/streaks"
                             android:textColor="@color/white"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -784,7 +784,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Keep it up!"
+                                    android:text="@string/keep_it_up"
                                     android:textColor="@color/text_gray"
                                     android:textSize="10sp" />
                             </LinearLayout>
@@ -800,7 +800,7 @@
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:layout_marginTop="24dp"
-            android:text="Save Goals"
+            android:text="@string/save_goals"
             android:textAllCaps="false"
             android:textSize="16sp"
             android:textStyle="bold"

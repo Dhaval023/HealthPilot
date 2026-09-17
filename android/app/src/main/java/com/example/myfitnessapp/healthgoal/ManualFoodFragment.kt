@@ -25,7 +25,7 @@ class ManualFoodFragment : Fragment() {
         object : ViewModelProvider.Factory {
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
                 val repository = (requireActivity().application as HealthPilot).repository
-                return HealthGoalViewModel(repository) as T
+                return HealthGoalViewModel(requireActivity().application, repository) as T
             }
         }
     }
@@ -71,7 +71,14 @@ class ManualFoodFragment : Fragment() {
         }
 
         // Setup Category Spinner
-        val categories = viewModel.uiState.value.categories.ifEmpty { listOf("Breakfast", "Lunch", "Dinner", "Snacks") }
+        val categories = viewModel.uiState.value.categories.ifEmpty { 
+            listOf(
+                getString(R.string.breakfast),
+                getString(R.string.lunch),
+                getString(R.string.dinner),
+                getString(R.string.snacks)
+            )
+        }
         val spinner = view.findViewById<AutoCompleteTextView>(R.id.spinner_category)
         val spinnerAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, categories)
         spinner.setAdapter(spinnerAdapter)
@@ -91,10 +98,10 @@ class ManualFoodFragment : Fragment() {
                 FoodItem(name = name, calories = calories, protein = protein, carbs = carbs, fat = fat, category = category),
                 1.0
             )
-            Toast.makeText(requireContext(), "$name added successfully!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), getString(R.string.food_added_success, name), Toast.LENGTH_SHORT).show()
             findNavController().navigateUp()
         } else {
-            Toast.makeText(requireContext(), "Please enter name and calories", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), getString(R.string.enter_name_cal_error), Toast.LENGTH_SHORT).show()
         }
     }
 }

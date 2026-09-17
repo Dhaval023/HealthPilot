@@ -39,15 +39,33 @@ class ReminderReceiver : BroadcastReceiver() {
                     return
                 }
 
-                val title = intent.getStringExtra("TITLE") ?: "Health Reminder"
-                val message = intent.getStringExtra("MESSAGE") ?: "It's time for your health activity!"
+                val currentLocale = androidx.appcompat.app.AppCompatDelegate.getApplicationLocales().get(0) 
+                    ?: java.util.Locale.getDefault()
+                val config = android.content.res.Configuration(context.resources.configuration)
+                config.setLocale(currentLocale)
+                val localizedCtx = context.createConfigurationContext(config)
+
+                val reminderType = intent.getStringExtra("REMINDER_TYPE")
+                val reminderMsg = intent.getStringExtra("REMINDER_MSG") ?: ""
+                
+                var title = intent.getStringExtra("TITLE") ?: "Health Reminder"
+                var message = intent.getStringExtra("MESSAGE") ?: "It's time for your health activity!"
+                
+                if (reminderType != null) {
+                    val localizedType = ReminderLocalizationUtils.getLocalizedType(localizedCtx, reminderType)
+                    val localizedMessage = ReminderLocalizationUtils.getLocalizedMessage(localizedCtx, reminderType, reminderMsg)
+                    
+                    title = localizedCtx.getString(R.string.reminder_title_format, localizedType)
+                    message = if (localizedMessage.isNotEmpty()) localizedMessage else localizedCtx.getString(R.string.reminder_message_format, localizedType.lowercase())
+                }
+
                 val reminderId = intent.getStringExtra("REMINDER_ID") ?: title
                 val alarmTune = intent.getStringExtra("ALARM_TUNE") ?: "default"
                 
                 val notificationId = reminderId.hashCode()
-                showAlarmNotification(context, title, message, notificationId, true, alarmTune)
+                showAlarmNotification(localizedCtx, title, message, notificationId, true, alarmTune)
 
-                scheduleStopAction(context, notificationId, title, message, alarmTune)
+                scheduleStopAction(localizedCtx, notificationId, title, message, alarmTune)
 
                 val type = intent.getStringExtra("REMINDER_TYPE")
                 val time = intent.getStringExtra("REMINDER_TIME")
@@ -289,7 +307,7 @@ class ReminderReceiver : BroadcastReceiver() {
                 stopActionIntent,
                 PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
             )
-            notificationBuilder.addAction(0, "Dismiss", stopActionPendingIntent)
+            notificationBuilder.addAction(0, context.getString(R.string.dismiss), stopActionPendingIntent)
         } else {
             notificationBuilder.setPriority(NotificationCompat.PRIORITY_DEFAULT)
             notificationBuilder.setFullScreenIntent(null, false)

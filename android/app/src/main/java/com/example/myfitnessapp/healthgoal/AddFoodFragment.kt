@@ -58,7 +58,7 @@ class AddFoodFragment : Fragment() {
         object : ViewModelProvider.Factory {
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
                 val repository = (requireActivity().application as HealthPilot).repository
-                return HealthGoalViewModel(repository) as T
+                return HealthGoalViewModel(requireActivity().application, repository) as T
             }
         }
     }
@@ -214,7 +214,7 @@ class AddFoodFragment : Fragment() {
 
     private suspend fun identifyWithGroqVision(bitmap: Bitmap): JSONObject? = withContext(Dispatchers.IO) {
         try {
-            val apiKey = "" //apikey 1
+            val apiKey = com.example.myfitnessapp.data.repository.ApiKeyConfig.XAI_GROK_API_KEY
             val client = OkHttpClient.Builder()
                 .connectTimeout(30, java.util.concurrent.TimeUnit.SECONDS)
                 .readTimeout(30, java.util.concurrent.TimeUnit.SECONDS)
@@ -234,8 +234,8 @@ class AddFoodFragment : Fragment() {
             val base64 = android.util.Base64.encodeToString(bos.toByteArray(), android.util.Base64.NO_WRAP)
 
             val json = JSONObject().apply {
-                // Using Grok-3 Vision (xAI flagship vision model)
-                put("model", "grok-3")
+                // Using Grok-3 Vision from configuration central tokens
+                put("model", com.example.myfitnessapp.data.repository.ApiKeyConfig.XAI_GROK_MODEL)
                 put("messages", org.json.JSONArray().apply {
                     put(JSONObject().apply {
                         put("role", "user")
@@ -262,7 +262,7 @@ class AddFoodFragment : Fragment() {
             }
 
             val request = Request.Builder()
-                .url("https://api.x.ai/v1/chat/completions")
+                .url(com.example.myfitnessapp.data.repository.ApiKeyConfig.XAI_GROK_BASE_URL)
                 .addHeader("Authorization", "Bearer $apiKey")
                 .post(json.toString().toRequestBody("application/json".toMediaType()))
                 .build()

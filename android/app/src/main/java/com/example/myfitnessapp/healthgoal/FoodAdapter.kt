@@ -38,8 +38,20 @@ class FoodAdapter(
 
     override fun onBindViewHolder(holder: FoodViewHolder, position: Int) {
         val food = foods[position]
+        val context = holder.itemView.context
         holder.tvName.text = food.name
-        holder.tvMacros.text = "${food.calories} kcal | P: ${food.protein}g | C: ${food.carbs}g | F: ${food.fat}g"
+        
+        holder.tvMacros.text = context.getString(
+            R.string.food_macros_format,
+            food.calories,
+            context.getString(R.string.kcal),
+            context.getString(R.string.p_label),
+            food.protein,
+            context.getString(R.string.c_label),
+            food.carbs,
+            context.getString(R.string.f_label),
+            food.fat
+        )
         
         val csl = ColorStateList.valueOf(primaryColor)
         holder.btnAdd.iconTint = csl

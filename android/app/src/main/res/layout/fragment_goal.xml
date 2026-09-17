@@ -43,7 +43,7 @@
                 android:layout_toEndOf="@id/btn_menu"
                 android:layout_marginStart="16dp"
                 android:layout_centerVertical="true"
-                android:text="Daily Goals"
+                android:text="@string/daily_goals"
                 android:textColor="@color/text_white"
                 android:textSize="28sp"
                 android:textStyle="bold" />
@@ -74,7 +74,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Body Mass Index (BMI)"
+                        android:text="@string/body_mass_index"
                         android:textColor="@color/text_white"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -84,7 +84,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/accent_blue"
-                        android:text="Calculate"
+                        android:text="@string/calculate"
                         android:textColor="@color/white"
                         android:textSize="12sp"
                         app:cornerRadius="8dp"
@@ -125,7 +125,7 @@
                             android:id="@+id/tv_bmi_category"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Normal"
+                            android:text="@string/normal"
                             android:textColor="@color/bmi_normal"
                             android:textSize="18sp"
                             android:textStyle="bold" />
@@ -133,7 +133,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Healthy weight range"
+                            android:text="@string/healthy_weight_range"
                             android:textColor="@color/text_gray"
                             android:textSize="12sp" />
                     </LinearLayout>
@@ -165,7 +165,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Underweight"
+                        android:text="@string/underweight"
                         android:textColor="@color/text_gray"
                         android:textSize="10sp"
                         android:gravity="center" />
@@ -174,7 +174,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Normal"
+                        android:text="@string/normal"
                         android:textColor="@color/text_gray"
                         android:textSize="10sp"
                         android:gravity="center" />
@@ -183,7 +183,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Overweight"
+                        android:text="@string/overweight"
                         android:textColor="@color/text_gray"
                         android:textSize="10sp"
                         android:gravity="center" />
@@ -192,7 +192,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Obese"
+                        android:text="@string/obese"
                         android:textColor="@color/text_gray"
                         android:textSize="10sp"
                         android:gravity="center" />
@@ -229,7 +229,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Eat Goal"
+                            android:text="@string/eat_goal"
                             android:textColor="@color/text_gray"
                             android:textSize="12sp" />
 
@@ -253,7 +253,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Burn Goal"
+                            android:text="@string/burn_goal"
                             android:textColor="@color/text_gray"
                             android:textSize="12sp" />
 
@@ -278,7 +278,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Based on your profile and activity level"
+                    android:text="@string/based_on_profile"
                     android:textColor="@color/text_gray"
                     android:textSize="12sp" />
             </LinearLayout>
@@ -302,7 +302,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Target Calories"
+                    android:text="@string/target_calories"
                     android:textColor="@color/text_gray"
                     android:textSize="14sp" />
 
@@ -339,7 +339,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Steps"
+                            android:text="@string/steps"
                             android:textColor="@color/text_gray"
                             android:textSize="12sp" />
 
@@ -371,7 +371,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Distance (km)"
+                            android:text="@string/distance_km"
                             android:textColor="@color/text_gray"
                             android:textSize="12sp" />
 
@@ -414,7 +414,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Today's Progress"
+                        android:text="@string/todays_progress"
                         android:textColor="@color/text_white"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -468,7 +468,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Weekly Goals"
+                    android:text="@string/weekly_goals"
                     android:textColor="@color/text_white"
                     android:textSize="16sp"
                     android:textStyle="bold"
@@ -507,7 +507,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:backgroundTint="@color/accent_blue"
-                android:text="Save Goals"
+                android:text="@string/save_goals"
                 android:textColor="@color/white"
                 app:cornerRadius="12dp" />
         </LinearLayout>

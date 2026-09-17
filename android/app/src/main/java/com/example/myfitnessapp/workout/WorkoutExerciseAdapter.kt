@@ -21,8 +21,14 @@ class WorkoutExerciseAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val exercise = exercises[position]
-        holder.binding.tvExerciseName.text = exercise.name
-        holder.binding.tvExerciseDesc.text = exercise.desc
+        val context = holder.itemView.context
+        
+        val nameResId = context.resources.getIdentifier("ex_${exercise.name.lowercase().replace(" ", "_").replace("-", "_")}", "string", context.packageName)
+        holder.binding.tvExerciseName.text = if (nameResId != 0) context.getString(nameResId) else exercise.name
+        
+        val descResId = context.resources.getIdentifier("ex_${exercise.desc.lowercase().replace(" ", "_").replace("-", "_")}", "string", context.packageName)
+        holder.binding.tvExerciseDesc.text = if (descResId != 0) context.getString(descResId) else exercise.desc
+        
         holder.binding.tvExerciseTime.text = exercise.time
         holder.binding.ivExerciseIcon.setImageResource(exercise.imageRes)
         

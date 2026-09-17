@@ -41,7 +41,7 @@
                     android:layout_height="wrap_content"
                     android:layout_toEndOf="@id/btn_back"
                     android:layout_marginStart="8dp"
-                    android:text="Daily Wellness"
+                    android:text="@string/daily_wellness"
                     android:textColor="@color/white"
                     android:textSize="28sp"
                     android:textStyle="bold" />
@@ -53,7 +53,7 @@
                     android:layout_toEndOf="@id/btn_back"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="4dp"
-                    android:text="Your personalized health timeline"
+                    android:text="@string/wellness_subtitle"
                     android:textColor="@color/text_gray"
                     android:textSize="14sp" />
 
@@ -64,7 +64,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:text="Refresh"
+                    android:text="@string/refresh"
                     android:textColor="@color/accent_blue"
                     app:icon="@android:drawable/stat_notify_sync"
                     app:iconTint="@color/accent_blue" />
@@ -105,7 +105,7 @@
                                 android:id="@+id/tv_profile_label"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Wellness Profile"
+                                android:text="@string/wellness_profile"
                                 android:textColor="@color/text_white"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
@@ -147,7 +147,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Active Range"
+                                        android:text="@string/active_range"
                                         android:textColor="@color/text_gray"
                                         android:textSize="12sp" />
                                     <TextView
@@ -188,14 +188,14 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Work Style"
+                                        android:text="@string/work_style"
                                         android:textColor="@color/text_gray"
                                         android:textSize="12sp" />
                                     <TextView
                                         android:id="@+id/tv_wellness_work_style"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Mostly Sitting"
+                                        android:text="@string/mostly_sitting"
                                         android:textColor="@color/accent_teal"
                                         android:textSize="15sp"
                                         android:textStyle="bold" />
@@ -229,7 +229,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Work Meta"
+                                        android:text="@string/work_meta"
                                         android:textColor="@color/text_gray"
                                         android:textSize="12sp" />
                                     <TextView
@@ -255,7 +255,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="16dp"
-                            android:text="Edit Wellness Settings"
+                            android:text="@string/edit_wellness_settings"
                             android:textColor="@color/accent_blue"
                             android:textSize="18sp"
                             android:textStyle="bold" />
@@ -271,7 +271,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:layout_marginEnd="6dp"
-                                android:hint="Wake-up"
+                                android:hint="@string/wake_up"
                                 android:textColorHint="@color/text_gray"
                                 app:boxStrokeColor="@color/accent_blue"
                                 app:hintTextColor="@color/accent_blue">
@@ -288,7 +288,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:layout_marginStart="6dp"
-                                android:hint="Sleep"
+                                android:hint="@string/sleep"
                                 android:textColorHint="@color/text_gray"
                                 app:boxStrokeColor="@color/accent_blue"
                                 app:hintTextColor="@color/accent_blue">
@@ -305,7 +305,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp"
-                            android:hint="Work Style"
+                            android:hint="@string/work_style"
                             android:textColorHint="@color/text_gray"
                             app:boxStrokeColor="@color/accent_blue"
                             app:hintTextColor="@color/accent_blue">
@@ -328,7 +328,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:layout_marginEnd="6dp"
-                                android:hint="Work Start"
+                                android:hint="@string/work_start"
                                 android:textColorHint="@color/text_gray"
                                 app:boxStrokeColor="@color/accent_blue"
                                 app:hintTextColor="@color/accent_blue">
@@ -345,7 +345,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:layout_marginStart="6dp"
-                                android:hint="Work End"
+                                android:hint="@string/work_end"
                                 android:textColorHint="@color/text_gray"
                                 app:boxStrokeColor="@color/accent_blue"
                                 app:hintTextColor="@color/accent_blue">
@@ -362,7 +362,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp"
-                            android:hint="Screen Time (hrs)"
+                            android:hint="@string/screen_time_hrs"
                             android:textColorHint="@color/text_gray"
                             app:boxStrokeColor="@color/accent_blue"
                             app:hintTextColor="@color/accent_blue">
@@ -386,7 +386,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Cancel"
+                                android:text="@string/cancel"
                                 android:textColor="@color/text_gray" />
 
                             <com.google.android.material.button.MaterialButton
@@ -394,7 +394,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
-                                android:text="Save &amp; Refresh"
+                                android:text="@string/save_and_refresh"
                                 app:cornerRadius="12dp" />
                         </LinearLayout>
                     </LinearLayout>
@@ -406,7 +406,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:text="Daily Wellness Timeline"
+                android:text="@string/wellness_timeline"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold" />

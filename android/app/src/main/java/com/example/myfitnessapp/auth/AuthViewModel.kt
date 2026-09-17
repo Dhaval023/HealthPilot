@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myfitnessapp.HealthPilot
+import com.example.myfitnessapp.R
 import com.example.myfitnessapp.models.User
 import com.example.myfitnessapp.utils.IdealTimeUtils
 import com.google.firebase.auth.AuthCredential
@@ -25,7 +26,7 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
 
     private fun checkNetwork(): Boolean {
         if (!networkObserver.isNetworkAvailable()) {
-            _authState.value = AuthState.Error("No internet connection. Please check your settings.")
+            _authState.value = AuthState.Error(getApplication<Application>().getString(R.string.no_internet_error))
             return false
         }
         return true

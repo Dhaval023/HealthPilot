@@ -37,7 +37,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Exercise List"
+                android:text="@string/exercise_list"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -54,7 +54,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="Tips"
+                android:text="@string/tips_label"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -90,7 +90,7 @@
         android:layout_gravity="bottom"
         android:layout_margin="16dp"
         android:background="@drawable/bg_blue_button"
-        android:text="Start Workout"
+        android:text="@string/start_workout"
         android:textAllCaps="false"
         android:textSize="18sp"
         android:textStyle="bold" />

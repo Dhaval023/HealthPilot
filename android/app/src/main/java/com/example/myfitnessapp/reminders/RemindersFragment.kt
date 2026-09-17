@@ -26,6 +26,7 @@ import com.example.myfitnessapp.R
 import com.example.myfitnessapp.healthgoal.HealthGoalViewModel
 import com.example.myfitnessapp.models.Reminder
 import com.example.myfitnessapp.utils.ReminderIconUtils
+import com.example.myfitnessapp.utils.ReminderLocalizationUtils
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.launch
@@ -36,7 +37,7 @@ class RemindersFragment : Fragment() {
         object : ViewModelProvider.Factory {
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
                 val repository = (requireActivity().application as HealthPilot).repository
-                return HealthGoalViewModel(repository) as T
+                return HealthGoalViewModel(requireActivity().application, repository) as T
             }
         }
     }
@@ -120,7 +121,8 @@ class RemindersFragment : Fragment() {
         reminders.forEach { reminder ->
             val itemView = inflater.inflate(R.layout.item_meal_reminder, container, false)
             
-            itemView.findViewById<TextView>(R.id.tv_meal_type).text = reminder.type
+            val localizedType = ReminderLocalizationUtils.getLocalizedType(requireContext(), reminder.type)
+            itemView.findViewById<TextView>(R.id.tv_meal_type).text = localizedType
             itemView.findViewById<TextView>(R.id.tv_meal_time).text = formatTo12h(reminder.time)
             itemView.findViewById<ImageView>(R.id.iv_meal).setImageResource(ReminderIconUtils.getIconForType(reminder.type))
             
@@ -147,13 +149,14 @@ class RemindersFragment : Fragment() {
 
     private fun showMealOptionsDialog(reminder: Reminder) {
         val options = arrayOf(
-            if (reminder.isEnabled) "Turn Off Reminder" else "Turn On Reminder",
-            "Change Time",
-            "Remove Reminder"
+            if (reminder.isEnabled) getString(R.string.turn_off_reminder) else getString(R.string.turn_on_reminder),
+            getString(R.string.change_time),
+            getString(R.string.remove)
         )
         
+        val localizedType = ReminderLocalizationUtils.getLocalizedType(requireContext(), reminder.type)
         MaterialAlertDialogBuilder(requireContext(), R.style.CustomDialogTheme)
-            .setTitle(reminder.type)
+            .setTitle(localizedType)
             .setItems(options) { _, which ->
                 when (which) {
                     0 -> viewModel.toggleReminder(reminder.id, !reminder.isEnabled)
@@ -191,7 +194,7 @@ class RemindersFragment : Fragment() {
             if (type.isNotEmpty()) {
                 viewModel.addReminder(type, selectedTime)
                 dialog.dismiss()
-                Toast.makeText(requireContext(), "Reminder Added!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.reminder_added), Toast.LENGTH_SHORT).show()
             }
         }
         
@@ -239,7 +242,8 @@ class RemindersFragment : Fragment() {
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             val reminder = reminders[position]
-            holder.tvType.text = reminder.type
+            val localizedType = ReminderLocalizationUtils.getLocalizedType(holder.itemView.context, reminder.type)
+            holder.tvType.text = localizedType
             holder.tvTime.text = formatTo12h(reminder.time)
             holder.ivMeal.setImageResource(ReminderIconUtils.getIconForType(reminder.type))
             holder.itemView.alpha = if (reminder.isEnabled) 1.0f else 0.5f

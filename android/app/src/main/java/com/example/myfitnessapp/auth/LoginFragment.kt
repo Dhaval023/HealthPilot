@@ -108,7 +108,7 @@ class LoginFragment : Fragment() {
             if (email.isNotEmpty() && password.isNotEmpty()) {
                 viewModel.login(email, password)
             } else {
-                Toast.makeText(context, "Please fill all fields", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, getString(R.string.please_fill_fields), Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -196,7 +196,7 @@ class LoginFragment : Fragment() {
 
     private fun showErrorDialog(message: String) {
         AlertDialog.Builder(requireContext())
-            .setTitle("Login Error")
+            .setTitle(getString(R.string.login_error_title))
             .setMessage(message)
             .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
             .show()

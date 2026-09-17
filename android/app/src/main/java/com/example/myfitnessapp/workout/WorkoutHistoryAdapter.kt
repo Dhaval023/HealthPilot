@@ -29,9 +29,18 @@ class WorkoutHistoryAdapter(private val onItemClick: (WorkoutRecord) -> Unit) :
         private val timeFormat = SimpleDateFormat("hh:mm a", Locale.getDefault())
 
         fun bind(record: WorkoutRecord) {
-            binding.tvWorkoutName.text = record.workoutType
-            binding.tvDetails.text = String.format(Locale.getDefault(), "%d mins • %.2f km", record.duration / 60000, record.totalDistance)
-            binding.tvCalories.text = String.format(Locale.getDefault(), "%.0f kcal", record.caloriesBurned)
+            val context = itemView.context
+            val nameResId = context.resources.getIdentifier(record.workoutType.lowercase().replace(" ", "_"), "string", context.packageName)
+            binding.tvWorkoutName.text = if (nameResId != 0) context.getString(nameResId) else record.workoutType
+            
+            binding.tvDetails.text = context.getString(
+                R.string.history_details_format,
+                record.duration / 60000,
+                context.getString(R.string.mins),
+                record.totalDistance,
+                context.getString(R.string.km)
+            )
+            binding.tvCalories.text = context.getString(R.string.unit_kcal, record.caloriesBurned)
             binding.tvTime.text = timeFormat.format(Date(record.startTime))
             
             // Set icon based on type (simplified)

@@ -107,7 +107,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:text="Disconnected"
+                        android:text="@string/disconnected"
                         android:textColor="@color/text_gray"
                         android:textSize="12sp" />
 
@@ -120,7 +120,7 @@
                         android:id="@+id/connect_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Connect"
+                        android:text="@string/connect"
                         android:textColor="@color/accent_blue"
                         android:textStyle="bold"
                         android:textSize="12sp" />
@@ -154,7 +154,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Today"
+                                android:text="@string/today"
                                 android:textColor="@color/text_white"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
@@ -163,7 +163,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="4dp"
-                                android:text="Remaining Cal"
+                                android:text="@string/remaining_cal"
                                 android:textColor="@color/text_gray"
                                 android:textSize="12sp" />
 
@@ -220,7 +220,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="4dp"
-                                    android:text="Total Gain"
+                                    android:text="@string/total_gain"
                                     android:textColor="@color/text_gray"
                                     android:textSize="10sp" />
                             </LinearLayout>
@@ -261,7 +261,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="4dp"
-                                    android:text="Total Burn"
+                                    android:text="@string/total_burn"
                                     android:textColor="@color/text_gray"
                                     android:textSize="10sp" />
                             </LinearLayout>

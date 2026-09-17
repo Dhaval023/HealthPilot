@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="Custom Food Entry"
+            android:text="@string/custom_food_entry"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -50,7 +50,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Enter nutritional details manually"
+                android:text="@string/manual_food_subtitle"
                 android:textColor="@color/text_gray"
                 android:textSize="14sp" />
 
@@ -59,7 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="Meal Category"
+                android:text="@string/meal_category"
                 android:textColor="@color/text_white"
                 android:textSize="14sp"
                 android:textStyle="bold" />
@@ -81,7 +81,7 @@
                     android:id="@+id/spinner_category"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:hint="Select Category"
+                    android:hint="@string/select_category"
                     android:inputType="none"
                     android:padding="16dp"
                     android:textColor="@color/white"
@@ -93,7 +93,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Food Name"
+                android:text="@string/food_name"
                 android:textColor="@color/text_white"
                 android:textSize="14sp"
                 android:textStyle="bold" />
@@ -114,7 +114,7 @@
                     android:id="@+id/et_name"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:hint="e.g., Vadapav"
+                    android:hint="@string/food_name_hint"
                     android:padding="16dp"
                     android:textColor="@color/white"
                     android:textColorHint="@color/text_gray" />
@@ -125,7 +125,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Calories (kcal)"
+                android:text="@string/calories_kcal"
                 android:textColor="@color/text_white"
                 android:textSize="14sp"
                 android:textStyle="bold" />
@@ -146,7 +146,7 @@
                     android:id="@+id/et_calories"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:hint="Enter calories"
+                    android:hint="@string/enter_calories"
                     android:inputType="number"
                     android:padding="16dp"
                     android:textColor="@color/white"
@@ -169,7 +169,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Protein (g)"
+                        android:text="@string/protein_g"
                         android:textColor="@color/text_white"
                         android:textSize="14sp"
                         android:textStyle="bold" />
@@ -206,7 +206,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Carbs (g)"
+                        android:text="@string/carbs_g"
                         android:textColor="@color/text_white"
                         android:textSize="14sp"
                         android:textStyle="bold" />
@@ -239,7 +239,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Fat (g)"
+                android:text="@string/fat_g"
                 android:textColor="@color/text_white"
                 android:textSize="14sp"
                 android:textStyle="bold" />
@@ -275,7 +275,7 @@
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:layout_margin="24dp"
-        android:text="Save Custom Food"
+        android:text="@string/save_custom_food"
         android:textSize="18sp"
         android:textStyle="bold"
         app:cornerRadius="20dp"

@@ -62,16 +62,18 @@ class WorkoutShareFragment : Fragment() {
     private var customBgStart = Color.BLACK
     private var customBgEnd = Color.parseColor("#1A1A2E")
 
-    private val quotes = listOf(
-        "Discipline beats motivation.",
-        "Every step counts.",
-        "Consistency creates champions.",
-        "The body achieves what the mind believes.",
-        "Push yourself because no one else will.",
-        "Progress is progress.",
-        "Sweat is just fat crying.",
-        "Don't stop when you're tired. Stop when you're done."
-    )
+    private fun getLocalizedQuotes(): List<String> {
+        return listOf(
+            getString(R.string.quote_1),
+            getString(R.string.quote_2),
+            getString(R.string.quote_3),
+            getString(R.string.quote_4),
+            getString(R.string.quote_5),
+            getString(R.string.quote_6),
+            getString(R.string.quote_7),
+            getString(R.string.quote_8)
+        )
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -278,7 +280,7 @@ class WorkoutShareFragment : Fragment() {
     }
 
     private fun refreshQuote() {
-        binding.sharePreview.tvQuote.text = "\"${quotes.random()}\""
+        binding.sharePreview.tvQuote.text = "\"${getLocalizedQuotes().random()}\""
     }
 
     private fun loadWorkoutDetails(id: String, type: String) {

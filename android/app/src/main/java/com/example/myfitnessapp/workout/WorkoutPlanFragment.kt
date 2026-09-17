@@ -31,7 +31,11 @@ class WorkoutPlanFragment : Fragment() {
         val workoutName = arguments?.getString("workoutName") ?: "Workout"
         val totalDuration = arguments?.getInt("totalDuration") ?: 20
 
-        binding.toolbar.title = "$workoutName Plan"
+        val context = requireContext()
+        val nameResId = context.resources.getIdentifier(workoutName.lowercase().replace(" ", "_").replace("-", "_"), "string", context.packageName)
+        val localizedName = if (nameResId != 0) getString(nameResId) else workoutName
+        
+        binding.toolbar.title = getString(R.string.plan_title_format, localizedName)
         binding.toolbar.setNavigationOnClickListener { findNavController().popBackStack() }
 
         // Set button color based on workout
@@ -64,182 +68,150 @@ class WorkoutPlanFragment : Fragment() {
         
         val exercises = when {
             normalized == "walking" -> listOf(
-                WorkoutExercise("Warm-up Walk", "Slow walking to loosen muscles", "${(3 * factor).toInt()} min", R.drawable.ic_walk),
-                WorkoutExercise("Brisk Walking", "Increase pace for cardio", "${(12 * factor).toInt()} min", R.drawable.ic_walk),
-                WorkoutExercise("Incline Walk", "Boost endurance", "${(3 * factor).toInt()} min", R.drawable.ic_walk),
-                WorkoutExercise("Cool-down Walk", "Reduce heart rate", "${(2 * factor).toInt()} min", R.drawable.ic_walk)
+                WorkoutExercise(getString(R.string.ex_warm_up_walk), getString(R.string.ex_desc_slow_walking), "${(3 * factor).toInt()} ${getString(R.string.min)}", R.drawable.ic_walk),
+                WorkoutExercise(getString(R.string.ex_brisk_walking), getString(R.string.ex_desc_increase_pace), "${(12 * factor).toInt()} ${getString(R.string.min)}", R.drawable.ic_walk),
+                WorkoutExercise(getString(R.string.ex_incline_walk), getString(R.string.ex_desc_boost_endurance), "${(3 * factor).toInt()} ${getString(R.string.min)}", R.drawable.ic_walk),
+                WorkoutExercise(getString(R.string.ex_cool_down_walk), getString(R.string.ex_desc_reduce_hr), "${(2 * factor).toInt()} ${getString(R.string.min)}", R.drawable.ic_walk)
             )
 
             normalized.contains("running") -> listOf(
-                WorkoutExercise("Dynamic Warm-up", "Prepare muscles", "${(3 * factor).toInt()} min", R.drawable.running),
-                WorkoutExercise("Easy Run", "Steady jogging pace", "${(8 * factor).toInt()} min", R.drawable.running),
-                WorkoutExercise("Sprint Intervals", "Improve speed", "${(6 * factor).toInt()} min", R.drawable.running),
-                WorkoutExercise("Cool-down Jog", "Recover gradually", "${(3 * factor).toInt()} min", R.drawable.running)
+                WorkoutExercise(getString(R.string.ex_dynamic_warmup), getString(R.string.ex_prepare_muscles), "${(3 * factor).toInt()} ${getString(R.string.min)}", R.drawable.running),
+                WorkoutExercise(getString(R.string.ex_easy_run), getString(R.string.ex_steady_jogging), "${(8 * factor).toInt()} ${getString(R.string.min)}", R.drawable.running),
+                WorkoutExercise(getString(R.string.ex_sprint_intervals), getString(R.string.ex_improve_speed), "${(6 * factor).toInt()} ${getString(R.string.min)}", R.drawable.running),
+                WorkoutExercise(getString(R.string.ex_cooldown_jog), getString(R.string.ex_recover_gradually), "${(3 * factor).toInt()} ${getString(R.string.min)}", R.drawable.running)
             )
 
             normalized == "cycling" ->listOf(
-                WorkoutExercise("Easy Pedaling", "Warm up legs", "${(4 * factor).toInt()} min", R.drawable.cycling),
-                WorkoutExercise("High Cadence Ride", "Improve endurance", "${(8 * factor).toInt()} min", R.drawable.cycling),
-                WorkoutExercise("Hill Climb", "Build leg strength", "${(5 * factor).toInt()} min", R.drawable.cycling),
-                WorkoutExercise("Recovery Ride", "Cool down", "${(3 * factor).toInt()} min", R.drawable.cycling)
+                WorkoutExercise(getString(R.string.ex_easy_pedaling), getString(R.string.ex_warm_up_legs), "${(4 * factor).toInt()} ${getString(R.string.min)}", R.drawable.cycling),
+                WorkoutExercise(getString(R.string.ex_high_cadence_ride), getString(R.string.ex_improve_endurance), "${(8 * factor).toInt()} ${getString(R.string.min)}", R.drawable.cycling),
+                WorkoutExercise(getString(R.string.ex_hill_climb), getString(R.string.ex_build_leg_strength), "${(5 * factor).toInt()} ${getString(R.string.min)}", R.drawable.cycling),
+                WorkoutExercise(getString(R.string.ex_recovery_ride), getString(R.string.ex_recover_gradually), "${(3 * factor).toInt()} ${getString(R.string.min)}", R.drawable.cycling)
             )
 
             normalized == "boxing" -> listOf(
-                WorkoutExercise("Jump Rope", "Warm up body", "${(4 * factor).toInt()} min", R.drawable.boxing),
-                WorkoutExercise("Shadow Boxing", "Technique practice", "${(5 * factor).toInt()} min", R.drawable.boxing),
-                WorkoutExercise("Heavy Bag", "Power punches", "${(8 * factor).toInt()} min", R.drawable.boxing),
-                WorkoutExercise("Speed Bag", "Improve coordination", "${(3 * factor).toInt()} min", R.drawable.boxing)
+                WorkoutExercise(getString(R.string.ex_jump_rope), getString(R.string.ex_warm_up_body), "${(4 * factor).toInt()} ${getString(R.string.min)}", R.drawable.boxing),
+                WorkoutExercise(getString(R.string.ex_shadow_boxing), getString(R.string.ex_technique_practice), "${(5 * factor).toInt()} ${getString(R.string.min)}", R.drawable.boxing),
+                WorkoutExercise(getString(R.string.ex_heavy_bag), getString(R.string.ex_power_punches), "${(8 * factor).toInt()} ${getString(R.string.min)}", R.drawable.boxing),
+                WorkoutExercise(getString(R.string.ex_speed_bag), getString(R.string.ex_improve_coordination), "${(3 * factor).toInt()} ${getString(R.string.min)}", R.drawable.boxing)
             )
 
             normalized == "swimming" -> listOf(
-                WorkoutExercise("Warm-up Laps", "Easy freestyle", "${(5 * factor).toInt()} min", R.drawable.swimming),
-                WorkoutExercise("Freestyle", "Main cardio", "${(8 * factor).toInt()} min", R.drawable.swimming),
-                WorkoutExercise("Breaststroke", "Technique practice", "${(4 * factor).toInt()} min", R.drawable.swimming),
-                WorkoutExercise("Cool-down", "Slow swimming", "${(3 * factor).toInt()} min", R.drawable.swimming)
+                WorkoutExercise(getString(R.string.ex_warm_up_laps), getString(R.string.ex_desc_easy_freestyle), "${(5 * factor).toInt()} ${getString(R.string.min)}", R.drawable.swimming),
+                WorkoutExercise(getString(R.string.ex_freestyle), getString(R.string.ex_desc_main_cardio), "${(8 * factor).toInt()} ${getString(R.string.min)}", R.drawable.swimming),
+                WorkoutExercise(getString(R.string.ex_breaststroke), getString(R.string.ex_desc_technique_practice), "${(4 * factor).toInt()} ${getString(R.string.min)}", R.drawable.swimming),
+                WorkoutExercise(getString(R.string.ex_cool_down), getString(R.string.ex_desc_slow_swimming), "${(3 * factor).toInt()} ${getString(R.string.min)}", R.drawable.swimming)
             )
 
             normalized == "badminton" -> listOf(
-                WorkoutExercise("Footwork Drill", "Quick court movement", "${(5 * factor).toInt()} min", R.drawable.badminton),
-                WorkoutExercise("Smash Practice", "Power shots", "${(5 * factor).toInt()} min", R.drawable.badminton),
-                WorkoutExercise("Net Play", "Control & reflex", "${(5 * factor).toInt()} min", R.drawable.badminton),
-                WorkoutExercise("Match Rally", "Continuous play", "${(5 * factor).toInt()} min", R.drawable.badminton)
+                WorkoutExercise(getString(R.string.ex_footwork_drill), getString(R.string.ex_desc_quick_court_movement), "${(5 * factor).toInt()} ${getString(R.string.min)}", R.drawable.badminton),
+                WorkoutExercise(getString(R.string.ex_smash_practice), getString(R.string.ex_desc_power_shots), "${(5 * factor).toInt()} ${getString(R.string.min)}", R.drawable.badminton),
+                WorkoutExercise(getString(R.string.ex_net_play), getString(R.string.ex_desc_control_reflex), "${(5 * factor).toInt()} ${getString(R.string.min)}", R.drawable.badminton),
+                WorkoutExercise(getString(R.string.ex_match_rally), getString(R.string.ex_desc_continuous_play), "${(5 * factor).toInt()} ${getString(R.string.min)}", R.drawable.badminton)
             )
 
             normalized == "tennis" -> listOf(
-                WorkoutExercise("Footwork", "Court movement", "${(4 * factor).toInt()} min", R.drawable.tennis),
-                WorkoutExercise("Forehand Drill", "Consistency", "${(5 * factor).toInt()} min", R.drawable.tennis),
-                WorkoutExercise("Backhand Drill", "Shot control", "${(5 * factor).toInt()} min", R.drawable.tennis),
-                WorkoutExercise("Serve Practice", "Accuracy", "${(6 * factor).toInt()} min", R.drawable.tennis)
+                WorkoutExercise(getString(R.string.ex_footwork_drill), getString(R.string.ex_desc_court_movement), "${(4 * factor).toInt()} ${getString(R.string.min)}", R.drawable.tennis),
+                WorkoutExercise(getString(R.string.ex_forehand_drill), getString(R.string.ex_desc_consistency), "${(5 * factor).toInt()} ${getString(R.string.min)}", R.drawable.tennis),
+                WorkoutExercise(getString(R.string.ex_backhand_drill), getString(R.string.ex_desc_shot_control), "${(5 * factor).toInt()} ${getString(R.string.min)}", R.drawable.tennis),
+                WorkoutExercise(getString(R.string.ex_serve_practice), getString(R.string.ex_desc_accuracy), "${(6 * factor).toInt()} ${getString(R.string.min)}", R.drawable.tennis)
             )
 
             normalized == "football"  -> listOf(
-                WorkoutExercise("Warm-up Jog", "Prepare body", "${(4 * factor).toInt()} min", R.drawable.football),
-                WorkoutExercise("Dribbling Drill", "Ball control", "${(5 * factor).toInt()} min", R.drawable.football),
-                WorkoutExercise("Passing Drill", "Passing accuracy", "${(5 * factor).toInt()} min", R.drawable.football),
-                WorkoutExercise("Shooting Practice", "Finishing skills", "${(6 * factor).toInt()} min", R.drawable.football)
+                WorkoutExercise(getString(R.string.ex_warm_up_jog), getString(R.string.ex_desc_prepare_body), "${(4 * factor).toInt()} ${getString(R.string.min)}", R.drawable.football),
+                WorkoutExercise(getString(R.string.ex_dribbling_drill), getString(R.string.ex_desc_ball_control), "${(5 * factor).toInt()} ${getString(R.string.min)}", R.drawable.football),
+                WorkoutExercise(getString(R.string.ex_passing_drill), getString(R.string.ex_desc_passing_accuracy), "${(5 * factor).toInt()} ${getString(R.string.min)}", R.drawable.football),
+                WorkoutExercise(getString(R.string.ex_shooting_practice), getString(R.string.ex_desc_finishing_skills), "${(6 * factor).toInt()} ${getString(R.string.min)}", R.drawable.football)
             )
 
             normalized == "hockey"-> listOf(
-                WorkoutExercise("Warm-up Run", "Increase mobility", "${(4 * factor).toInt()} min", R.drawable.hockey),
-                WorkoutExercise("Stick Handling", "Ball control", "${(6 * factor).toInt()} min", R.drawable.hockey),
-                WorkoutExercise("Passing Drill", "Team coordination", "${(5 * factor).toInt()} min", R.drawable.hockey),
-                WorkoutExercise("Goal Shooting", "Accuracy", "${(5 * factor).toInt()} min", R.drawable.hockey)
+                WorkoutExercise(getString(R.string.ex_warm_up_run), getString(R.string.ex_desc_increase_mobility), "${(4 * factor).toInt()} ${getString(R.string.min)}", R.drawable.hockey),
+                WorkoutExercise(getString(R.string.ex_stick_handling), getString(R.string.ex_desc_ball_control), "${(6 * factor).toInt()} ${getString(R.string.min)}", R.drawable.hockey),
+                WorkoutExercise(getString(R.string.ex_passing_drill), getString(R.string.ex_desc_team_coordination), "${(5 * factor).toInt()} ${getString(R.string.min)}", R.drawable.hockey),
+                WorkoutExercise(getString(R.string.ex_goal_shooting), getString(R.string.ex_desc_accuracy), "${(5 * factor).toInt()} ${getString(R.string.min)}", R.drawable.hockey)
             )
 
             normalized == "basketball" -> listOf(
-                WorkoutExercise("Dynamic Warm-up", "Prepare muscles", "${(4 * factor).toInt()} min", R.drawable.basketball),
-                WorkoutExercise("Dribbling Drill", "Ball handling", "${(5 * factor).toInt()} min", R.drawable.basketball),
-                WorkoutExercise("Shooting Practice", "Improve accuracy", "${(6 * factor).toInt()} min", R.drawable.basketball),
-                WorkoutExercise("Layup Drill", "Finishing practice", "${(5 * factor).toInt()} min", R.drawable.basketball)
+                WorkoutExercise(getString(R.string.ex_dynamic_warmup), getString(R.string.ex_desc_prepare_muscles), "${(4 * factor).toInt()} ${getString(R.string.min)}", R.drawable.basketball),
+                WorkoutExercise(getString(R.string.ex_dribbling_drill), getString(R.string.ex_desc_ball_handling), "${(5 * factor).toInt()} ${getString(R.string.min)}", R.drawable.basketball),
+                WorkoutExercise(getString(R.string.ex_shooting_practice), getString(R.string.ex_desc_improve_accuracy), "${(6 * factor).toInt()} ${getString(R.string.min)}", R.drawable.basketball),
+                WorkoutExercise(getString(R.string.ex_layup_drill), getString(R.string.ex_desc_finishing_practice), "${(5 * factor).toInt()} ${getString(R.string.min)}", R.drawable.basketball)
             )
 
             normalized == "zumba"  -> listOf(
-                WorkoutExercise("Warm-up Dance", "Light rhythm", "${(4 * factor).toInt()} min", R.drawable.zumba),
-                WorkoutExercise("Cardio Routine", "Burn calories", "${(8 * factor).toInt()} min", R.drawable.zumba),
-                WorkoutExercise("Dance Combo", "Full body movement", "${(5 * factor).toInt()} min", R.drawable.zumba),
-                WorkoutExercise("Stretch & Relax", "Recovery", "${(3 * factor).toInt()} min", R.drawable.zumba)
+                WorkoutExercise(getString(R.string.ex_warm_up_dance), getString(R.string.ex_desc_light_rhythm), "${(4 * factor).toInt()} ${getString(R.string.min)}", R.drawable.zumba),
+                WorkoutExercise(getString(R.string.ex_cardio_routine), getString(R.string.ex_desc_burn_calories), "${(8 * factor).toInt()} ${getString(R.string.min)}", R.drawable.zumba),
+                WorkoutExercise(getString(R.string.ex_dance_combo), getString(R.string.ex_desc_full_body_movement), "${(5 * factor).toInt()} ${getString(R.string.min)}", R.drawable.zumba),
+                WorkoutExercise(getString(R.string.ex_stretch_relax), getString(R.string.ex_desc_recovery), "${(3 * factor).toInt()} ${getString(R.string.min)}", R.drawable.zumba)
             )
 
             normalized == "dancing" -> listOf(
-                WorkoutExercise("Warm-up Dance", "Light rhythm", "${(4 * factor).toInt()} min", R.drawable.zumba),
-                WorkoutExercise("Cardio Routine", "Burn calories", "${(8 * factor).toInt()} min", R.drawable.zumba),
-                WorkoutExercise("Dance Combo", "Full body movement", "${(5 * factor).toInt()} min", R.drawable.zumba),
-                WorkoutExercise("Stretch & Relax", "Recovery", "${(3 * factor).toInt()} min", R.drawable.zumba)
+                WorkoutExercise(getString(R.string.ex_warm_up_dance), getString(R.string.ex_desc_light_rhythm), "${(4 * factor).toInt()} ${getString(R.string.min)}", R.drawable.zumba),
+                WorkoutExercise(getString(R.string.ex_cardio_routine), getString(R.string.ex_desc_burn_calories), "${(8 * factor).toInt()} ${getString(R.string.min)}", R.drawable.zumba),
+                WorkoutExercise(getString(R.string.ex_dance_combo), getString(R.string.ex_desc_full_body_movement), "${(5 * factor).toInt()} ${getString(R.string.min)}", R.drawable.zumba),
+                WorkoutExercise(getString(R.string.ex_stretch_relax), getString(R.string.ex_desc_recovery), "${(3 * factor).toInt()} ${getString(R.string.min)}", R.drawable.zumba)
             )
 
             normalized == "aerobics" -> listOf(
-                WorkoutExercise("Warm-up", "Light movement", "${(4 * factor).toInt()} min", R.drawable.aerobics),
-                WorkoutExercise("High Knees", "Cardio exercise", "${(5 * factor).toInt()} min", R.drawable.aerobics),
-                WorkoutExercise("Jumping Jacks", "Full body workout", "${(5 * factor).toInt()} min", R.drawable.aerobics),
-                WorkoutExercise("Cool-down Stretch", "Relax muscles", "${(6 * factor).toInt()} min", R.drawable.aerobics)
+                WorkoutExercise(getString(R.string.ex_warm_up), getString(R.string.ex_desc_light_movement), "${(4 * factor).toInt()} ${getString(R.string.min)}", R.drawable.aerobics),
+                WorkoutExercise(getString(R.string.ex_high_knees), getString(R.string.ex_desc_cardio_exercise), "${(5 * factor).toInt()} ${getString(R.string.min)}", R.drawable.aerobics),
+                WorkoutExercise(getString(R.string.ex_jumping_jacks), getString(R.string.ex_desc_full_body_workout), "${(5 * factor).toInt()} ${getString(R.string.min)}", R.drawable.aerobics),
+                WorkoutExercise(getString(R.string.ex_cool_down_stretch), getString(R.string.ex_desc_relax_muscles), "${(6 * factor).toInt()} ${getString(R.string.min)}", R.drawable.aerobics)
             )
 
             normalized == "weightlifting" -> listOf(
-                WorkoutExercise("Warm-up Set", "Light weights", "${(4 * factor).toInt()} min", R.drawable.weightlifting),
-                WorkoutExercise("Squats", "Lower body strength", "${(5 * factor).toInt()} min", R.drawable.weightlifting),
-                WorkoutExercise("Bench Press", "Chest strength", "${(5 * factor).toInt()} min", R.drawable.weightlifting),
-                WorkoutExercise("Deadlift", "Full body strength", "${(6 * factor).toInt()} min", R.drawable.weightlifting)
+                WorkoutExercise(getString(R.string.ex_warm_up_set), getString(R.string.ex_desc_light_weights), "${(4 * factor).toInt()} ${getString(R.string.min)}", R.drawable.weightlifting),
+                WorkoutExercise(getString(R.string.ex_squats), getString(R.string.ex_desc_lower_body_strength), "${(5 * factor).toInt()} ${getString(R.string.min)}", R.drawable.weightlifting),
+                WorkoutExercise(getString(R.string.ex_bench_press), getString(R.string.ex_desc_chest_strength), "${(5 * factor).toInt()} ${getString(R.string.min)}", R.drawable.weightlifting),
+                WorkoutExercise(getString(R.string.ex_deadlift), getString(R.string.ex_desc_full_body_strength), "${(6 * factor).toInt()} ${getString(R.string.min)}", R.drawable.weightlifting)
             )
 
             normalized == "sit-ups" -> listOf(
-                WorkoutExercise("Plank", "Core stability", "${(4 * factor).toInt()} min", R.drawable.situp),
-                WorkoutExercise("Sit-ups", "Abdominal strength", "${(6 * factor).toInt()} min", R.drawable.situp),
-                WorkoutExercise("Russian Twists", "Oblique muscles", "${(5 * factor).toInt()} min", R.drawable.situp),
-                WorkoutExercise("Leg Raises", "Lower abs", "${(5 * factor).toInt()} min", R.drawable.situp)
+                WorkoutExercise(getString(R.string.ex_plank), getString(R.string.ex_desc_core_stability), "${(4 * factor).toInt()} ${getString(R.string.min)}", R.drawable.situp),
+                WorkoutExercise(getString(R.string.sit_ups), getString(R.string.ex_desc_abdominal_strength), "${(6 * factor).toInt()} ${getString(R.string.min)}", R.drawable.situp),
+                WorkoutExercise(getString(R.string.ex_russian_twists), getString(R.string.ex_desc_oblique_muscles), "${(5 * factor).toInt()} ${getString(R.string.min)}", R.drawable.situp),
+                WorkoutExercise(getString(R.string.ex_leg_raises), getString(R.string.ex_desc_lower_abs), "${(5 * factor).toInt()} ${getString(R.string.min)}", R.drawable.situp)
             )
 
             normalized == "volleyball" -> listOf(
-                WorkoutExercise("Jump Rope", "Warm up & footwork", "${(4 * factor).toInt()} min", R.drawable.volleyball),
-                WorkoutExercise("Serve Practice", "Serving accuracy", "${(4 * factor).toInt()} min", R.drawable.volleyball),
-                WorkoutExercise("Passing Drill", "Ball control", "${(4 * factor).toInt()} min", R.drawable.volleyball),
-                WorkoutExercise("Setting Drill", "Accurate sets", "${(4 * factor).toInt()} min", R.drawable.volleyball),
-                WorkoutExercise("Spike Practice", "Attack power", "${(4 * factor).toInt()} min", R.drawable.volleyball)
+                WorkoutExercise(getString(R.string.ex_jump_rope), getString(R.string.ex_desc_jump_rope_footwork), "${(4 * factor).toInt()} ${getString(R.string.min)}", R.drawable.volleyball),
+                WorkoutExercise(getString(R.string.ex_serve_practice), getString(R.string.ex_desc_serving_accuracy), "${(4 * factor).toInt()} ${getString(R.string.min)}", R.drawable.volleyball),
+                WorkoutExercise(getString(R.string.ex_passing_drill), getString(R.string.ex_desc_ball_control), "${(4 * factor).toInt()} ${getString(R.string.min)}", R.drawable.volleyball),
+                WorkoutExercise(getString(R.string.ex_setting_drill), getString(R.string.ex_desc_accurate_sets), "${(4 * factor).toInt()} ${getString(R.string.min)}", R.drawable.volleyball),
+                WorkoutExercise(getString(R.string.ex_spike_practice), getString(R.string.ex_desc_attack_power), "${(4 * factor).toInt()} ${getString(R.string.min)}", R.drawable.volleyball)
             )
             normalized == "cricket" -> listOf(
-                WorkoutExercise("Warm-up Jog", "Light jogging and dynamic stretching", "${(4 * factor).toInt()} min", R.drawable.cricket),
-                WorkoutExercise("Batting Practice", "Improve shot timing and control", "${(5 * factor).toInt()} min", R.drawable.cricket),
-                WorkoutExercise("Bowling Drills", "Work on accuracy and consistency", "${(5 * factor).toInt()} min", R.drawable.cricket),
-                WorkoutExercise("Fielding Practice", "Catching, throwing & reflex training", "${(4 * factor).toInt()} min", R.drawable.cricket),
-                WorkoutExercise("Sprint Runs", "Improve speed between wickets", "${(2 * factor).toInt()} min", R.drawable.cricket)
+                WorkoutExercise(getString(R.string.ex_warm_up_jog), getString(R.string.ex_desc_cricket_warmup), "${(4 * factor).toInt()} ${getString(R.string.min)}", R.drawable.cricket),
+                WorkoutExercise(getString(R.string.ex_batting_practice), getString(R.string.ex_desc_batting_control), "${(5 * factor).toInt()} ${getString(R.string.min)}", R.drawable.cricket),
+                WorkoutExercise(getString(R.string.ex_bowling_drills), getString(R.string.ex_desc_bowling_consistency), "${(5 * factor).toInt()} ${getString(R.string.min)}", R.drawable.cricket),
+                WorkoutExercise(getString(R.string.ex_fielding_practice), getString(R.string.ex_desc_fielding_reflex), "${(4 * factor).toInt()} ${getString(R.string.min)}", R.drawable.cricket),
+                WorkoutExercise(getString(R.string.ex_sprint_runs), getString(R.string.ex_desc_speed_wickets), "${(2 * factor).toInt()} ${getString(R.string.min)}", R.drawable.cricket)
             )
 
             normalized == "kabaddi" -> listOf(
-                WorkoutExercise("Warm-up Jog", "Light jogging and dynamic stretching", "${(4 * factor).toInt()} min", R.drawable.kabaddi),
-                WorkoutExercise("Raid Practice", "Improve agility and raiding techniques", "${(5 * factor).toInt()} min", R.drawable.kabaddi),
-                WorkoutExercise("Defensive Holds", "Practice ankle holds and tackles", "${(5 * factor).toInt()} min", R.drawable.kabaddi),
-                WorkoutExercise("Agility Drills", "Enhance speed, balance, and quick direction changes", "${(4 * factor).toInt()} min", R.drawable.kabaddi),
-                WorkoutExercise("Sprint Runs", "Build explosive speed and endurance", "${(2 * factor).toInt()} min", R.drawable.kabaddi)
+                WorkoutExercise(getString(R.string.ex_warm_up_jog), getString(R.string.ex_desc_cricket_warmup), "${(4 * factor).toInt()} ${getString(R.string.min)}", R.drawable.kabaddi),
+                WorkoutExercise(getString(R.string.ex_raid_practice), getString(R.string.ex_desc_raid_agility), "${(5 * factor).toInt()} ${getString(R.string.min)}", R.drawable.kabaddi),
+                WorkoutExercise(getString(R.string.ex_defensive_holds), getString(R.string.ex_desc_defensive_tackles), "${(5 * factor).toInt()} ${getString(R.string.min)}", R.drawable.kabaddi),
+                WorkoutExercise(getString(R.string.ex_agility_drills), getString(R.string.ex_desc_agility_drills), "${(4 * factor).toInt()} ${getString(R.string.min)}", R.drawable.kabaddi),
+                WorkoutExercise(getString(R.string.ex_sprint_runs), getString(R.string.ex_desc_explosive_speed), "${(2 * factor).toInt()} ${getString(R.string.min)}", R.drawable.kabaddi)
             )
 
             else -> listOf( // Default/Yoga-style
-                WorkoutExercise("Breath Work", "Focus and relax", "${(3 * factor).toInt()} min", R.drawable.yoga),
-                WorkoutExercise("Warm-up Stretches", "Loosen up", "${(4 * factor).toInt()} min", R.drawable.yoga),
-                WorkoutExercise("Main Flow", "Core activity", "${(10 * factor).toInt()} min", R.drawable.yoga),
-                WorkoutExercise("Cool-down", "Relax and recover", "${(3 * factor).toInt()} min", R.drawable.yoga)
+                WorkoutExercise(getString(R.string.ex_breath_work), getString(R.string.ex_desc_focus_relax), "${(3 * factor).toInt()} ${getString(R.string.min)}", R.drawable.yoga),
+                WorkoutExercise(getString(R.string.ex_warm_up_stretches), getString(R.string.ex_desc_loosen_up), "${(4 * factor).toInt()} ${getString(R.string.min)}", R.drawable.yoga),
+                WorkoutExercise(getString(R.string.ex_main_flow), getString(R.string.ex_desc_core_activity), "${(10 * factor).toInt()} ${getString(R.string.min)}", R.drawable.yoga),
+                WorkoutExercise(getString(R.string.ex_cool_down), getString(R.string.ex_desc_relax_recover), "${(3 * factor).toInt()} ${getString(R.string.min)}", R.drawable.yoga)
             )
         }
 
         val tips = when {
             normalized == "walking" ->
-                "• Wear comfortable walking shoes\n• Keep your posture upright\n• Swing your arms naturally\n• Stay hydrated"
+                getString(R.string.tips_walking)
             normalized.contains("running") ->
-                "• Wear proper running shoes\n• Land softly on your feet\n• Keep a steady breathing rhythm\n• Warm up before running"
+                getString(R.string.tips_running)
             normalized == "cycling" ->
-                "• Adjust your bike seat properly\n• Wear a helmet\n• Maintain a steady cadence\n• Keep both hands on the handlebars"
-            normalized == "boxing" ->
-                "• Keep your hands up\n• Stay light on your feet\n• Wrap your wrists properly\n• Exhale with every punch"
-            normalized == "swimming" ->
-                "• Wear goggles for better vision\n• Practice controlled breathing\n• Stretch before entering the pool\n• Stay relaxed in the water"
-            normalized == "badminton" ->
-                "• Stay on your toes\n• Keep your racket ready\n• Focus on quick footwork\n• Maintain good balance"
-            normalized == "tennis" ->
-                "• Bend your knees slightly\n• Watch the ball closely\n• Grip the racket correctly\n• Recover to the center after every shot"
-            normalized == "football" ->
-                "• Communicate with teammates\n• Keep your head up\n• Stay hydrated\n• Warm up your legs before playing"
-            normalized == "hockey" ->
-                "• Wear protective gear\n• Keep your stick under control\n• Stay low for better balance\n• Watch your surroundings"
-            normalized == "basketball" ->
-                "• Bend your knees while defending\n• Keep your eyes on the court\n• Control your dribble\n• Stay light on your feet"
-            normalized == "volleyball" ->
-                "• Bend your knees before jumping\n• Call for the ball\n• Keep your hands ready\n• Focus on teamwork"
-            normalized == "zumba" ->
-                "• Wear supportive shoes\n• Follow the rhythm\n• Keep moving continuously\n• Drink water during breaks"
-            normalized == "dancing" ->
-                "• Warm up before dancing\n• Maintain good posture\n• Stay relaxed\n• Keep yourself hydrated"
-            normalized == "aerobics" ->
-                "• Start with a proper warm-up\n• Keep movements controlled\n• Breathe continuously\n• Wear supportive shoes"
-            normalized == "weightlifting" ->
-                "• Focus on proper form\n• Never hold your breath\n• Lift with controlled movements\n• Rest between sets"
-            normalized == "sit-ups" ->
-                "• Engage your core muscles\n• Avoid pulling your neck\n• Move slowly and steadily\n• Breathe out while lifting"
-            normalized == "cricket" ->
-                "• Warm up your shoulders and legs\n• Keep your eyes on the ball\n• Wear proper protective gear\n• Stay hydrated throughout the session"
-            normalized == "yoga" ->
-                "• Focus on your breathing\n• Don't force any pose\n• Move slowly and mindfully\n• Use a yoga mat for comfort"
-            normalized == "kabaddi" ->
-                "• Warm up your legs and shoulders\n• Maintain a low center of gravity\n• Focus on quick footwork and balance\n• Stay hydrated and breathe steadily"
+                getString(R.string.tips_cycling)
             else ->
-                "• Warm up before exercising\n• Wear comfortable clothing\n• Stay hydrated\n• Cool down after your workout"
+                getString(R.string.tips_general)
         }
         binding.tvTips.text = tips
 
@@ -250,13 +222,18 @@ class WorkoutPlanFragment : Fragment() {
     }
 
     private fun showExerciseDetail(exercise: WorkoutExercise, workoutName: String) {
-        val dialog = BottomSheetDialog(requireContext(), R.style.CustomDialogTheme)
+        val context = requireContext()
+        val dialog = BottomSheetDialog(context, R.style.CustomDialogTheme)
         val dBinding = BottomSheetYogaDetailBinding.inflate(layoutInflater)
         dialog.setContentView(dBinding.root)
 
-        dBinding.tvDetailName.text = exercise.name
-        dBinding.tvDetailDuration.text = "Duration: ${exercise.time}"
-        dBinding.tvDetailDesc.text = exercise.desc
+        val nameResId = context.resources.getIdentifier("ex_${exercise.name.lowercase().replace(" ", "_").replace("-", "_")}", "string", context.packageName)
+        dBinding.tvDetailName.text = if (nameResId != 0) context.getString(nameResId) else exercise.name
+        
+        dBinding.tvDetailDuration.text = getString(R.string.duration_label, exercise.time)
+        
+        val descResId = context.resources.getIdentifier("ex_${exercise.desc.lowercase().replace(" ", "_").replace("-", "_")}", "string", context.packageName)
+        dBinding.tvDetailDesc.text = if (descResId != 0) context.getString(descResId) else exercise.desc
 
         val lottieRes = when (workoutName.lowercase()) {
             "walking" -> R.raw.walking
