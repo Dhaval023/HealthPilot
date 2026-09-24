@@ -49,6 +49,9 @@
     <string name="weight_loss_goal">वजन घटाने का लक्ष्य</string>
     <string name="current_weight">वर्तमान वजन</string>
     <string name="target_weight">लक्ष्य वजन (किग्रा)</string>
+    <string name="set_goal_weight">लक्ष्य वजन सेट करें</string>
+    <string name="starting_weight">प्रारंभिक वजन (किग्रा)</string>
+    <string name="save">सहेजें</string>
     <string name="remaining">शेष</string>
     <string name="progress">प्रगति</string>
     <string name="add_food">भोजन जोड़ें</string>
@@ -712,5 +715,19 @@
     <string name="user_stats_format">आयु: %1$d | वजन: %2$s | ऊंचाई: %3$s</string>
     <string name="back">पीछे</string>
     <string name="loading_assessment">आपके लक्षणों को समझा जा रहा है...</string>
+
+    <!-- Music Player Strings -->
+    <string name="music_title">संगीत</string>
+    <string name="drawer_music">म्यूजिक प्लेयर</string>
+    <string name="music_search_hint">यूट्यूब पर हिंदी गाने खोजें...</string>
+    <string name="music_select_song_title">बजाने के लिए हिंदी गाना चुनें</string>
+    <string name="music_select_song_artist">यूट्यूब डेटा v3 एपीआई</string>
+    <string name="music_songs_header">गाने</string>
+    <string name="music_player_desc">म्यूजिक प्लेयर</string>
+    <string name="music_shuffle_desc">गाने शफल करें</string>
+    <string name="music_previous_desc">पिछला गाना</string>
+    <string name="music_play_pause_desc">प्ले या पॉज़ करें</string>
+    <string name="music_next_desc">अगला गाना</string>
+    <string name="music_repeat_desc">गाना दोहराएं</string>
 
 </resources>

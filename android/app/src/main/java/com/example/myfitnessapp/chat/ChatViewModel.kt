@@ -99,8 +99,10 @@ class ChatViewModel(application: Application) : AndroidViewModel(application) {
         tts = TextToSpeech(getApplication()) { status ->
 
             if (status != TextToSpeech.ERROR) {
-
-                tts?.language = Locale.getDefault()
+                // Initialize with a locale that supports Indian pronunciation if available
+                val default = Locale.getDefault()
+                val initLocale = if (default.country == "IN") Locale("en", "IN") else default
+                tts?.language = initLocale
 
                 tts?.setOnUtteranceProgressListener(
                     object : android.speech.tts.UtteranceProgressListener() {
@@ -123,6 +125,17 @@ class ChatViewModel(application: Application) : AndroidViewModel(application) {
     }
 
 
+    private fun detectLocale(text: String): Locale {
+        val hindiPattern = Regex("[\\u0900-\\u097F]+")
+        val gujaratiPattern = Regex("[\\u0A80-\\u0AFF]+")
+
+        return when {
+            hindiPattern.containsMatchIn(text) -> Locale("hi", "IN")
+            gujaratiPattern.containsMatchIn(text) -> Locale("gu", "IN")
+            else -> Locale("en", "IN")
+        }
+    }
+
     private fun speak(text: String) {
         if (text.isBlank()) return
 
@@ -138,33 +151,53 @@ class ChatViewModel(application: Application) : AndroidViewModel(application) {
                 }
             }
 
+            val isVed = voicePreference.equals("Ved", ignoreCase = true)
+            // Different approach for Ved: Force an Indian English locale to utilize the guaranteed high-quality pre-installed male voices
+            val targetLocale = if (isVed) Locale("en", "IN") else detectLocale(text)
+
+            // Set language to target locale
+            tts?.setLanguage(targetLocale)
+
             val voices = tts?.voices
-            if (voices != null && voices.isNotEmpty()) {
-                val matches = voices.filter { v ->
-                    val nameLower = v.name.lowercase()
-                    if (voicePreference.equals("Ved", ignoreCase = true)) {
-                        nameLower.contains("male") || nameLower.contains("en-us-x-iom") || nameLower.contains("en-gb-x-rjs")
+            if (!voices.isNullOrEmpty()) {
+                // Get all available voices for the target language
+                val langVoices = voices.filter { v ->
+                    v.locale.language.equals(targetLocale.language, ignoreCase = true) ||
+                    v.locale.isO3Language.equals(targetLocale.isO3Language, ignoreCase = true)
+                }
+                
+                if (langVoices.isNotEmpty()) {
+                    val chosenVoice = if (isVed) {
+                        // Look for explicit male indicators across the guaranteed en-IN voice catalog
+                        langVoices.firstOrNull { v ->
+                            val nameLower = v.name.lowercase()
+                            nameLower.contains("male") || nameLower.contains("x-ene") ||
+                            nameLower.contains("x-eni") || nameLower.contains("x-end") ||
+                            nameLower.contains("m02") || nameLower.contains("m03") || nameLower.contains("m04")
+                        } ?: langVoices.lastOrNull()
                     } else {
-                        nameLower.contains("female") || nameLower.contains("en-us-x-tpf") || nameLower.contains("en-us-x-local")
+                        // Keep Arya completely as-is
+                        langVoices.firstOrNull { v ->
+                            val nameLower = v.name.lowercase()
+                            nameLower.contains("female") || nameLower.contains("f0") ||
+                            nameLower.contains("x-tpf") || nameLower.contains("x-hia") || 
+                            nameLower.contains("x-hib") || nameLower.contains("x-ahp") ||
+                            nameLower.contains("studioa") || nameLower.contains("studiob")
+                        } ?: langVoices.firstOrNull()
                     }
-                }
-                
-                val chosenVoice = matches.firstOrNull() ?: voices.firstOrNull { v ->
-                    if (voicePreference.equals("Ved", ignoreCase = true)) v.name.contains("male", ignoreCase = true)
-                    else v.name.contains("female", ignoreCase = true)
-                }
-                
-                if (chosenVoice != null) {
-                    tts?.voice = chosenVoice
+                    
+                    if (chosenVoice != null) {
+                        tts?.voice = chosenVoice
+                    }
                 }
             }
 
-            // Adjust tone pitch to provide a clearer auditory differentiation between names
-            if (voicePreference.equals("Ved", ignoreCase = true)) {
-                tts?.setPitch(0.85f) // Deepen masculine frequency range
+            // Adjust tone pitch to provide clear differentiation between names
+            if (isVed) {
+                tts?.setPitch(0.92f) // Standard crisp male configuration
                 tts?.setSpeechRate(0.95f)
             } else {
-                tts?.setPitch(1.15f) // Lighten feminine frequency range
+                tts?.setPitch(1.10f) // Keep Arya bright and female exactly as requested
                 tts?.setSpeechRate(1.0f)
             }
 
@@ -558,6 +591,7 @@ class ChatViewModel(application: Application) : AndroidViewModel(application) {
 
         val voicePreference = user?.assistantVoice ?: "Arya"
         val botName = if (voicePreference.equals("Ved", ignoreCase = true)) "Ved" else "Arya"
+        val isVed = voicePreference.equals("Ved", ignoreCase = true)
 
         val appLocale = androidx.appcompat.app.AppCompatDelegate.getApplicationLocales().get(0)
         val currentLanguage = appLocale?.displayLanguage ?: "English"
@@ -571,8 +605,34 @@ class ChatViewModel(application: Application) : AndroidViewModel(application) {
             health and fitness guidance.
 
             IMPORTANT RESPONSE RULES:
-            - ALWAYS respond in the user's current language: $currentLanguage.
-            - If the user speaks in Hindi, reply in Hindi. If Gujarati, reply in Gujarati.
+            """.trimIndent()
+        )
+
+        if (isVed) {
+            context.append(
+                """
+                
+                - You MUST follow the user's selected language: $currentLanguage.
+                - If the selected language is English ($currentLanguage), respond ONLY in English. Even if the user says a single word like "hello", reply in English.
+                - If the selected language is Hindi ($currentLanguage), respond in Hinglish (Hindi words written using English letters), because native Devanagari characters break the male voice. For example: "Namaste! Aap kaise hain? Main aapki kya madad kar sakta hoon?"
+                - If the selected language is Gujarati ($currentLanguage), respond in Gujlish (Gujarati words written using English letters). For example: "Kem chho? Main aapki help karva mate ready chhoon."
+                - Always write your entire response using the Latin alphabet (English letters). Never use Devanagari or Gujarati scripts.
+                """.trimIndent()
+            )
+        } else {
+            context.append(
+                """
+                
+                - ALWAYS respond in the user's current language: $currentLanguage.
+                - If the user speaks in Hindi, reply in Hindi using Devanagari script. If Gujarati, reply in Gujarati using Gujarati script.
+                - If the user speaks in English, reply in English.
+                """.trimIndent()
+            )
+        }
+
+        context.append(
+            """
+            
             - Keep responses short.
             - Normally respond in 1-5 short sentences.
             - Be direct and easy to understand.

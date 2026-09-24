@@ -53,6 +53,9 @@
     <string name="weight_loss_goal">Weight Loss Goal</string>
     <string name="current_weight">Current Weight</string>
     <string name="target_weight">Target Weight (kg)</string>
+    <string name="set_goal_weight">Set Goal Weight</string>
+    <string name="starting_weight">Starting Weight (kg)</string>
+    <string name="save">Save</string>
     <string name="remaining">Remaining</string>
     <string name="progress">Progress</string>
     <string name="add_food">Add Food</string>
@@ -717,7 +720,21 @@
     <string name="share_disclaimer">Disclaimer: For informational purposes only. Does not replace professional medical advice.</string>
     <string name="share_via">Share Report Via</string>
 
-    <!--OnBoarding guide -->
+    <!-- OnBoarding guide -->
 <!--    <string name="ds"> swsw </string>-->
+
+    <!-- Music Player Strings -->
+    <string name="music_title">Music</string>
+    <string name="drawer_music">MUSIC PLAYER</string>
+    <string name="music_search_hint">Search Hindi songs on YouTube...</string>
+    <string name="music_select_song_title">Select a Hindi song to play</string>
+    <string name="music_select_song_artist">YouTube Data v3 API</string>
+    <string name="music_songs_header">Songs</string>
+    <string name="music_player_desc">Music Player</string>
+    <string name="music_shuffle_desc">Shuffle Songs</string>
+    <string name="music_previous_desc">Previous Song</string>
+    <string name="music_play_pause_desc">Play or Pause Song</string>
+    <string name="music_next_desc">Next Song</string>
+    <string name="music_repeat_desc">Repeat Song</string>
 
 </resources>

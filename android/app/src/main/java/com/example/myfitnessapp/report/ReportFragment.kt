@@ -280,7 +280,7 @@ class ReportFragment : Fragment() {
                     ContextCompat.getColor(requireContext(), R.color.accent_blue),
                     ContextCompat.getColor(requireContext(), R.color.accent_green)
                 )
-                dataSet.setDrawValues(true)
+                dataSet.setDrawValues(false)
                 dataSet.valueTextColor = Color.WHITE
                 dataSet.valueTextSize = 10f
                 dataSet.sliceSpace = 3f
@@ -291,6 +291,7 @@ class ReportFragment : Fragment() {
                     centerText = getString(R.string.health_goals)
                     setCenterTextColor(Color.WHITE)
                     setCenterTextSize(14f)
+                    setDrawEntryLabels(false)
                     setEntryLabelColor(Color.WHITE)
                     setEntryLabelTextSize(10f)
                     legend.isEnabled = true

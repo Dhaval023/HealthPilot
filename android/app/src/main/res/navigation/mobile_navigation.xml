@@ -293,4 +293,10 @@
         android:name="com.example.myfitnessapp.medical.MedicalResultFragment"
         android:label="Assessment Result"
         tools:layout="@layout/fragment_medical_result" />
+
+    <fragment
+        android:id="@+id/musicFragment"
+        android:name="com.example.myfitnessapp.music.MusicFragment"
+        android:label="Music Studio"
+        tools:layout="@layout/fragment_music" />
 </navigation>

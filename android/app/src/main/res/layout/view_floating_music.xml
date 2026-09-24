@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootFloatingMusic"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <!-- Expanded Controls Panel -->
+    <LinearLayout
+        android:id="@+id/panelExpandedControls"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@drawable/bg_stat_card"
+        android:padding="8dp"
+        android:elevation="8dp"
+        android:visibility="gone"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:id="@+id/btnFloatPrevious"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:padding="6dp"
+            android:src="@drawable/ic_skip_previous"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/music_previous_desc" />
+
+        <ImageView
+            android:id="@+id/btnFloatPlayPause"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="6dp"
+            android:padding="8dp"
+            android:src="@drawable/ic_play"
+            android:background="@drawable/bg_blue_button"
+            android:contentDescription="@string/music_play_pause_desc" />
+
+        <ImageView
+            android:id="@+id/btnFloatNext"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:padding="6dp"
+            android:src="@drawable/ic_skip_next"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/music_next_desc" />
+    </LinearLayout>
+
+    <!-- Floating Music Icon (Collapsed State) -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardFloatIcon"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        app:cardBackgroundColor="@color/card_dark"
+        app:cardCornerRadius="28dp"
+        app:cardElevation="6dp"
+        android:layout_gravity="center"
+        android:alpha="0.8"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ImageView
+            android:id="@+id/ivFloatIcon"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_music"
+            android:contentDescription="@string/music_player_desc"
+            app:tint="@color/accent_lime" />
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>

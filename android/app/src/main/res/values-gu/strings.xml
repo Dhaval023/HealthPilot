@@ -49,6 +49,9 @@
     <string name="weight_loss_goal">વજન ઘટાડવાનું લક્ષ્ય</string>
     <string name="current_weight">વર્તમાન વજન</string>
     <string name="target_weight">લક્ષ્ય વજન (કિલો)</string>
+    <string name="set_goal_weight">લક્ષ્ય વજન સેટ કરો</string>
+    <string name="starting_weight">શરૂઆતનું વજન (કિલો)</string>
+    <string name="save">સાચવો</string>
     <string name="remaining">બાકી</string>
     <string name="progress">પ્રગતિ</string>
     <string name="add_food">ખોરાક ઉમેરો</string>
@@ -699,5 +702,19 @@
 
     <string name="onboarding_title_11">બધું તૈયાર છે!</string>
     <string name="onboarding_desc_11">🎉 હવે તમે સંપૂર્ણપણે તૈયાર છો! તમારી ફિટનેસ યાત્રા શરૂ કરો અને HealthPilot સાથે તમારા લક્ષ્યો પ્રાપ્ત કરો.</string>
+
+    <!-- Music Player Strings -->
+    <string name="music_title">સંગીત</string>
+    <string name="drawer_music">મ્યુઝિક પ્લેયર</string>
+    <string name="music_search_hint">યૂટ્યુબ પર હિન્દી ગીતો શોધો...</string>
+    <string name="music_select_song_title">વગાડવા માટે હિન્દી ગીત પસંદ કરો</string>
+    <string name="music_select_song_artist">યૂટ્યુબ ડેટા v3 API</string>
+    <string name="music_songs_header">ગીતો</string>
+    <string name="music_player_desc">મ્યુઝિક પ્લેયર</string>
+    <string name="music_shuffle_desc">ગીતો શફલ કરો</string>
+    <string name="music_previous_desc">પાછલું ગીત</string>
+    <string name="music_play_pause_desc">પ્લે અથવા પૉઝ કરો</string>
+    <string name="music_next_desc">આગળનું ગીત</string>
+    <string name="music_repeat_desc">ગીત પુનરાવર્તિત કરો</string>
 
 </resources>

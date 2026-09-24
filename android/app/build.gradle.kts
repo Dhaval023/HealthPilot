@@ -33,8 +33,8 @@ android {
         applicationId = "com.example.myfitnessapp"
         minSdk = 26
         targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -83,6 +83,7 @@ dependencies {
 
     // Lottie
     implementation(libs.lottie)
+    implementation("com.pierfrancescosoffritti.androidyoutubeplayer:core:13.0.0")
 
     // Manual compose dependencies for now to avoid version catalog issues
     val compose_version = "1.7.5"

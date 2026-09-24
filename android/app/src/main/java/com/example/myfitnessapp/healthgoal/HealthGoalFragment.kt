@@ -8,6 +8,7 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -121,38 +122,95 @@ class HealthGoalFragment : Fragment() {
     }
 
     private fun showUpdateCurrentWeightDialog() {
-        val dialogView = LayoutInflater.from(requireContext()).inflate(R.layout.dialog_set_target_weight, null)
-        val dialog = AlertDialog.Builder(requireContext(), R.style.CustomDialogTheme)
+        val dialogView = LayoutInflater.from(requireContext())
+            .inflate(R.layout.dialog_set_target_weight, null)
+
+        val dialog = AlertDialog.Builder(
+            requireContext(),
+            R.style.CustomDialogTheme
+        )
             .setView(dialogView)
             .create()
 
+        // Title
         val tvTitle = dialogView.findViewById<TextView>(R.id.tv_title)
         tvTitle.text = getString(R.string.weight_entry)
-        
-        val etInput = dialogView.findViewById<EditText>(R.id.et_target_weight_input)
-        etInput.hint = getString(R.string.current_weight) + " (${getString(R.string.weight_kg)})"
-        etInput.setText(viewModel.uiState.value.currentWeight.toString())
 
-        val tilStartWeight = dialogView.findViewById<View>(R.id.til_start_weight)
+        // Current weight
+        val tilWeight =
+            dialogView.findViewById<com.google.android.material.textfield.TextInputLayout>(
+                R.id.til_weight
+            )
+
+        tilWeight.hint = getString(R.string.current_weight) + " (kg)"
+
+        val etInput =
+            dialogView.findViewById<EditText>(R.id.et_target_weight_input)
+
+        etInput.setText(
+            "%.1f".format(viewModel.uiState.value.currentWeight)
+        )
+
+        // Starting weight
+        val tilStartWeight =
+            dialogView.findViewById<com.google.android.material.textfield.TextInputLayout>(
+                R.id.til_start_weight
+            )
+
         tilStartWeight.visibility = View.VISIBLE
-        val etStartWeightInput = dialogView.findViewById<EditText>(R.id.et_start_weight_input)
-        etStartWeightInput.setText(viewModel.uiState.value.startWeight.toString())
+        tilStartWeight.hint = getString(R.string.starting_weight) + " (kg)"
 
+        val etStartWeightInput =
+            dialogView.findViewById<EditText>(R.id.et_start_weight_input)
+
+        etStartWeightInput.setText(
+            "%.1f".format(viewModel.uiState.value.startWeight)
+        )
+
+        // Save
         dialogView.findViewById<View>(R.id.btn_save).setOnClickListener {
+
             val currentW = etInput.text.toString().toDoubleOrNull()
             val startW = etStartWeightInput.text.toString().toDoubleOrNull()
-            
-            if (currentW != null) viewModel.updateCurrentWeight(currentW)
-            if (startW != null) viewModel.updateStartWeight(startW)
-            
+
+            if (currentW == null || currentW <= 0) {
+                etInput.error = getString(R.string.enter_valid_weight)
+                return@setOnClickListener
+            }
+
+            if (startW == null || startW <= 0) {
+                etStartWeightInput.error = getString(R.string.enter_valid_weight)
+                return@setOnClickListener
+            }
+
+            viewModel.updateCurrentWeight(currentW)
+            viewModel.updateStartWeight(startW)
+
             dialog.dismiss()
-            Toast.makeText(requireContext(), getString(R.string.weights_updated), Toast.LENGTH_SHORT).show()
+
+            Toast.makeText(
+                requireContext(),
+                getString(R.string.weights_updated),
+                Toast.LENGTH_SHORT
+            ).show()
         }
 
-        dialogView.findViewById<View>(R.id.btn_cancel).setOnClickListener { dialog.dismiss() }
-        dialog.show()
-    }
+        // Cancel
+        dialogView.findViewById<View>(R.id.btn_cancel).setOnClickListener {
+            dialog.dismiss()
+        }
 
+        dialog.show()
+
+        // Important: remove default AlertDialog background/insets
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        // Make dialog wider
+        dialog.window?.setLayout(
+            (resources.displayMetrics.widthPixels * 0.90).toInt(),
+            WindowManager.LayoutParams.WRAP_CONTENT
+        )
+    }
     private fun setupCalculationTriggers(view: View) {
         val etTargetWeight = view.findViewById<EditText>(R.id.et_target_weight)
         val etDuration = view.findViewById<EditText>(R.id.et_duration_weeks)
@@ -185,6 +243,18 @@ class HealthGoalFragment : Fragment() {
         val dialog = AlertDialog.Builder(requireContext(), R.style.CustomDialogTheme)
             .setView(dialogView)
             .create()
+
+        val tvTitle = dialogView.findViewById<TextView>(R.id.tv_title)
+        tvTitle.text = getString(R.string.set_goal_weight)
+
+        val tilWeight = dialogView.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.til_weight)
+        tilWeight.hint = getString(R.string.target_weight)
+
+        val btnCancel = dialogView.findViewById<TextView>(R.id.btn_cancel)
+        btnCancel.text = getString(R.string.cancel)
+
+        val btnSave = dialogView.findViewById<TextView>(R.id.btn_save)
+        btnSave.text = getString(R.string.save)
 
         val etInput = dialogView.findViewById<EditText>(R.id.et_target_weight_input)
         val currentTarget = viewModel.uiState.value.targetWeight
